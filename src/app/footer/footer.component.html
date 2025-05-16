@@ -1,93 +1,59 @@
-<footer class="text-lg-start">
-  <div *ngIf="showTopFooter" class="top-footer">
-    <!-- Grid container -->
-    <div class=" container p-4">
-      <!--Grid row-->
-      <div class="row">
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Footer Content</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a routerLink="./" class="">Lorem ipsum</a>
-            </li>
-            <li>
-              <a routerLink="./" class="">Ut facilisis</a>
-            </li>
-            <li>
-              <a routerLink="./" class="">Aenean sit</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Footer Content</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a routerLink="./" class="">Suspendisse potenti</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer Content</h5>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-            voluptatem veniam, est atque cumque eum delectus sint!
-          </p>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </div>
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="bottom-footer p-1 d-flex justify-content-center align-items-center text-white">
-    <div class="content-container">
-      <p class="m-0">
-        <a class="text-white"
-           href="http://www.dspace.org/">{{ 'footer.link.dspace' | translate}}</a>
-        {{ 'footer.copyright' | translate:{year: dateObj | date:'y'} }}
-        <a class="text-white"
-           href="https://www.lyrasis.org/">{{ 'footer.link.lyrasis' | translate}}</a>
-      </p>
-      <ul class="footer-info list-unstyled d-flex justify-content-center mb-0">
-        <li>
-          <button class="btn btn-link text-white" type="button" (click)="showCookieSettings()">
-            {{ 'footer.link.cookies' | translate}}
-          </button>
-        </li>
-        <li *ngIf="showPrivacyPolicy">
-          <a class="btn text-white"
-             routerLink="info/privacy">{{ 'footer.link.privacy-policy' | translate}}</a>
-        </li>
-        <li *ngIf="showEndUserAgreement">
-          <a class="btn text-white"
-             routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate}}</a>
-        </li>
-        <li *ngIf="showSendFeedback$ | async">
-          <a class="btn text-white"
-             routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
-        </li>
-      </ul>
-    </div>
-    <div *ngIf="coarLdnEnabled$ | async" class="notify-enabled text-white">
-      <a class="coar-notify-support-route" routerLink="info/coar-notify-support">
-        <img class="n-coar" src="assets/images/n-coar.svg" [attr.alt]="'menu.header.image.logo' | translate" />
-        {{ 'footer.link.coar-notify-support' | translate }}
+<footer class="text-dark pt-4" style="background-color: #F1F1F1;">
+  <div class="container text-justify mb-4">
+    <h6 class="fw-bold mb-3 text-center">ACESSE MAIS CONTEÚDO EM:</h6>
+    <div class="d-flex justify-content-center flex-wrap gap-3 mb-3">
+      <a href="https://www.youtube.com/@alfaejabrasil" target="_blank" class="text-danger fs-4 d-flex align-items-center gap-1">
+        <i class="fab fa-youtube"></i> <span>alfaejabrasil</span>
+      </a>
+      <a href="https://www.instagram.com/alfaejabrasil" target="_blank" class="text-danger fs-4 d-flex align-items-center gap-1">
+        <i class="fab fa-instagram"></i> <span>alfaejabrasil</span>
+      </a>
+      <a href="https://www.facebook.com/alfaejabrasil" target="_blank" class="text-primary fs-4 d-flex align-items-center gap-1">
+        <i class="fab fa-facebook"></i> <span>alfaejabrasil</span>
       </a>
     </div>
   </div>
-  <!-- Copyright -->
+
+  <div class="text-white pt-4 pb-2" style="background-color: #421944;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+          <img src="assets/images/icone_alfa_eja_brasil_rodape.svg" alt="ALFA-EJA Brasil" class="mb-2" style="max-width: 150px;">
+          <p>Educação para jovens, adultos e idosos</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <ul class="list-unstyled">
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Sobre o CREJA</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Práticas Alfabetizadoras</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Vozes</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Redes</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <ul class="list-unstyled">
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">O projeto ALFA-EJA Brasil</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Termos de uso</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Políticas de privacidade</a></li>
+            <li><a routerLink="/" class="text-white text-decoration-none d-block mb-1">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+          <p class="mb-1 fw-semibold text-center">Realização</p>
+          <img src="assets/images/icone_ipf_rodape.svg" alt="Instituto Paulo Freire" class="mb-2 text-center" style="width: 30%; height: auto;">
+        </div>
+        <div class="col-md-6 mb-3">
+          <p class="mb-1 fw-semibold text-center">Parceria</p>
+          <img src="assets/images/icone_petrobras_rodape.svg" alt="Petrobras" style="width: 30%; height: auto;" class="text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-white text-center py-2 small" style="background-color: #421944;">
+    INSTITUTO DE EDUCAÇÃO E DIREITOS HUMANOS PAULO FREIRE | CNPJ 04.950.603/0001-05
+  </div>
 </footer>

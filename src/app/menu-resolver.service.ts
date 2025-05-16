@@ -100,22 +100,190 @@ export class MenuResolverService  {
     const menuList: any[] = [
       /* Communities & Collections tree */
       {
-        id: `browse_global_communities_and_collections`,
+        id: `sobre_creja`,
         active: false,
         visible: true,
         index: 0,
         model: {
-          type: MenuItemType.LINK,
-          text: `menu.section.browse_global_communities_and_collections`,
-          link: `/community-list`,
+          type: MenuItemType.TEXT,
+          text: 'Sobre o CREJA',
+          link: `/`,
         } as LinkMenuItemModel,
+      },
+      {
+        id: `objetivos`,
+        parentID: 'sobre_creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Objetivos',
+          link: `/`,
+        } as LinkMenuItemModel,
+      },
+      {
+        id: `como_colaborar`,
+        parentID: 'sobre_creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Como colaborar',
+          link: `/`,
+        } as LinkMenuItemModel,
+      },
+      {
+        id: `fale_conosco`,
+        parentID: 'sobre_creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Fale conosco',
+          link: `/`,
+        } as LinkMenuItemModel,
+      },
+      {
+        id: `siga_nas_redes`,
+        parentID: 'sobre_creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Siga-nos nas redes sociais',
+          link: `/`,
+        } as LinkMenuItemModel,
+      },
+      /* Novo Menu: Memórias EJA */
+      {
+        id: `pesquisas_memorias`,
+        active: false,
+        visible: true,
+        index: 1,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Pesquisas e Memórias',
+          link: `/`,
+        } 
+      },
+      /*{
+        id: 'creja_norte',
+        parentID: 'creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Norte',
+          link: '/handle/123456789/24',
+        } as LinkMenuItemModel,
+      },
+      {
+        id: 'creja_nordeste_1',
+        parentID: 'creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Nordeste I',
+          link: '/handle/123456789/22',
+        } as LinkMenuItemModel,
+      },
+      {
+        id: 'creja_nordeste_2',
+        parentID: 'creja',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Nordeste II',
+          link: '/handle/123456789/23',
+        } as LinkMenuItemModel,
+      }, */
+      /* Novo Menu: EJA Academia */
+      {
+        id: `noticias`,
+        active: false,
+        visible: true,
+        index: 2,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Práticas Alfabetizadoras',
+          link: `/`,
+        } 
+      },
+      /*{
+        id: 'eja_academia_teses_dissertacoes',
+        parentID: 'eja_academia',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Teses e Dissertações',
+          link: '/eja-academia/teses-dissertacoes',
+        } as LinkMenuItemModel,
+      },
+      {
+        id: 'eja_academia_livros_publicacoes',
+        parentID: 'eja_academia',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Livros e Publicações',
+          link: '/eja-academia/livros-publicacoes',
+        } as LinkMenuItemModel,
+      }, */
+      /* Novo Menu: Sala Aula */
+      {
+        id: `vozes`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Vozes',
+          link: `/`,
+        } 
+      },
+      /*{
+        id: 'sala_aula_boas_praticas',
+        parentID: 'sala_aula',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Boas práticas pedagógicas da EJA',
+          link: '/sala-aula/boas-praticas',
+        } as LinkMenuItemModel,
+      },
+      {
+        id: 'sala_aula_publique_sua_pratica',
+        parentID: 'sala_aula',
+        active: false,
+        visible: true,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Publique aqui a sua prática pedagógica',
+          link: '/sala-aula/publique-sua-pratica',
+        } as LinkMenuItemModel,
+      }, */
+      {
+        id: `redes`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Redes',
+          link: `/`,
+        } 
       },
     ];
     // Read the different Browse-By types from config and add them to the browse menu
     this.browseService.getBrowseDefinitions()
       .pipe(getFirstCompletedRemoteData<PaginatedList<BrowseDefinition>>())
       .subscribe((browseDefListRD: RemoteData<PaginatedList<BrowseDefinition>>) => {
-        if (browseDefListRD.hasSucceeded) {
+        /*if (browseDefListRD.hasSucceeded) {
           browseDefListRD.payload.page.forEach((browseDef: BrowseDefinition) => {
             menuList.push({
               id: `browse_global_by_${browseDef.id}`,
@@ -130,7 +298,7 @@ export class MenuResolverService  {
             });
           });
           menuList.push(
-            /* Browse */
+              Browse 
             {
               id: 'browse_global',
               active: false,
@@ -142,11 +310,11 @@ export class MenuResolverService  {
               } as TextMenuItemModel,
             },
           );
-        }
+        } */
         menuList.forEach((menuSection) => this.menuService.addSection(MenuID.PUBLIC, Object.assign(menuSection, {
           shouldPersistOnRouteChange: true,
         })));
-      });
+      }); 
 
     return this.waitForMenu$(MenuID.PUBLIC);
   }
