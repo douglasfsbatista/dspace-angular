@@ -163,7 +163,7 @@ export class MenuResolverService  {
         model: {
           type: MenuItemType.LINK,
           text: 'Pesquisas e Memórias',
-          link: `/`,
+          link: `/pesquisas-memorias`,
         } 
       },
       /*{
@@ -201,14 +201,14 @@ export class MenuResolverService  {
       }, */
       /* Novo Menu: EJA Academia */
       {
-        id: `noticias`,
+        id: `praticar_aalfabetizadoras`,
         active: false,
         visible: true,
         index: 2,
         model: {
           type: MenuItemType.LINK,
           text: 'Práticas Alfabetizadoras',
-          link: `/`,
+          link: `/praticas-alfabetizadoras`,
         } 
       },
       /*{
@@ -242,7 +242,7 @@ export class MenuResolverService  {
         model: {
           type: MenuItemType.LINK,
           text: 'Vozes',
-          link: `/`,
+          link: `/vozes`,
         } 
       },
       /*{
@@ -275,7 +275,7 @@ export class MenuResolverService  {
         model: {
           type: MenuItemType.LINK,
           text: 'Redes',
-          link: `/`,
+          link: `/redes-sociais`,
         } 
       },
     ];
