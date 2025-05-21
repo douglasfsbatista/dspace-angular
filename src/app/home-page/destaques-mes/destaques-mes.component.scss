@@ -1,0 +1,38 @@
+/* Aplica o efeito no card */
+.destaques-mes-container .card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Efeito ao passar o mouse */
+.destaques-mes-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.destaques-mes-container img.card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.personagem {
+  margin-bottom: 0.1rem;
+  font-size: 0.73rem;
+}
+
+.autor {
+  margin-top: 0;
+  font-size: 0.73rem;
+}
