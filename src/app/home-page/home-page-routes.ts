@@ -11,7 +11,7 @@ export const ROUTES: Route[] = [
     component: ThemedHomePageComponent,
     pathMatch: 'full',
     data: {
-      title: 'home.title',
+      /*title: 'home.title',
       menu: {
         public: [{
           id: 'statistics_site',
@@ -24,7 +24,7 @@ export const ROUTES: Route[] = [
             link: 'statistics',
           } as LinkMenuItemModel,
         }],
-      },
+      }, */
     },
     resolve: {
       site: homePageResolver,

@@ -99,7 +99,7 @@ export class MenuResolverService  {
   createPublicMenu$(): Observable<boolean> {
     const menuList: any[] = [
       /* Communities & Collections tree */
-      {
+      /*{
         id: `sobre_creja`,
         active: false,
         visible: true,
@@ -154,15 +154,15 @@ export class MenuResolverService  {
           link: `/`,
         } as LinkMenuItemModel,
       },
-      /* Novo Menu: Memórias EJA */
+       Novo Menu: Memórias EJA */
       {
-        id: `pesquisas_memorias`,
+        id: `destaques`,
         active: false,
         visible: true,
         index: 1,
         model: {
           type: MenuItemType.LINK,
-          text: 'Pesquisas e Memórias',
+          text: 'Destaques',
           link: `/pesquisas-memorias`,
         } 
       },
@@ -201,14 +201,14 @@ export class MenuResolverService  {
       }, */
       /* Novo Menu: EJA Academia */
       {
-        id: `praticar_aalfabetizadoras`,
+        id: `pesquisar`,
         active: false,
         visible: true,
         index: 2,
         model: {
           type: MenuItemType.LINK,
-          text: 'Práticas Alfabetizadoras',
-          link: `/praticas-alfabetizadoras`,
+          text: 'Pesquisar',
+          link: `/pesquisar`,
         } 
       },
       /*{
@@ -235,14 +235,14 @@ export class MenuResolverService  {
       }, */
       /* Novo Menu: Sala Aula */
       {
-        id: `vozes`,
+        id: `pesquisas_e_memorias`,
         active: false,
         visible: true,
         index: 3,
         model: {
           type: MenuItemType.LINK,
-          text: 'Vozes',
-          link: `/vozes`,
+          text: 'Pesquisas e Memórias',
+          link: `/handle/123456789/5`,
         } 
       },
       /*{
@@ -268,6 +268,30 @@ export class MenuResolverService  {
         } as LinkMenuItemModel,
       }, */
       {
+        id: `praticas_alfabetizadoras`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Práticas Alfabetizadoras',
+          link: `/handle/123456789/4`,
+        } 
+      },
+
+      {
+        id: `vozes_da_eja`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Vozes da EJA',
+          link: `/handle/123456789/6`,
+        } 
+      },
+
+      {
         id: `redes`,
         active: false,
         visible: true,
@@ -275,7 +299,19 @@ export class MenuResolverService  {
         model: {
           type: MenuItemType.LINK,
           text: 'Redes',
-          link: `/redes-sociais`,
+          link: `/`,
+        } 
+      },
+
+      {
+        id: `sobre_o_creja`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: 'Sobre o CREJA',
+          link: `/`,
         } 
       },
     ];

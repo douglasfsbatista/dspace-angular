@@ -8,6 +8,29 @@
                               [showScopeSelector]="false">
   <ng-container searchContentTop *ngTemplateOutlet="homeContent"></ng-container>
 </ds-configuration-search-page> -->
+<div class="container-fluid py-5" style="background-color: #D9D9D9;">
+  <div class="row align-items-center px-5">
+    <!-- Coluna do Texto -->
+    <div class="col-md-6 text-start" style="color: #787878; font-size: 1.25rem;">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+      <p>Praesent libero. Sed cursus ante dapibus diam.</p>
+      <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+      <p>Duis sagittis ipsum. Praesent mauris.</p>
+    </div>
+
+    <!-- Coluna do Vídeo com tamanho maior definido -->
+    <div class="col-md-6 d-flex justify-content-center">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="YouTube video"
+        allowfullscreen
+        style="border: 0; border-radius: 12px; width: 100%; max-width: 700px; height: 394px;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+
 <div *ngIf="!showDiscoverFilters" class="container">
   <ng-container *ngTemplateOutlet="homeContent"></ng-container>
 </div>
@@ -17,13 +40,22 @@
   <ng-container *ngIf="(site$ | async) as site">
     <ds-view-tracker [object]="site"></ds-view-tracker>
   </ng-container>
-  <ds-search-form [inPlaceSearch]="false"
+  <!--<ds-search-form [inPlaceSearch]="false"
                          [searchPlaceholder]="'Digite aqui o que você procura'">
-  </ds-search-form>
+  </ds-search-form> -->
   <!-- <ds-top-level-community-list></ds-top-level-community-list>
   <ds-recent-item-list *ngIf="recentSubmissionspageSize>0"></ds-recent-item-list> -->
   
-  <ds-filtro-pesquisa></ds-filtro-pesquisa>
-  <h2>Destaques do Repositório</h2>
+  <!-- <ds-filtro-pesquisa></ds-filtro-pesquisa> -->
+  
+
+  <div class="row justify-content-center my-4">
+    <div class="col-md-12 my-4 d-flex justify-content-center align-items-center gap-3">
+      <img src="assets/images/linha.svg" alt="linha" style="max-width: 150px;">
+      <img src="assets/images/Destaques.svg" alt="ALFA-EJA Brasil" style="max-width: 300px;">
+      <img src="assets/images/linha.svg" alt="linha" style="max-width: 150px;">
+    </div>
+  </div>
+
   <ds-destaques-mes></ds-destaques-mes>
 </ng-template>
