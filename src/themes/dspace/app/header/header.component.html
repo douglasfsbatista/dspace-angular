@@ -1,33 +1,45 @@
-<header id="social-header" class="py-3" style="background-color: #421944; color: white;">
-  <div class="container d-flex justify-content-end align-items-center gap-3 small">
-    <span>Nos acompanhe nas redes:</span>
-    <a href="https://youtube.com/@alfaejabrasil" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-white">
-      <i class="fab fa-youtube fa-2x"></i>
-    </a>
-    <a href="https://instagram.com/alfaejabrasil/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white">
-      <i class="fab fa-instagram fa-2x"></i>
-    </a>
-    <a href="https://facebook.com/profile.php?id=61574396997436" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white">
-      <i class="fab fa-facebook fa-2x"></i>
-    </a>
+<header id="social-header" class="py-3" style="background-color: #FFFFFF; color: black;">
+  <div class="container custom-container d-flex align-items-center justify-content-between gap-3 small">
+    <div>
+      <a class="d-block my-2 my-md-0" routerLink="/home" [attr.aria-label]="'home.title' | translate">
+        <img id="header-logo" src="assets/images/CREJA_ALFAEJABRASIL.svg" [attr.alt]="'menu.header.image.logo' | translate"/>
+      </a>
+    </div>
+
+    <!-- <div class="d-flex align-items-center gap-2">
+      <ds-search-form [inPlaceSearch]="false" [searchPlaceholder]="'O que você busca?'"></ds-search-form>
+    </div> -->
   </div>
 </header>
 
-<header id="main-site-header">
-  <div class="container h-100 d-flex flex-row flex-wrap align-items-center justify-content-between gapx-3 gapy-2" id="main-site-header-container">
-    <!-- Logo and navbar wrapper -->
+<header id="" class="py-3" style="background-color: #9602C7; color: black;">
+  <div class="container custom-container-menu align-items-center justify-content-center">
+    <nav class="custom-navbar">
+      <ul>
+        <li class="nav-item active">Destaques</li>
+        <li class="nav-item">Pesquisar</li>
+        <li class="nav-item">Pesquisas e Memórias</li>
+        <li class="nav-item">Práticas Alfabetizadoras</li>
+        <li class="nav-item">Vozes da EJA</li>
+        <li class="nav-item">Redes</li>
+        <li class="nav-item">Sobre o CREJA</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- <header id="main-site-header">
+  <div class="container custom-container d-flex flex-row flex-wrap align-items-center justify-content-between gapx-3 gapy-2" id="main-site-header-container">
+     Logo and navbar wrapper
     <div id="header-left"
          [attr.role]="(isMobile$ | async) ? 'navigation' : 'presentation'"
          [attr.aria-label]="(isMobile$ | async) ? ('nav.main.description' | translate) : null"
          class="h-100 flex-fill d-flex flex-row flex-nowrap justify-content-start align-items-center gapx-3">
-      <a class="d-block my-2 my-md-0" routerLink="/home" [attr.aria-label]="'home.title' | translate">
-        <img id="header-logo" src="assets/images/alfa-eja-logo.png" [attr.alt]="'menu.header.image.logo' | translate"/>
-      </a>
       <nav *ngIf="(isMobile$ | async) !== true" class="navbar navbar-expand p-0 align-items-stretch align-self-stretch" id="desktop-navbar" [attr.aria-label]="'nav.main.description' | translate">
         <ds-navbar></ds-navbar>
       </nav>
     </div>
-    <!-- Search bar and other menus -->
+     Search bar and other menus
     <div id="header-right" class="h-100 d-flex flex-row flex-nowrap justify-content-end align-items-center gapx-1 ml-auto">
       <ds-search-navbar></ds-search-navbar>
       <div role="menubar" class="h-100 d-flex flex-row flex-nowrap align-items-center gapx-1">
@@ -46,4 +58,4 @@
 
     </div>
   </div>
-</header>
+</header> -->

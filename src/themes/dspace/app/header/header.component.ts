@@ -11,7 +11,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { ThemedLangSwitchComponent } from 'src/app/shared/lang-switch/themed-lang-switch.component';
-
+import { ThemedSearchFormComponent } from '../../../../app/shared/search-form/themed-search-form.component';
 import { ContextHelpToggleComponent } from '../../../../app/header/context-help-toggle/context-help-toggle.component';
 import { HeaderComponent as BaseComponent } from '../../../../app/header/header.component';
 import { ThemedNavbarComponent } from '../../../../app/navbar/themed-navbar.component';
@@ -27,7 +27,7 @@ import { ImpersonateNavbarComponent } from '../../../../app/shared/impersonate-n
   styleUrls: ['header.component.scss'],
   templateUrl: 'header.component.html',
   standalone: true,
-  imports: [NgbDropdownModule, ThemedLangSwitchComponent, RouterLink, ThemedSearchNavbarComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, ThemedNavbarComponent, TranslateModule, AsyncPipe, NgIf],
+  imports: [NgbDropdownModule, ThemedLangSwitchComponent, ThemedSearchFormComponent, RouterLink, ThemedSearchNavbarComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, ThemedNavbarComponent, TranslateModule, AsyncPipe, NgIf],
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
   public isNavBarCollapsed$: Observable<boolean>;

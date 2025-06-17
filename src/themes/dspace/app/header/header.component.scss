@@ -6,7 +6,7 @@
       height: var(--ds-header-height);
     }
 
-    background-color: var(--ds-header-bg);
+    background-color: #9602C7;
 
     &-container {
       min-height: var(--ds-header-height);
@@ -25,4 +25,78 @@
     }
   }
 
+}
+
+.custom-container {
+  max-width: 100%;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.custom-container-menu {
+  max-width: 100%;
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+
+#header-left, #header-left * {
+  color: white !important;
+}
+
+.custom-navbar {
+  background-color: #9602C7; // roxo forte de fundo
+  padding: 0.5rem 1rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* centraliza os itens */
+    gap: 2rem;  
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item {
+  color: white;                        // texto branco
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;                  // necessário para o ::after (linha ativa)
+  padding-bottom: 0.5rem;
+  transition: all 0.2s ease;           // suaviza hover
+  flex: 0 1 auto; /* deixa o tamanho baseado no conteúdo */
+  padding: 0 1rem; /* dá um espaçamento horizontal maior */
+  text-align: center;                // centraliza o texto dentro do item
+  font-size: 1.1rem;                  // deixa o texto maior para ficar mais destacado
+
+  &:hover {
+    opacity: 0.8;                      // leve efeito visual ao passar o mouse
+  }
+
+  &.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: white;          // linha branca embaixo
+  }
+}
+
+nav.custom-navbar a[routerLink] {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+nav.custom-navbar a[routerLink]:hover {
+  color: #e5e5e5 !important;
+  text-decoration: underline;
+}
+
+nav.custom-navbar a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
 }
