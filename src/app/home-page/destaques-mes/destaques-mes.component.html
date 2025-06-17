@@ -1,14 +1,21 @@
-<div class="destaques-mes-container row">
-  <div class="col-md-3 mb-3" *ngFor="let item of destaquesMes">
-    <a [routerLink]="['/items', item.id]" class="text-decoration-none text-dark">
-      <div class="card h-100 shadow-sm">
-        <img [src]="item.thumbnail" class="card-img-top" alt="{{ item.title }}">
-        <div class="card-body">
-          <h5 class="card-title text">{{ item.title }}</h5>
-          <p class="card-text personagem">Personagem: <strong>{{ item.personagem }}</strong></p>
-          <p class="card-text autor">Autor(a): <strong>{{ item.autor }}</strong></p>
+<div class="destaques-mes-container">
+  <div class="row g-4">
+    <div class="col-6 col-sm-4 col-md-3" *ngFor="let item of destaquesMes">
+      <a [routerLink]="['/items', item.id]" class="card-link">
+        <div class="card destaque-card">
+          <img
+            [src]="item.thumbnail"
+            [alt]="item.title"
+            class="card-img-top"
+          >
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">
+              {{ item.resumo }}
+            </p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
