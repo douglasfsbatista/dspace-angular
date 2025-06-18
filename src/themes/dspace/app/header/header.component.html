@@ -12,17 +12,31 @@
   </div>
 </header>
 
-<header id="" class="py-3" style="background-color: #9602C7; color: black;">
+<header id="" class="py-1" style="background-color: #9602C7; color: black;">
   <div class="container custom-container-menu align-items-center justify-content-center">
     <nav class="custom-navbar">
       <ul>
-        <li class="nav-item active">Destaques</li>
-        <li class="nav-item">Pesquisar</li>
-        <li class="nav-item">Pesquisas e Memórias</li>
-        <li class="nav-item">Práticas Alfabetizadoras</li>
-        <li class="nav-item">Vozes da EJA</li>
-        <li class="nav-item">Redes</li>
-        <li class="nav-item">Sobre o CREJA</li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/home']">Destaques</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/pesquisar']">Pesquisar</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/collections/420f504b-2ede-4acc-b302-666a8c58ffbf']">Pesquisas e Memórias</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f']">Práticas Alfabetizadoras</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/collections/8d031651-c18f-4011-ac15-a28c3e69b78e']">Vozes da EJA</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/redes']">Redes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/sobre-o-creja']">Sobre o CREJA</a>
+        </li>
       </ul>
     </nav>
   </div>

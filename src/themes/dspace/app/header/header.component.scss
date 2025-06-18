@@ -1,13 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
 :host {
   #main-site-header {
     min-height: var(--ds-header-height);
-
     @include media-breakpoint-up(md) {
       height: var(--ds-header-height);
     }
-
     background-color: #9602C7;
-
     &-container {
       min-height: var(--ds-header-height);
     }
@@ -19,84 +18,81 @@
 
   button#navbar-toggler {
     color: var(--ds-header-icon-color);
-
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--ds-header-icon-color-hover);
     }
   }
+}
 
+.custom-container,
+.custom-container-menu {
+  max-width: 100%;
 }
 
 .custom-container {
-  max-width: 100%;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding: 0 8rem;
 }
 
 .custom-container-menu {
-  max-width: 100%;
-  padding-left: 15rem;
-  padding-right: 15rem;
-}
-
-#header-left, #header-left * {
-  color: white !important;
+  padding: 0 15rem;
 }
 
 .custom-navbar {
-  background-color: #9602C7; // roxo forte de fundo
-  padding: 0.5rem 1rem;
-}
+  background-color: #9602C7;
+  padding: 0.25rem 1rem;
 
-ul {
-    list-style: none;
+  ul {
+    list-style: none;        /* remove bullets */
     display: flex;
+    flex-wrap: nowrap;        /* sem quebra */
+    white-space: nowrap;      /* sem quebra */
     margin: 0;
     padding: 0;
-    justify-content: center; /* centraliza os itens */
-    gap: 2rem;  
+    justify-content: center;
+    gap: 2rem;
     align-items: center;
     width: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    flex: 0 1 auto;
+    padding: 0 1rem 0.25rem;  /* menos altura */
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #fff; /* branco */
+    }
+  }
+
+  .nav-link {
+    color: #fff !important;
+    text-decoration: none !important;
+    white-space: nowrap;
+
+    &:hover {
+      color: #e5e5e5 !important;
+    }
+  }
 }
 
-.nav-item {
-  color: white;                        // texto branco
+body, button, input, select, textarea, li, a {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  cursor: pointer;
-  position: relative;                  // necessário para o ::after (linha ativa)
-  padding-bottom: 0.5rem;
-  transition: all 0.2s ease;           // suaviza hover
-  flex: 0 1 auto; /* deixa o tamanho baseado no conteúdo */
-  padding: 0 1rem; /* dá um espaçamento horizontal maior */
-  text-align: center;                // centraliza o texto dentro do item
-  font-size: 1.1rem;                  // deixa o texto maior para ficar mais destacado
-
-  &:hover {
-    opacity: 0.8;                      // leve efeito visual ao passar o mouse
-  }
-
-  &.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    background-color: white;          // linha branca embaixo
-  }
-}
-
-nav.custom-navbar a[routerLink] {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-nav.custom-navbar a[routerLink]:hover {
-  color: #e5e5e5 !important;
-  text-decoration: underline;
-}
-
-nav.custom-navbar a.active {
-  font-weight: bold;
-  border-bottom: 2px solid white;
+  font-size: 15px;
 }

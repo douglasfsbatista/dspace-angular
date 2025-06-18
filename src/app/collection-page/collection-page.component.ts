@@ -18,7 +18,7 @@ import {
   filter,
   map,
   mergeMap,
-  take,
+  switchMap,
 } from 'rxjs/operators';
 
 import { AuthService } from '../core/auth/auth.service';
@@ -52,11 +52,12 @@ import { PaginationComponentOptions } from '../shared/pagination/pagination-comp
 import { VarDirective } from '../shared/utils/var.directive';
 import { ViewTrackerComponent } from '../statistics/angulartics/dspace/view-tracker.component';
 import { getCollectionPageRoute } from './collection-page-routing-paths';
+import { CollectionDataService } from '../core/data/collection-data.service';
 
 @Component({
   selector: 'ds-base-collection-page',
-  styleUrls: ['./collection-page.component.scss'],
   templateUrl: './collection-page.component.html',
+  styleUrls: ['./collection-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     fadeIn,
@@ -86,15 +87,7 @@ export class CollectionPageComponent implements OnInit {
   logoRD$: Observable<RemoteData<Bitstream>>;
   paginationConfig: PaginationComponentOptions;
   sortConfig: SortOptions;
-
-  /**
-   * Whether the current user is a Community admin
-   */
   isCollectionAdmin$: Observable<boolean>;
-
-  /**
-   * Route to the community page
-   */
   collectionPageRoute$: Observable<string>;
 
   constructor(
@@ -102,23 +95,34 @@ export class CollectionPageComponent implements OnInit {
     protected router: Router,
     protected authService: AuthService,
     protected authorizationDataService: AuthorizationDataService,
-    public dsoNameService: DSONameService,
-  ) {
-  }
+    protected dsoNameService: DSONameService,
+    protected collectionDataService: CollectionDataService,
+  ) {}
 
   ngOnInit(): void {
-    this.collectionRD$ = this.route.data.pipe(
-      map((data) => data.dso as RemoteData<Collection>),
-      redirectOn4xx(this.router, this.authService),
-      take(1),
+    
+    this.collectionRD$ = this.route.paramMap.pipe(
+      map(params => params.get('id')!),
+      switchMap(id =>
+        this.collectionDataService.findById(id).pipe(
+          redirectOn4xx(this.router, this.authService)
+        )
+      )
     );
+
+    
     this.logoRD$ = this.collectionRD$.pipe(
       map((rd: RemoteData<Collection>) => rd.payload),
       filter((collection: Collection) => hasValue(collection)),
       mergeMap((collection: Collection) => collection.logo),
     );
-    this.isCollectionAdmin$ = this.authorizationDataService.isAuthorized(FeatureID.IsCollectionAdmin);
 
+    
+    this.isCollectionAdmin$ = this.authorizationDataService.isAuthorized(
+      FeatureID.IsCollectionAdmin
+    );
+
+    
     this.collectionPageRoute$ = this.collectionRD$.pipe(
       getAllSucceededRemoteDataPayload(),
       map((collection) => getCollectionPageRoute(collection.id)),
@@ -128,6 +132,4 @@ export class CollectionPageComponent implements OnInit {
   isNotEmpty(object: any) {
     return isNotEmpty(object);
   }
-
-
 }
