@@ -1,0 +1,80 @@
+.sobre-creja-page {
+    .scp-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .scp-line {
+            width: 150px;
+            height: auto;
+            opacity: 0.3;
+        }
+
+        .scp-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #9602c7;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .scp-content {
+        max-width: 100%;
+        padding: 0 17.5rem;
+
+        h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.125rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem;
+        }
+
+        .scp-social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+
+            .scp-social-card {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid rgba(150,2,199,0.2);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: #9602c7;
+            font-weight: 600;
+            transition: background 0.2s, box-shadow 0.2s;
+
+            &:hover {
+                background: rgba(150,2,199,0.05);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            }
+
+            .scp-social-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .scp-social-label {
+                font-size: 1rem;
+            }
+            }
+        }
+    }
+}
