@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.pesquisa-memorias-page {
+  padding: 0 8rem;
+
+  // 1) Cabeçalho
+  .pm-header {
+    margin-bottom: 2rem;
+
+    .pm-header-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .pm-line {
+        width: 150px;
+        height: auto;
+      }
+
+      .pm-title-img {
+        width: 500px;
+        height: auto;
+      }
+    }
+
+    .pm-subtitle {
+      margin-top: 1rem;
+      color: #6c757d;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  // 2) Caixa de busca
+  .pm-search {
+    position: relative;
+    margin: 0 auto 2rem;
+    max-width: 100%;
+
+    input.form-control {
+      padding-right: 3rem;
+      border-radius: 2rem;
+      border: 2px solid #9602c7;
+      height: 3rem;
+    }
+    .pm-search-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9602c7;
+      font-size: 1.25rem;
+    }
+  }
+
+  // 3) Conteúdo
+  .pm-content {
+    display: flex;
+    gap: 2rem;
+  }
+
+  // 3.1) Filtros
+  .pm-filters {
+    width: 25%;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 1rem;
+
+    .pm-filter-group {
+      margin-bottom: 1.5rem;
+
+      h6 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .form-check-input {
+        /* remove estilo nativo */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        /* tamanho maior */
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.75rem;
+
+        /* borda e fundo */
+        background-color: #fff;
+        border: 2px solid #9602C7;
+        border-radius: 0.25rem;
+        position: relative;
+
+        /* foco */
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(150, 2, 199, 0.3);
+        }
+
+        /* estado marcado */
+        &:checked {
+          background-color: #9602C7;
+        }
+
+        /* desenha o “✓” branco */
+        &:checked::after {
+          content: "";
+          position: absolute;
+          top: 0.25rem;
+          left: 0.5rem;
+          width: 0.35rem;
+          height: 0.75rem;
+          border: solid #fff;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      .form-check-label {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  // 3.2) Grid de cards
+  .pm-items {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .pm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .pm-card-wrapper {
+      /* wrapper vazio, mantém grid */
+    }
+
+    .pm-card {
+      background: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .pm-card-img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 0.75rem;
+      }
+
+      .card-body {
+        padding: 0.75rem;
+
+        .card-title {
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+        .card-text {
+          font-size: 0.75rem;
+          color: #6c757d;
+          margin: 0;
+        }
+      }
+    }
+
+    // botão “Ver mais”
+    .pm-btn-more {
+      margin: 2rem auto 0;
+      border-radius: 2rem;
+      border: 2px solid #9602c7;
+      color: #9602c7;
+      padding: 0.5rem 2rem;
+      font-weight: 600;
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #9602c7;
+        color: #fff;
+      }
+    }
+  }
+}
+
+body, button, input, select, textarea, li, a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+

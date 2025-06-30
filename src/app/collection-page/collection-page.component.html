@@ -1,61 +1,140 @@
-<div class="container">
-  <div class="collection-page"
-       *ngVar="(collectionRD$ | async) as collectionRD">
-    <div *ngIf="collectionRD?.hasSucceeded" @fadeInOut>
-      <div *ngIf="collectionRD?.payload as collection">
-        <ds-view-tracker [object]="collection"></ds-view-tracker>
-        <div class="d-flex flex-row border-bottom mb-4 pb-4">
-          <header class="comcol-header mr-auto">
-            <!-- Collection Name -->
-            <ds-comcol-page-header
-                [name]="dsoNameService.getName(collection)">
-            </ds-comcol-page-header>
-            <!-- Collection logo -->
-            <ds-comcol-page-logo *ngIf="logoRD$"
-                                 [logo]="(logoRD$ | async)?.payload"
-                                 [alternateText]="'collection.logo' | translate">
-            </ds-comcol-page-logo>
+<!-- collection-page.component.html -->
+<div class="pesquisa-memorias-page" *ngIf="collectionRD$ | async as rd">
+  <ng-container *ngIf="rd.hasSucceeded; else loadingOrError">
 
-            <!-- Handle -->
-            <ds-comcol-page-handle
-                [content]="collection.handle"
-                [title]="'collection.page.handle'">
-            </ds-comcol-page-handle>
-            <!-- Introductory text -->
-            <ds-comcol-page-content
-                [content]="collection.introductoryText"
-                [hasInnerHtml]="true">
-            </ds-comcol-page-content>
-            <!-- News -->
-            <ds-comcol-page-content
-                [content]="collection.sidebarText"
-                [hasInnerHtml]="true"
-                [title]="'collection.page.news'">
-            </ds-comcol-page-content>
-          </header>
-          <ds-dso-edit-menu></ds-dso-edit-menu>
-        </div>
-        <section class="comcol-page-browse-section">
-          <!-- Browse-By Links -->
-          <ds-comcol-page-browse-by
-              [id]="collection.id"
-              [contentType]="collection.type">
-          </ds-comcol-page-browse-by>
+    <!-- 1) Cabeçalho e título dinâmico -->
+    <div class="pm-header text-center" *ngIf="rd.payload as collection">
+      <div class="pm-header-title">
+        <img src="assets/images/linha.svg" alt="" class="pm-line">
+        <ng-container [ngSwitch]="collection.id">
+          <img *ngSwitchCase="'420f504b-2ede-4acc-b302-666a8c58ffbf'"
+               src="assets/images/Pesquisas e memórias.svg"
+               alt="Pesquisas e Memórias"
+               width="490"
+               height="auto">
+          <img *ngSwitchCase="'ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f'"
+               src="assets/images/PraticasAlfabetizadoras.svg"
+               alt="Práticas Alfabetizadoras"
+               width="580"
+               height="auto">
+          <img *ngSwitchCase="'8d031651-c18f-4011-ac15-a28c3e69b78e'"
+               src="assets/images/Vozes.svg"
+               alt="Vozes da EJA"
+               width="130"
+               height="auto">
+          <img *ngSwitchDefault
+               src="assets/images/Destaques.svg"
+               alt="Destaques"
+               class="pm-title-img">
+        </ng-container>
+        <img src="assets/images/linha.svg" alt="" class="pm-line">
+      </div>
 
-          <router-outlet></router-outlet>
-        </section>
-        <footer *ngIf="collection.copyrightText" class="border-top my-5 pt-4">
-          <!-- Copyright -->
-          <ds-comcol-page-content
-              [content]="collection.copyrightText"
-              [hasInnerHtml]="true">
-          </ds-comcol-page-content>
-        </footer>
+      <ng-container [ngSwitch]="collection.id">
+        <p class="pm-subtitle" *ngSwitchCase="'420f504b-2ede-4acc-b302-666a8c58ffbf'">
+            Na coleção Pesquisas e Memórias do CREJA, você encontrará materiais produzidos por pessoas e instituições que 
+            pesquisam a Educação de Jovens, Adultos e Idosos (EJA) no Brasil. São documentos que registram experiências, 
+            práticas e ações no campo da alfabetização e da educação popular, preservando a memória e fortalecendo a construção de 
+            saberes comprometidos com a transformação social.
+        </p>
+        
+        <p class="pm-subtitle" *ngSwitchCase="'ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f'">
+          A coleção Práticas Alfabetizadoras apresenta experiências de alfabetização de jovens, adultos e idosos inspiradas nos princípios 
+          filosófico-político-pedagógicos freirianos, visando a uma educação emancipadora e humanizadora. A coleção valoriza práticas diversas 
+          e transformadoras em todo o Brasil. Nesta coleção, você vai encontrar práticas alfabetizadoras que valorizam e promovem a participação 
+          ativa dos alunos, a realidade como ponto de partida para o aprendizado, a relação horizontal entre educador(a) e educando(a), baseada 
+          no diálogo e no compartilhamento de experiências.
+        </p>
+
+        <p class="pm-subtitle" *ngSwitchCase="'8d031651-c18f-4011-ac15-a28c3e69b78e'">
+          A coleção Vozes da EJA reúne relatos vividos por educadores(as) e educandos(as) em diferentes contextos da Educação de Jovens, 
+          Adultos e Idosos. São histórias de vida que documentam relações humanas, vidas e realidades transformadas pela educação, fortalecendo 
+          a memória coletiva e dando visibilidade a trajetórias de luta, aprendizado e transformação social construídas no cotidiano da EJA em todo o país.
+        </p>
+      </ng-container>
+
+      <!-- 2) Caixa de Busca -->
+      <div class="pm-search">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite aqui o que você procura"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="filter()"
+        />
+        <span class="pm-search-icon"><i class="fas fa-search"></i></span>
       </div>
     </div>
-    <ds-error *ngIf="collectionRD?.hasFailed"
-              message="{{'error.collection' | translate}}"></ds-error>
-    <ds-loading *ngIf="collectionRD?.isLoading"
-                       message="{{'loading.collection' | translate}}"></ds-loading>
-  </div>
+
+    <!-- 3) Conteúdo: filtros + listagem oficial -->
+    <div class="pm-content" *ngIf="rd.payload as collection">
+      <!-- filtros à esquerda -->
+      <aside class="pm-filters">
+        <div class="pm-filter-group">
+          <h6>Temas</h6>
+          <div *ngFor="let tema of temas" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="tema"
+              [(ngModel)]="selectedTemas[tema]"
+              (change)="filter()"
+            />
+            <label class="form-check-label" [for]="tema">{{ tema }}</label>
+          </div>
+        </div>
+        <div class="pm-filter-group">
+          <h6>Regiões</h6>
+          <div *ngFor="let reg of regioes" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="reg"
+              [(ngModel)]="selectedRegioes[reg]"
+              (change)="filter()"
+            />
+            <label class="form-check-label" [for]="reg">{{ reg }}</label>
+          </div>
+        </div>
+        <div class="pm-filter-group">
+          <h6>Municípios</h6>
+          <div *ngFor="let mun of municipios" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="mun"
+              [(ngModel)]="selectedMunicipios[mun]"
+              (change)="filter()"
+            />
+            <label class="form-check-label" [for]="mun">{{ mun }}</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- listagem oficial do DSpace: browse-by + router-outlet -->
+      <main class="pm-items">
+        <div class="container">
+          <div class="collection-page"
+              *ngVar="(collectionRD$ | async) as collectionRD">
+            <div *ngIf="collectionRD?.hasSucceeded" @fadeInOut>
+              <div *ngIf="collectionRD?.payload as collection">
+                <ds-comcol-page-browse-by
+                      [id]="collection.id"
+                      [contentType]="collection.type">
+                  </ds-comcol-page-browse-by>
+
+                  <router-outlet></router-outlet>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </ng-container>
+
+  <ng-template #loadingOrError>
+    <ds-error *ngIf="rd?.hasFailed" message="Erro ao carregar coleção"></ds-error>
+    <ds-loading *ngIf="rd?.isLoading" message="Carregando..."></ds-loading>
+  </ng-template>
 </div>
