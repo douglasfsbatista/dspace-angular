@@ -43,6 +43,8 @@ import { PROCESS_MODULE_PATH } from './process-page/process-page-routing.paths';
 import { provideSubmissionState } from './submission/provide-submission-state';
 import { SUGGESTION_MODULE_PATH } from './suggestions-page/suggestions-page-routing-paths';
 import { CrejaHomeComponent } from '../themes/custom/app/creja-home/creja-home.component';
+import { RedesComponent } from '../themes/custom/app/redes/redes.component';
+import { SobreCrejaComponent } from '../themes/custom/app/sobre-o-creja/sobre-o-creja.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -115,6 +117,16 @@ export const APP_ROUTES: Route[] = [
         loadChildren: () => import('./item-page/item-page-routes')
           .then((m) => m.ROUTES),
         canActivate: [endUserAgreementCurrentUserGuard],
+      },
+      {
+        path: 'redes',
+        component: RedesComponent,
+        canActivate: [endUserAgreementCurrentUserGuard],
+      },
+      {
+        path: 'sobre-o-creja',
+        component: SobreCrejaComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
         path: 'entities/:entity-type',
