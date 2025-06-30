@@ -10,9 +10,7 @@
       margin: 0;
     }
 
-    div > img {
-      height: var(--ds-footer-logo-height);
-    }
+    
 
 
     .top-footer {
@@ -69,6 +67,11 @@
       }
     }
   }
+}
+
+.custom-container {
+  padding: 0 15rem;
+  max-width: 100%;
 }
 
 
