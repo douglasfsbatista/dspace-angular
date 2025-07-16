@@ -6,9 +6,22 @@
       </a>
     </div>
 
-    <!-- <div class="d-flex align-items-center gap-2">
+    <!-- Acessibilidade
+    <div id="accessibility-toolbar">
+      <button id="font-decrease" aria-label="Diminuir fonte">A-</button>
+      <button id="font-increase" aria-label="Aumentar fonte">A+</button>
+      <button id="toggle-theme" aria-label="Alternar tema">🌙</button>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
       <ds-search-form [inPlaceSearch]="false" [searchPlaceholder]="'O que você busca?'"></ds-search-form>
     </div> -->
+    <div role="menubar" class="h-100 d-flex flex-row flex-nowrap align-items-center gapx-1">
+      <ds-lang-switch></ds-lang-switch>
+      <ds-context-help-toggle></ds-context-help-toggle>
+      <ds-impersonate-navbar></ds-impersonate-navbar>
+      <ds-auth-nav-menu></ds-auth-nav-menu>
+    </div>
   </div>
 </header>
 
@@ -73,3 +86,58 @@
     </div>
   </div>
 </header> -->
+
+<script>
+  (function() {
+    // valores iniciais
+    const MIN = 0.75, MAX = 1.5, STEP = 0.1;
+    const root = document.documentElement;
+    let currentSize = parseFloat(localStorage.getItem('font-size')) || 1;
+
+    function applyFontSize() {
+      root.style.fontSize = currentSize + 'rem';
+      localStorage.setItem('font-size', currentSize);
+    }
+
+    // botões
+    document.getElementById('font-increase').addEventListener('click', () => {
+      if (currentSize + STEP <= MAX) {
+        currentSize = +(currentSize + STEP).toFixed(2);
+        applyFontSize();
+      }
+    });
+
+    document.getElementById('font-decrease').addEventListener('click', () => {
+      if (currentSize - STEP >= MIN) {
+        currentSize = +(currentSize - STEP).toFixed(2);
+        applyFontSize();
+      }
+    });
+
+    // tema claro/escuro
+    const themeKey = 'theme';
+    const toggle = document.getElementById('toggle-theme');
+    function applyTheme(theme) {
+      document.body.dataset.theme = theme;
+      localStorage.setItem(themeKey, theme);
+      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    toggle.addEventListener('click', () => {
+      const next = localStorage.getItem(themeKey) === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+
+    // selecionar idioma
+    const switcher = document.getElementById('language-switcher');
+    switcher.addEventListener('change', () => {
+      const loc = switcher.value;
+      // aqui você pode fazer um redirect para /pt-BR/ ou ajustar i18n do seu app:
+      window.location.href = '/' + loc + window.location.pathname;
+    });
+
+    // inicializações
+    applyFontSize();
+    applyTheme(localStorage.getItem(themeKey) || 'light');
+    switcher.value = localStorage.getItem('lang') || 'pt-BR';
+  })();
+</script>
