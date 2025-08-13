@@ -103,8 +103,9 @@ export class CollectionPageComponent implements OnInit {
     'Educação popular', 'Educação de jovens e adultos', 'Congressos',
     'Conferências'
   ];
-  regioes: string[] = ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'];
-  municipios: string[] = ['Lorem Ipsum 1','Lorem Ipsum 2','Lorem Ipsum 3','Lorem Ipsum 4'];
+  regioes: string[] = ['Nordeste', 'Norte'];
+  municipios: string[] = ['Alto do Rodrigues','Araçás','Belém','Brejo Grande','Cabo de Santo Agostinho','Carauari','Caucaia',
+                          'Conde','Fortaleza','Icapuí','Ipojuca','Oiapoque','Porto do Mangue','Santa Luzia de Itanhy','São Francisco do Conde'];
 
   selectedTemas: Record<string,boolean> = {};
   selectedRegioes: Record<string,boolean> = {};

@@ -15,22 +15,30 @@
 
 #destaquesCarousel {
   .carousel-indicators {
-    position: relative;  // sai do absolute
-    bottom: auto;        // remove o bottom: 0
-    margin: 1.5rem 0 0;  // espaço acima e zero embaixo
-    justify-content: center; // centraliza os botões
+    position: relative;
+    bottom: auto;
+    margin: 1.5rem 0 0;
+    display: flex;
+    justify-content: center;
 
     button {
       width: 0.75rem;
       height: 0.75rem;
       border-radius: 50%;
-      background-color: #000;
-      opacity: 0.4;
+      background-color: transparent;   // transparente
+      border: 2px solid #000;          // contorno preto
       margin: 0 0.25rem;
     }
+
     .active {
-      opacity: 1;
+      background-color: #000; // círculo cheio
+      border: none;           // sem contorno
     }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1);
   }
 }
 

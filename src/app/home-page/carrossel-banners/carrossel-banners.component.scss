@@ -1,0 +1,69 @@
+// TODO: Ajuste o padding-bottom à vontade para dar o espaço que quiser
+.custom-container {
+  max-width: 100%;
+  padding: 0 8rem 4rem;       // 4rem de espaço embaixo para banner + dots
+  background-color: #D9D9D9;  // cinza das laterais
+}
+
+.carousel-container {
+  position: relative;
+  overflow: visible;          // deixa ver o que sai do banner
+  width: 100%;
+  margin: 0;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+// Indicadores agora ficam dentro do padding-bottom cinza:
+.carousel-container .indicators {
+  position: absolute;
+  bottom: 1rem;              // 1rem acima da base do custom-container
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.carousel-container .indicators span {
+  width: 1.5rem;             // tamanho dos pontos
+  height: 1.5rem;
+  border-radius: 50%;
+  background: transparent;
+  border: 4px solid #000;    // borda “negritada”
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-container .indicators span.active {
+  background: #000;
+  border: none;
+}

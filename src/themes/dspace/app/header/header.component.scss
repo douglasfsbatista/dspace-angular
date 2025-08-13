@@ -96,3 +96,34 @@ body, button, input, select, textarea, li, a {
   font-weight: 500;
   font-size: 15px;
 }
+
+.custom-nav .nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff !important;
+  padding: 10px 30px;
+  position: relative;
+  transition: color 0.2s ease;
+  text-decoration: none;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0; 
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.custom-nav .nav-link:hover {
+  color: #e0e0e0 !important;
+}

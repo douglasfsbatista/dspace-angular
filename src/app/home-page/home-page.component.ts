@@ -1,22 +1,11 @@
-import {
-  AsyncPipe,
-  NgClass,
-  NgIf,
-  NgTemplateOutlet,
-} from '@angular/common';
-import {
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Inject } from '@angular/core';
+import { CommonModule, AsyncPipe, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {
-  APP_CONFIG,
-  AppConfig,
-} from 'src/config/app-config.interface';
+import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
 
 import { Site } from '../core/shared/site.model';
 import { SuggestionsPopupComponent } from '../notifications/suggestions-popup/suggestions-popup.component';
@@ -30,32 +19,49 @@ import { RecentItemListComponent } from './recent-item-list/recent-item-list.com
 import { ThemedTopLevelCommunityListComponent } from './top-level-community-list/themed-top-level-community-list.component';
 import { DestaquesMesComponent } from './destaques-mes/destaques-mes.component';
 import { FiltroPesquisaComponent } from './filtro-pesquisa/filtro-pesquisa.component';
+import { CarrosselBannersComponent } from './carrossel-banners/carrossel-banners.component';
 
 @Component({
   selector: 'ds-base-home-page',
-  styleUrls: ['./home-page.component.scss'],
-  templateUrl: './home-page.component.html',
   standalone: true,
-  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ViewTrackerComponent, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent, DestaquesMesComponent, FiltroPesquisaComponent],
+  imports: [
+    CommonModule,
+    AsyncPipe,
+    NgClass,
+    NgIf,
+    NgTemplateOutlet,
+    RouterModule,
+    TranslateModule,
+    SuggestionsPopupComponent,
+    ThemedConfigurationSearchPageComponent,
+    ThemedSearchFormComponent,
+    PageWithSidebarComponent,
+    ViewTrackerComponent,
+    HomeCoarComponent,
+    ThemedHomeNewsComponent,
+    RecentItemListComponent,
+    ThemedTopLevelCommunityListComponent,
+    DestaquesMesComponent,
+    FiltroPesquisaComponent,
+    CarrosselBannersComponent
+  ],
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
   site$: Observable<Site>;
   recentSubmissionspageSize: number;
   showDiscoverFilters: boolean;
 
   constructor(
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
-    protected route: ActivatedRoute,
+    protected route: ActivatedRoute
   ) {
     this.recentSubmissionspageSize = this.appConfig.homePage.recentSubmissions.pageSize;
     this.showDiscoverFilters = this.appConfig.homePage.showDiscoverFilters;
   }
 
   ngOnInit(): void {
-    this.site$ = this.route.data.pipe(
-      map((data) => data.site as Site),
-    );
+    this.site$ = this.route.data.pipe(map((data) => data.site as Site));
   }
-
 }

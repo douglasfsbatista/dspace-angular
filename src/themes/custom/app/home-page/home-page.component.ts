@@ -19,6 +19,7 @@ import { PageWithSidebarComponent } from '../../../../app/shared/sidebar/page-wi
 import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dspace/view-tracker.component';
 import { DestaquesMesComponent } from '../../../../app/home-page/destaques-mes/destaques-mes.component';
 import { FiltroPesquisaComponent } from '../../../../app/home-page/filtro-pesquisa/filtro-pesquisa.component';
+import { CarrosselBannersComponent } from '../../../../app/home-page/carrossel-banners/carrossel-banners.component';
 
 @Component({
   selector: 'ds-themed-home-page',
@@ -27,7 +28,7 @@ import { FiltroPesquisaComponent } from '../../../../app/home-page/filtro-pesqui
   // templateUrl: './home-page.component.html'
   templateUrl: '../../../../app/home-page/home-page.component.html',
   standalone: true,
-  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ViewTrackerComponent, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent, DestaquesMesComponent, FiltroPesquisaComponent],
+  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ViewTrackerComponent, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent, DestaquesMesComponent, FiltroPesquisaComponent, CarrosselBannersComponent],
 })
 export class HomePageComponent extends BaseComponent {
 

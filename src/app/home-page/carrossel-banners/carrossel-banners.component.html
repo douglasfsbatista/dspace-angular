@@ -1,0 +1,15 @@
+<div class="carousel-container custom-container" *ngIf="images?.length">
+  <div class="carousel-slide">
+    <img [src]="images[currentIndex]" alt="Slide {{ currentIndex + 1 }}" />
+  </div>
+
+  <!-- setas -->
+  <button class="prev" (click)="prev()" aria-label="Anterior">❮</button>
+  <button class="next" (click)="next()" aria-label="Próximo">❯</button>
+
+  <!-- indicadores -->
+  <div class="indicators">
+    <span *ngFor="let img of images; let i = index" [class.active]="i === currentIndex" (click)="goTo(i)"
+      [attr.aria-label]="'Slide ' + (i + 1)"></span>
+  </div>
+</div>
