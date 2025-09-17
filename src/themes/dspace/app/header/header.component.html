@@ -1,138 +1,45 @@
-<header id="social-header" class="py-3" style="background-color: #FFFFFF; color: black;">
-  <div class="container custom-container">
-    <div class="row">
-      <div class="col-md-2">
-        <a class="d-block my-2 my-md-0" routerLink="/home" [attr.aria-label]="'home.title' | translate">
-          <img id="header-logo" src="assets/images/CREJA_ALFAEJABRASIL.svg" [attr.alt]="'menu.header.image.logo' | translate"/>
-        </a>
-      </div>
+<header id="social-header" class="py-3"
+  style="background-color:#FFFFFF; color:black; --bs-link-color:#000; --bs-link-hover-color:#000;">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
-      <div class="col-md-8"></div>
+      <a class="d-inline-flex align-items-center" routerLink="/home" [attr.aria-label]="'home.title' | translate">
+        <img id="header-logo" src="assets/images/CREJA_ALFAEJABRASIL.svg"
+          [attr.alt]="'menu.header.image.logo' | translate" class="img-fluid d-block">
+      </a>
 
-      <div class="col-md-2 justify-content-end">
-        <div role="menubar" class="h-100 d-flex flex-row flex-nowrap align-items-center gapx-1">
-          <ds-lang-switch></ds-lang-switch>
-          <ds-context-help-toggle></ds-context-help-toggle>
-          <ds-impersonate-navbar></ds-impersonate-navbar>
-          <ds-auth-nav-menu></ds-auth-nav-menu>
-        </div>
-      </div>
-    </div>
-
-    <!-- Acessibilidade
-    <div id="accessibility-toolbar">
-      <button id="font-decrease" aria-label="Diminuir fonte">A-</button>
-      <button id="font-increase" aria-label="Aumentar fonte">A+</button>
-      <button id="toggle-theme" aria-label="Alternar tema">🌙</button>
-    </div>
-
-    <div class="d-flex align-items-center gap-2">
-      <ds-search-form [inPlaceSearch]="false" [searchPlaceholder]="'O que você busca?'"></ds-search-form>
-    </div> -->
-  </div>
-</header>
-
-<header id="" class="py-1" style="background-color: #9602C7; color: black;">
-  <div class="container custom-container">
-    <div class="d-flex flex-wrap w-100 justify-content-center custom-nav">
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/home']">Home</a>
-
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/sobre-o-creja']">Sobre o CREJA</a>
-
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/collections/420f504b-2ede-4acc-b302-666a8c58ffbf']">Pesquisas e Memórias</a>
-      
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f']">Práticas Alfabetizadoras</a>
-      
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/collections/8d031651-c18f-4011-ac15-a28c3e69b78e']">Vozes da EJA</a>
-    
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/redes']">Redes</a>
-    </div>
-  </div>
-</header>
-
-<!-- <header id="main-site-header">
-  <div class="container custom-container d-flex flex-row flex-wrap align-items-center justify-content-between gapx-3 gapy-2" id="main-site-header-container">
-     Logo and navbar wrapper
-    <div id="header-left"
-         [attr.role]="(isMobile$ | async) ? 'navigation' : 'presentation'"
-         [attr.aria-label]="(isMobile$ | async) ? ('nav.main.description' | translate) : null"
-         class="h-100 flex-fill d-flex flex-row flex-nowrap justify-content-start align-items-center gapx-3">
-      <nav *ngIf="(isMobile$ | async) !== true" class="navbar navbar-expand p-0 align-items-stretch align-self-stretch" id="desktop-navbar" [attr.aria-label]="'nav.main.description' | translate">
-        <ds-navbar></ds-navbar>
-      </nav>
-    </div>
-     Search bar and other menus
-    <div id="header-right" class="h-100 d-flex flex-row flex-nowrap justify-content-end align-items-center gapx-1 ml-auto">
-      <ds-search-navbar></ds-search-navbar>
-      <div role="menubar" class="h-100 d-flex flex-row flex-nowrap align-items-center gapx-1">
+      <div role="menubar" aria-label="Ações do cabeçalho"
+        class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-end gap-2">
         <ds-lang-switch></ds-lang-switch>
         <ds-context-help-toggle></ds-context-help-toggle>
         <ds-impersonate-navbar></ds-impersonate-navbar>
         <ds-auth-nav-menu></ds-auth-nav-menu>
       </div>
 
-      <div id="mobile-navbar-toggler" class="d-block d-lg-none ml-3" *ngIf="(isMobile$ | async)">
-        <button id="navbar-toggler" class="btn" type="button" (click)="toggleNavbar()"
-                [attr.aria-label]="'nav.toggle' | translate" aria-controls="collapsible-mobile-navbar" [attr.aria-expanded]="(isNavBarCollapsed$ | async) !== true">
-          <span class="fas fa-bars fa-fw fa-xl toggler-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-
     </div>
   </div>
-</header> -->
+</header>
 
-<script>
-  (function() {
-    // valores iniciais
-    const MIN = 0.75, MAX = 1.5, STEP = 0.1;
-    const root = document.documentElement;
-    let currentSize = parseFloat(localStorage.getItem('font-size')) || 1;
+<header class="py-1" style="background-color:#9602C7; color:#fff; --bs-link-color:#fff; --bs-link-hover-color:#e0e0e0;">
+  <nav class="container" aria-label="Menu principal">
+    <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-4 custom-nav">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Home</a>
 
-    function applyFontSize() {
-      root.style.fontSize = currentSize + 'rem';
-      localStorage.setItem('font-size', currentSize);
-    }
+      <a class="nav-link" routerLink="/sobre-o-creja" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Sobre o CREJA</a>
 
-    // botões
-    document.getElementById('font-increase').addEventListener('click', () => {
-      if (currentSize + STEP <= MAX) {
-        currentSize = +(currentSize + STEP).toFixed(2);
-        applyFontSize();
-      }
-    });
+      <a class="nav-link" routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Pesquisas e Memórias</a>
 
-    document.getElementById('font-decrease').addEventListener('click', () => {
-      if (currentSize - STEP >= MIN) {
-        currentSize = +(currentSize - STEP).toFixed(2);
-        applyFontSize();
-      }
-    });
+      <a class="nav-link" routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Práticas Alfabetizadoras</a>
 
-    // tema claro/escuro
-    const themeKey = 'theme';
-    const toggle = document.getElementById('toggle-theme');
-    function applyTheme(theme) {
-      document.body.dataset.theme = theme;
-      localStorage.setItem(themeKey, theme);
-      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-    toggle.addEventListener('click', () => {
-      const next = localStorage.getItem(themeKey) === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-    });
+      <a class="nav-link" routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Vozes da EJA</a>
 
-    // selecionar idioma
-    const switcher = document.getElementById('language-switcher');
-    switcher.addEventListener('change', () => {
-      const loc = switcher.value;
-      // aqui você pode fazer um redirect para /pt-BR/ ou ajustar i18n do seu app:
-      window.location.href = '/' + loc + window.location.pathname;
-    });
-
-    // inicializações
-    applyFontSize();
-    applyTheme(localStorage.getItem(themeKey) || 'light');
-    switcher.value = localStorage.getItem('lang') || 'pt-BR';
-  })();
-</script>
+      <a class="nav-link" routerLink="/redes" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Redes</a>
+    </div>
+  </nav>
+</header>

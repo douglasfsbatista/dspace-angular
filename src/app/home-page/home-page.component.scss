@@ -8,37 +8,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .custom-container {
+  padding: 0 1rem;
   max-width: 100%;
-  padding-left: 0rem;
-  padding-right: 0rem;
 }
 
-#destaquesCarousel {
-  .carousel-indicators {
-    position: relative;
-    bottom: auto;
-    margin: 1.5rem 0 0;
-    display: flex;
-    justify-content: center;
-
-    button {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background-color: transparent;   // transparente
-      border: 2px solid #000;          // contorno preto
-      margin: 0 0.25rem;
-    }
-
-    .active {
-      background-color: #000; // círculo cheio
-      border: none;           // sem contorno
-    }
+@media (min-width: 768px) {
+  .custom-container {
+    padding: 0 3rem;
   }
+}
 
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    filter: invert(1);
+@media (min-width: 1200px) {
+  .custom-container {
+    padding: 0 6rem;
   }
 }
 
