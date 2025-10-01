@@ -109,6 +109,19 @@
             <label class="form-check-label" [for]="mun">{{ mun }}</label>
           </div>
         </div>
+        <div class="pm-filter-group">
+          <h6>Tipo de Documento</h6>
+          <div *ngFor="let tipo of tipoDocumentos" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="tipo"
+              [(ngModel)]="selectedTipoDocumentos[tipo]"
+              (change)="filter()"
+            />
+            <label class="form-check-label" [for]="tipo">{{ tipo }}</label>
+          </div>
+        </div>
       </aside>
 
       <!-- listagem oficial do DSpace: browse-by + router-outlet -->

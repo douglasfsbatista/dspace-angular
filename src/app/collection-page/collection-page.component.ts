@@ -103,13 +103,15 @@ export class CollectionPageComponent implements OnInit {
     'Educação popular', 'Educação de jovens e adultos', 'Congressos',
     'Conferências'
   ];
-  regioes: string[] = ['Nordeste', 'Norte'];
+  regioes: string[] = ['Norte', 'Nordeste I', 'Nordeste II'];
   municipios: string[] = ['Alto do Rodrigues','Araçás','Belém','Brejo Grande','Cabo de Santo Agostinho','Carauari','Caucaia',
                           'Conde','Fortaleza','Icapuí','Ipojuca','Oiapoque','Porto do Mangue','Santa Luzia de Itanhy','São Francisco do Conde'];
+  tipoDocumentos: string[] = ['Áudio', 'Imagem', 'Vídeo'];
 
   selectedTemas: Record<string,boolean> = {};
   selectedRegioes: Record<string,boolean> = {};
   selectedMunicipios: Record<string,boolean> = {};
+  selectedTipoDocumentos: Record<string,boolean> = {};
 
   items: any[] = [];          // deverá vir do payload ou de um serviço
   filteredItems: any[] = [];  // items filtrados por search/filtros
