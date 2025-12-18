@@ -94,6 +94,12 @@ export class CollectionPageComponent implements OnInit {
 
   private sub!: Subscription;
 
+  showFilters = false;
+
+  toggleFiltersMobile() {
+    this.showFilters = !this.showFilters;
+  }
+
   // === NOVIDADES PARA A PÁGINA “Pesquisas e Memórias” ===
   searchTerm = '';
   temas: string[] = [

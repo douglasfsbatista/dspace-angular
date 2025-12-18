@@ -1,27 +1,63 @@
+/* cor “brand” para reaproveitar no header */
+.bg-brand { background-color: #9602C7 !important; }
+
+/* container sem padding fixo gigante */
+.filter-container {
+  max-width: 100%;
+  /* padding controlado via classes no HTML (px-3/px-sm-4) */
+}
+
+/* CARD */
 .card {
   margin-bottom: 1rem;
   border: 1px solid #9602C7;
-  background-color: #9602C7;
+  background-color: #fff; /* mantém conteúdo branco para contraste */
+  border-radius: .5rem;
 }
 
+/* HEADER do card como botão clicável */
 .card-header {
   cursor: pointer;
-  font-weight: bold;
-  background-color: #9602C7;
   user-select: none;
+  font-weight: 700;
   font-size: 16px;
+  color: #fff; /* garantido */
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+
+  /* feedback ao hover/focus */
+  &:hover,
+  &:focus {
+    filter: brightness(1.02);
+  }
 }
 
-.card-header i {
+/* Ícone do header (Bootstrap Icons) */
+.card-header i,
+.card-header .bi {
   font-size: 1.25rem;
 }
 
+/* Itens da lista */
 .list-group-item {
   font-size: 14px;
   padding: 0.5rem 1rem;
+
+  /* melhora toque e foco */
+  &:hover,
+  &:focus {
+    background-color: rgba(150, 2, 199, 0.05);
+  }
 }
 
-.custom-container {
-  padding: 0 15rem;
-  max-width: 100%;
+/* QUEBRAS RESPONSIVAS úteis (opcionais) */
+@media (min-width: 1400px) {
+  /* em telas muito largas, pode caber 5 colunas sem ficar apertado.
+     Se quiser, troque a col-lg-3 no HTML por col-xl-2 e ajuste aqui.
+     Mantive apenas o grid padrão via HTML. */
+}
+
+@media (max-width: 575.98px) {
+  /* em mobile, texto dos filtros um tiquinho maior para legibilidade */
+  .list-group-item { font-size: 15px; }
 }

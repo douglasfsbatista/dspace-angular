@@ -1,35 +1,38 @@
-@include media-breakpoint-down(md) {
-  ds-themed-configuration-search-page + .container {
-    width: 100%;
-    max-width: none;
-  }
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-
-.custom-container {
-  padding: 0 1rem;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .custom-container {
-    padding: 0 3rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .custom-container {
-    padding: 0 6rem;
-  }
-}
-
-.texto-destaque {
-  padding-left: 4rem;
-  padding-right: 15rem;
-}
 
 body, button, input, select, textarea {
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;  /* Medium */
+  font-weight: 500;
+}
+
+/* Cabeçalho */
+.title-line {
+  max-width: 150px;
+  height: auto;
+  opacity: 1; /* mantém cor original */
+}
+
+.title-img {
+  width: clamp(220px, 40vw, 320px); /* escala fluida do título */
+  height: auto;
+}
+
+/* Parágrafo */
+.section-lead {
+  color: #787878;
+  font-size: clamp(1rem, 1.2vw + 0.9rem, 1.25rem); /* ~1.25rem no desktop */
+  line-height: 1.6;
+}
+
+/* Remover paddings fixos antigos desta página */
+.texto-destaque { padding-left: 0; padding-right: 0; }
+
+/* Caso use o container global custom, mantém respiros progressivos */
+.custom-container { padding: 0 1rem; max-width: 100%; }
+@media (min-width: 768px)  { .custom-container { padding: 0 3rem; } }
+@media (min-width: 1200px) { .custom-container { padding: 0 6rem; } }
+
+/* Ajuste opcional: estreitar um pouco em telas muito largas */
+@media (min-width: 1400px) {
+  .container .section-lead { margin-left: auto; margin-right: auto; }
 }

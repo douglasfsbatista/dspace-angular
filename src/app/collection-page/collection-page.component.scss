@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .pesquisa-memorias-page {
-  padding: 0 8rem;
+  /* remove o padding fixo */
+  max-width: 100%;
 
-  // 1) Cabeçalho
+  /* 1) Cabeçalho */
   .pm-header {
-    margin-bottom: 2rem;
+    margin: 1rem auto 2rem;
 
     .pm-header-title {
       display: flex;
@@ -14,13 +15,15 @@
       gap: 1rem;
 
       .pm-line {
-        width: 150px;
+        max-width: 150px;
+        /* mantém a imagem original, sem opacidade alterada */
         height: auto;
       }
 
       .pm-title-img {
-        width: 500px;
-        height: auto;
+        display: inline-block;
+        width: clamp(320px, 42vw, 520px) !important; // mesmo “tamanho visual” para todas
+        height: auto !important;
       }
     }
 
@@ -28,15 +31,17 @@
       margin-top: 1rem;
       color: #6c757d;
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      /* mais largo, porém legível em telas grandes */
+      max-width: 1100px;
     }
   }
 
-  // 2) Caixa de busca
+  /* 2) Caixa de busca */
   .pm-search {
     position: relative;
     margin: 0 auto 2rem;
-    max-width: 100%;
+    max-width: 920px;
 
     input.form-control {
       padding-right: 3rem;
@@ -44,6 +49,7 @@
       border: 2px solid #9602c7;
       height: 3rem;
     }
+
     .pm-search-icon {
       position: absolute;
       right: 1rem;
@@ -51,20 +57,29 @@
       transform: translateY(-50%);
       color: #9602c7;
       font-size: 1.25rem;
+      pointer-events: none;
     }
   }
 
-  // 3) Conteúdo
+  /* 3) Conteúdo */
   .pm-content {
-    display: flex;
-    gap: 2rem;
+    max-width: 1100px; // ou o mesmo usado no subtítulo
+    margin: 0 auto; // centraliza
+    padding: 0 1rem; // respiro lateral no mobile
   }
 
-  // 3.1) Filtros
+  /* 3.1) Filtros */
   .pm-filters {
-    width: 25%;
+
+    /* em telas grandes, filtros fixam no topo ao rolar */
+    @media (min-width: 992px) {
+      position: sticky;
+      top: 1rem;
+      align-self: flex-start;
+    }
+
     border-right: 1px solid #e0e0e0;
-    padding-right: 1rem;
+    padding-right: 0;
 
     .pm-filter-group {
       margin-bottom: 1.5rem;
@@ -81,34 +96,29 @@
       margin-bottom: 0.5rem;
 
       .form-check-input {
-        /* remove estilo nativo */
+        /* customização do checkbox (mantida) */
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
 
-        /* tamanho maior */
         width: 1.5rem;
         height: 1.5rem;
         margin-right: 0.75rem;
 
-        /* borda e fundo */
         background-color: #fff;
         border: 2px solid #9602C7;
         border-radius: 0.25rem;
         position: relative;
 
-        /* foco */
         &:focus {
           outline: none;
           box-shadow: 0 0 0 3px rgba(150, 2, 199, 0.3);
         }
 
-        /* estado marcado */
         &:checked {
           background-color: #9602C7;
         }
 
-        /* desenha o “✓” branco */
         &:checked::after {
           content: "";
           position: absolute;
@@ -125,27 +135,28 @@
       .form-check-label {
         margin: 0;
         line-height: 1.5;
-        font-size: 0.875rem;
+        font-size: 0.9rem;
       }
+    }
+
+    /* remove a linha divisória quando colapsado no mobile */
+    @media (max-width: 991.98px) {
+      border-right: none;
+      padding-right: 0;
     }
   }
 
-  // 3.2) Grid de cards
+  /* 3.2) Área de itens (listagem) */
   .pm-items {
-    width: 75%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
+    /* Caso use seus cards próprios em vez do DSpace: grid fluido */
     .pm-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
       width: 100%;
-    }
-
-    .pm-card-wrapper {
-      /* wrapper vazio, mantém grid */
     }
 
     .pm-card {
@@ -176,15 +187,15 @@
           font-weight: 600;
           margin-bottom: 0.5rem;
         }
+
         .card-text {
-          font-size: 0.75rem;
+          font-size: 0.85rem;
           color: #6c757d;
           margin: 0;
         }
       }
     }
 
-    // botão “Ver mais”
     .pm-btn-more {
       margin: 2rem auto 0;
       border-radius: 2rem;
@@ -201,10 +212,43 @@
       }
     }
   }
+
+  /* SUBTÍTULO E TÍTULO ajustam por breakpoints */
+  @media (max-width: 992px) {
+    .pm-subtitle {
+      max-width: 900px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pm-header-title {
+      gap: .75rem;
+    }
+
+    .pm-subtitle {
+      max-width: 100%;
+      padding: 0 .5rem;
+    }
+
+    .pm-title-img {
+      max-width: 70vw; // em telas menores, responsivo
+    }
+  }
+
+  @media (max-width: 576px) {
+    .pm-header-title .pm-title-img {
+      width: clamp(240px, 70vw, 480px) !important;
+    }
+  }
 }
 
-body, button, input, select, textarea, li, a {
+body,
+button,
+input,
+select,
+textarea,
+li,
+a {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
-

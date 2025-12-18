@@ -1,30 +1,46 @@
-// TODO: Ajuste o padding-bottom à vontade para dar o espaço que quiser
+/* Container do carrossel */
+/* Desktop mantém respiro; mobile reduz bem o padding */
 .custom-container {
   max-width: 100%;
-  padding: 0 8rem 4rem;       // 4rem de espaço embaixo para banner + dots
-  background-color: #D9D9D9;  // cinza das laterais
+  padding: 0 8rem 4rem;        /* L: laterais + espaço para dots */
+  background-color: #D9D9D9;   /* cinza das laterais */
+
+  @media (max-width: 992px)   { padding: 0 4rem 3rem; }
+  @media (max-width: 576px)   { padding: 0 1rem 2.25rem; }
 }
 
 .carousel-container {
   position: relative;
-  overflow: visible;          // deixa ver o que sai do banner
+  overflow: hidden;            /* evita “vazar” conteúdo no mobile */
   width: 100%;
   margin: 0;
+  /* altura mínima para segurar setas/dots sem pular */
+  min-height: 220px;
+
+  /* opcional: limite de largura em telas muito largas */
+  /* max-width: 1280px; margin-left:auto; margin-right:auto; */
 }
 
+/* Slide centralizado */
 .carousel-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  /* altura adaptável: usa viewport sem ficar gigante no mobile */
+  min-height: clamp(200px, 45vh, 520px);
 }
 
 .carousel-slide img {
-  width: 90%;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: clamp(180px, 42vh, 480px);
   height: auto;
   object-fit: contain;
+  border-radius: .25rem;
 }
 
+/* Setas */
 .prev,
 .next {
   position: absolute;
@@ -34,36 +50,64 @@
   border: none;
   color: #fff;
   font-size: 2rem;
-  padding: 0.5rem;
+  line-height: 1;
+  padding: .5rem .65rem;
   cursor: pointer;
   z-index: 2;
-}
-.prev { left: 1rem; }
-.next { right: 1rem; }
+  border-radius: .5rem;
 
-// Indicadores agora ficam dentro do padding-bottom cinza:
+  @media (max-width: 992px) {
+    font-size: 1.75rem;
+    padding: .45rem .6rem;
+  }
+  @media (max-width: 576px) {
+    font-size: 1.25rem;
+    padding: .35rem .5rem;
+  }
+}
+
+.prev { left: .75rem;  @media (max-width:576px){ left: .35rem; } }
+.next { right: .75rem; @media (max-width:576px){ right: .35rem; } }
+
+/* Indicadores */
 .carousel-container .indicators {
   position: absolute;
-  bottom: 1rem;              // 1rem acima da base do custom-container
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
+  gap: .5rem;
   z-index: 2;
+
+  @media (max-width: 576px) { bottom: .6rem; gap: .4rem; }
 }
 
 .carousel-container .indicators span {
-  width: 1.5rem;             // tamanho dos pontos
-  height: 1.5rem;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: transparent;
-  border: 4px solid #000;    // borda “negritada”
+  border: 3px solid #000;
   box-sizing: border-box;
   cursor: pointer;
-  z-index: 2;
+  transition: transform .15s ease;
+
+  @media (max-width: 576px) {
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+  }
+
+  &:hover, &:focus { transform: scale(1.1); }
 }
 
 .carousel-container .indicators span.active {
   background: #000;
   border: none;
+}
+
+/* Acessibilidade: foco visível nos botões */
+.prev:focus, .next:focus {
+  outline: 3px solid rgba(150, 2, 199, 0.6);
+  outline-offset: 2px;
 }

@@ -20,29 +20,48 @@
   </div>
 </header>
 
-<header class="py-1" style="background-color:#9602C7; color:#fff; --bs-link-color:#fff; --bs-link-hover-color:#e0e0e0;">
+<header class="py-1 site-nav" style="background-color:#9602C7; color:#fff;">
   <nav class="container" aria-label="Menu principal">
-    <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-4 custom-nav">
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="d-lg-none"></span>
+
+      <!-- Botão hambúrguer só no < lg -->
+      <button
+        type="button"
+        class="navbar-toggler d-inline-flex d-lg-none align-items-center"
+        aria-label="Abrir menu"
+        (click)="isNavOpen = !isNavOpen"
+        [attr.aria-expanded]="isNavOpen">
+        <span class="hamburger" [class.open]="isNavOpen">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Menu: dropdown no mobile, horizontal no desktop -->
+    <div class="custom-nav nav-collapsible d-lg-flex"
+         [class.open]="isNavOpen"
+         (click)="isNavOpen = false">
       <a class="nav-link" routerLink="/home" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Home</a>
+         [routerLinkActiveOptions]="{ exact: true }">Home</a>
 
       <a class="nav-link" routerLink="/sobre-o-creja" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Sobre o CREJA</a>
+         [routerLinkActiveOptions]="{ exact: true }">Sobre o CREJA</a>
 
       <a class="nav-link" routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Pesquisas e Memórias</a>
+         [routerLinkActiveOptions]="{ exact: true }">Pesquisas e Memórias</a>
 
       <a class="nav-link" routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Práticas Alfabetizadoras</a>
+         [routerLinkActiveOptions]="{ exact: true }">Práticas Alfabetizadoras</a>
 
       <a class="nav-link" routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Vozes da EJA</a>
+         [routerLinkActiveOptions]="{ exact: true }">Vozes da EJA</a>
 
       <a class="nav-link" routerLink="/redes" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Redes</a>
+         [routerLinkActiveOptions]="{ exact: true }">Redes</a>
 
       <a class="nav-link" routerLink="/ajuda" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Ajuda</a>
+         [routerLinkActiveOptions]="{ exact: true }">Ajuda</a>
     </div>
   </nav>
 </header>

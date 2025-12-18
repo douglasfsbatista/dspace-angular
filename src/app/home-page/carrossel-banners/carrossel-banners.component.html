@@ -1,15 +1,19 @@
-<div class="carousel-container custom-container" *ngIf="images?.length">
-  <div class="carousel-slide">
-    <img [src]="images[currentIndex]" alt="Slide {{ currentIndex + 1 }}" />
+<div class="carousel-container custom-container" *ngIf="images?.length" role="region" aria-label="Carrossel de destaques">
+  <div class="carousel-slide" aria-live="polite">
+    <img [src]="images[currentIndex]" [alt]="'Slide ' + (currentIndex + 1)" />
   </div>
 
   <!-- setas -->
-  <button class="prev" (click)="prev()" aria-label="Anterior">❮</button>
-  <button class="next" (click)="next()" aria-label="Próximo">❯</button>
+  <button class="prev" (click)="prev()" aria-label="Anterior" type="button">❮</button>
+  <button class="next" (click)="next()" aria-label="Próximo"  type="button">❯</button>
 
   <!-- indicadores -->
   <div class="indicators">
-    <span *ngFor="let img of images; let i = index" [class.active]="i === currentIndex" (click)="goTo(i)"
-      [attr.aria-label]="'Slide ' + (i + 1)"></span>
+    <span *ngFor="let img of images; let i = index"
+          [class.active]="i === currentIndex"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Ir para o slide ' + (i + 1)"
+          role="button"
+          tabindex="0"></span>
   </div>
 </div>

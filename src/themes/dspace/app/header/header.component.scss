@@ -1,35 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
-body,
-button,
-input,
-select,
-textarea,
-li,
-a {
+body, button, input, select, textarea, li, a {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 15px;
 }
 
-.custom-container {
-  padding: 0 1rem;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .custom-container {
-    padding: 0 3rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .custom-container {
-    padding: 0 6rem;
-  }
-}
-
-
+/* ===== Navegação (estilos compartilhados) ===== */
 .custom-nav {
   row-gap: .25rem;
 
@@ -37,67 +14,108 @@ a {
     position: relative;
     display: inline-block;
     padding: .5rem 1.25rem .75rem;
-
     color: #fff !important;
     text-decoration: none !important;
     white-space: nowrap;
-
     transition: color .2s ease, opacity .2s ease;
 
-    &:hover {
-      color: #e0e0e0 !important;
-    }
-
-    &:focus-visible {
-      outline: 2px dashed #fff;
-      outline-offset: 2px;
-    }
+    &:hover { color: #e0e0e0 !important; }
+    &:focus-visible { outline: 2px dashed #fff; outline-offset: 2px; }
 
     &.active::after {
       content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 3px;
-      background-color: #fff;
-      border-radius: 2px;
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 3px; background-color: #fff; border-radius: 2px;
     }
   }
 }
 
 @media (max-width: 400px) {
-  .custom-nav .nav-link {
-    padding-left: .75rem;
-    padding-right: .75rem;
+  .custom-nav .nav-link { padding-left: .75rem; padding-right: .75rem; }
+}
+
+/* ===== Hamburguer + colapso ===== */
+.site-nav { --nav-bg:#9602C7; --nav-fg:#fff; }
+.site-nav nav { position: relative; }
+
+.navbar-toggler {
+  background: transparent;
+  border: 0;
+  padding: .5rem .25rem;
+  color: var(--nav-fg);
+}
+
+.hamburger { display:inline-block; width:28px; height:20px; position:relative; }
+.hamburger span {
+  position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px;
+  transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+}
+.hamburger span:nth-child(1){ top:0; }
+.hamburger span:nth-child(2){ top:9px; }
+.hamburger span:nth-child(3){ bottom:0; }
+.hamburger.open span:nth-child(1){ top:9px; transform:rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ bottom:auto; top:9px; transform:rotate(-45deg); }
+
+/* Desktop (≥ lg) horizontal */
+@media (min-width: 992px) {
+  .nav-collapsible {
+    display: flex !important;
+    justify-content: center;
+    gap: .5rem .75rem;
+    flex-wrap: wrap; /* segurança caso falte espaço */
   }
 }
 
+/* Mobile/Tablet (< lg) dropdown */
+.nav-collapsible { display: none; } /* base */
+
+@media (max-width: 991.98px) {
+  .nav-collapsible {
+    position: absolute;
+    left: 0; right: 0;
+    background: var(--nav-bg);
+    transform-origin: top center;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .18s ease, opacity .18s ease;
+    z-index: 1000;
+    padding: .25rem 0 .5rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: .25rem;
+  }
+  .nav-collapsible.open {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-collapsible .nav-link {
+    display: block;
+    padding: .75rem 1rem;
+    text-align: center;
+    &.active::after { display: none; } /* underline só no desktop */
+    &:hover { background: rgba(255,255,255,.08); }
+  }
+}
+
+/* Entre 992–1199px: reduz levemente o padding para caber melhor */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .custom-nav .nav-link { padding: .5rem .9rem .75rem; }
+}
+
+/* ===== Preserva estilos existentes do host (se aplicável) ===== */
 :host {
   #main-site-header {
     min-height: var(--ds-header-height);
-
-    @include media-breakpoint-up(md) {
-      height: var(--ds-header-height);
-    }
-
     background-color: #9602C7;
-
-    &-container {
-      min-height: var(--ds-header-height);
-    }
   }
-
-  img#header-logo {
-    height: var(--ds-header-logo-height);
-  }
-
+  img#header-logo { height: var(--ds-header-logo-height); }
   button#navbar-toggler {
     color: var(--ds-header-icon-color);
-
-    &:hover,
-    &:focus {
-      color: var(--ds-header-icon-color-hover);
-    }
+    &:hover, &:focus { color: var(--ds-header-icon-color-hover); }
   }
 }
