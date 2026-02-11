@@ -1,0 +1,75 @@
+.sobre-creja-page {
+    .scp-header {
+        .scp-line {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .scp-title-img {
+            max-width: 350px;
+        }
+
+        .social-icon {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .social-link {
+            border: none !important; // remove qualquer borda
+            background: transparent;
+
+            &:hover,
+            &:focus {
+                background-color: rgba(150, 2, 199, 0.05); // só o hover
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            }
+        }
+    }
+
+    .scp-content {
+
+        // Mantém boa legibilidade sem padding fixo exagerado
+        // O container + col já limitam a largura
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .social-icon {
+            // Controla a altura dos ícones, mantendo proporção
+            max-height: 60px;
+            width: auto;
+        }
+
+        // realce sutil nos cards/links de rede social ao foco/hover
+        a.rounded-3.border {
+            border-color: rgba(150, 2, 199, 0.2) !important;
+            transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease;
+
+            &:hover,
+            &:focus {
+                background-color: rgba(150, 2, 199, 0.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+                border-color: rgba(150, 2, 199, 0.35) !important;
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .scp-header {
+            .scp-title-img {
+                max-width: 240px;
+            }
+        }
+    }
+}

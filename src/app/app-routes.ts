@@ -45,6 +45,8 @@ import { SUGGESTION_MODULE_PATH } from './suggestions-page/suggestions-page-rout
 import { CrejaHomeComponent } from '../themes/custom/app/creja-home/creja-home.component';
 import { RedesComponent } from '../themes/custom/app/redes/redes.component';
 import { SobreCrejaComponent } from '../themes/custom/app/sobre-o-creja/sobre-o-creja.component';
+import { IpfComponent } from '../themes/custom/app/sobre-o-creja/ipf/ipf.component';
+import { PauloFreireComponent } from '../themes/custom/app/sobre-o-creja/paulo-freire/paulo-freire.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -126,6 +128,16 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'sobre-o-creja',
         component: SobreCrejaComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'sobre-o-creja-ipf',
+        component: IpfComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'sobre-o-creja-paulo-freire',
+        component: PauloFreireComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
