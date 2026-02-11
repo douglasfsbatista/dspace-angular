@@ -47,6 +47,10 @@ import { RedesComponent } from '../themes/custom/app/redes/redes.component';
 import { SobreCrejaComponent } from '../themes/custom/app/sobre-o-creja/sobre-o-creja.component';
 import { IpfComponent } from '../themes/custom/app/sobre-o-creja/ipf/ipf.component';
 import { PauloFreireComponent } from '../themes/custom/app/sobre-o-creja/paulo-freire/paulo-freire.component';
+import { BannerComponent } from '../themes/custom/app/creja-home/banner/banner.component';
+import { IpfHomeComponent } from '../themes/custom/app/ipf-home/ipf-home.component';
+import { PauloFreireHomeComponent } from '../themes/custom/app/paulo-freire-home/paulo-freire-home.component';
+import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/saiba-mais-creja.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -138,6 +142,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'sobre-o-creja-paulo-freire',
         component: PauloFreireComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'banner',
+        component: BannerComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
@@ -285,6 +294,18 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'creja-home',
         component: CrejaHomeComponent,
+      },
+      {
+        path: 'ipf-home',
+        component: IpfHomeComponent,
+      },
+      {
+        path: 'paulo-freire-home',
+        component: PauloFreireHomeComponent,
+      },
+      {
+        path: 'saiba-mais-creja',
+        component: SaibaMaisCrejaComponent,
       },
       { path: '**', pathMatch: 'full', component: ThemedPageNotFoundComponent },
     ],

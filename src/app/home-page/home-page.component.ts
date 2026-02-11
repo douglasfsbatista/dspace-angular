@@ -20,6 +20,9 @@ import { ThemedTopLevelCommunityListComponent } from './top-level-community-list
 import { DestaquesMesComponent } from './destaques-mes/destaques-mes.component';
 import { FiltroPesquisaComponent } from './filtro-pesquisa/filtro-pesquisa.component';
 import { CarrosselBannersComponent } from './carrossel-banners/carrossel-banners.component';
+import { BannerAlfaejaComponent } from './banner-alfaeja/banner-alfaeja.component';
+import { InformacoesAlfaejaComponent } from './informacoes-alfaeja/informacoes-alfaeja.component';
+import { HomeSocialComponent } from './home-social/home-social.component';
 
 @Component({
   selector: 'ds-base-home-page',
@@ -43,7 +46,10 @@ import { CarrosselBannersComponent } from './carrossel-banners/carrossel-banners
     ThemedTopLevelCommunityListComponent,
     DestaquesMesComponent,
     FiltroPesquisaComponent,
-    CarrosselBannersComponent
+    CarrosselBannersComponent,
+    BannerAlfaejaComponent,
+    InformacoesAlfaejaComponent,
+    HomeSocialComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']

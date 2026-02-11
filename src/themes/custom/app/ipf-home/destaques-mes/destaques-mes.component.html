@@ -1,0 +1,15 @@
+<div class="destaques-mes-container container">
+  <div class="row g-4 row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xxl-4">
+    <div class="col" *ngFor="let item of destaquesMes">
+      <a [routerLink]="['/items', item.id]" class="card-link">
+        <div class="card destaque-card h-100">
+          <img [src]="item.thumbnail" [alt]="item.title" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.resumo }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+.crejas-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.crejas-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.crejas-title-img {
+  width: 100%;        // 👈 ocupa toda largura do container
+  max-width: 100%;    // remove limitação anterior
+  height: auto;
+}
+
+.crejas-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #A0183C;
+  letter-spacing: 2px;
+}
+
+.ornament {
+  font-size: 30px;
+  color: #A0183C;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.crejas-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1150px;   // 👈 largura menor que o título
+  margin: 0 4%;
+}
+
+.creja-card {
+  background: #f7e1e5;
+  border: 1px solid #e2a4b1;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+  padding: 25px;
+  min-height: 240px;
+}
+
+.creja-card:hover {
+  transform: translateY(-5px);
+}
+
+.creja-card h3 {
+  font-size: 24px;
+  color: #A0183C;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.creja-card p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  flex-grow: 1;
+  text-align: justify;
+  hyphens: auto;
+  font-weight: 700;
+}
+
+.creja-btn {
+  align-self: flex-start;
+  margin-top: 20px;
+  background: #A0183C;
+  color: white;
+  text-decoration: none;  // 👈 remove sublinhado
+  padding: 10px 26px;
+  border-radius: 25px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.creja-btn:hover {
+  background: #A0183C;
+}

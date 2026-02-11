@@ -1,0 +1,114 @@
+.creja-hero {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+/* =========================
+   GRID PRINCIPAL
+========================= */
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 4fr 6fr;   // proporcional e seguro
+  gap: 60px;
+  align-items: start;
+}
+
+/* =========================
+   COLUNA ESQUERDA
+========================= */
+
+.hero-left h1 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #222;
+  margin: 0;
+}
+
+.highlight {
+  background-color: #f2c9cf;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* =========================
+   BOTÃO + IMAGEM
+========================= */
+
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-start;     // 👈 alinhar pelo topo real
+  justify-content: space-between;
+}
+
+.btn-saiba {
+  background: #b71c3a;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-saiba:hover {
+  background: #A0183C;
+}
+
+.hero-illustration img {
+  width: 200px;
+  display: block;
+}
+
+/* =========================
+   COLUNA DIREITA
+========================= */
+
+.hero-right {
+  font-size: 20px;
+  color: #444;
+  line-height: 1.7;
+  text-align: justify;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider-red {
+  height: 6px;
+  background: #A0183C;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.creja-stats {
+  background: #A0183C;
+  padding: 60px 0;
+  color: white;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 56px;
+  font-weight: 600;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 18px;
+  font-weight: 300;
+}

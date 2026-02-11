@@ -1,0 +1,38 @@
+.informacoes-alfaeja {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.informacoes-container {
+  max-width: 900px;     // 👈 largura controlada igual ao design
+  margin: 0 auto;       // centraliza
+  padding: 0 20px;
+}
+
+.info-bloco {
+  margin-bottom: 60px;
+}
+
+.info-bloco h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3a1f35;   // tom roxo escuro do design
+  margin-bottom: 20px;
+}
+
+.info-bloco p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+.info-bloco a {
+  color: #1d84b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-bloco a:hover {
+  text-decoration: underline;
+}

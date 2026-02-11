@@ -1,23 +1,13 @@
-<div class="mt-5">
-  <div class="title"><strong>CREJA's</strong></div>
-</div>
+<app-banner
+  [totalDocumentos]="2000"
+  [totalColaboradores]="300"
+  [totalAnos]="50">
+</app-banner>
 
-<div class="container mb-5 mt-3">
-  <a [routerLink]="['/communities/b71e514e-f260-4ca4-a07b-6bb9117c7c4d']" class="card">
-    <img src="https://www.acervo.paulofreire.org/assets/acervo/images/logo-top.png" alt="CREJA - Paulo Freire" />
-    <div class="card-divider"></div>
-    <div class="card-title"><strong>CREJA - Paulo Freire</strong></div>
-  </a>
+<app-crejas></app-crejas>
 
-  <a [routerLink]="['/communities/b3b3a7cb-7951-4d31-9770-77b365c62c51']" class="card">
-    <img src="assets/images/ipf-logo.jpg" alt="CREJA - IPF" />
-    <div class="card-divider"></div>
-    <div class="card-title"><strong>CREJA - IPF</strong></div>
-  </a>
+<app-home-video></app-home-video>
 
-  <a [routerLink]="['/home']" class="card card-link">
-    <img src="assets/images/CREJA_ALFAEJABRASIL.svg" alt="CREJA - ALFAEJA" />
-    <div class="card-divider"></div>
-    <div class="card-title"><strong>CREJA - ALFAEJA</strong></div>
-  </a>
-</div>
+<app-home-social></app-home-social>
+
+

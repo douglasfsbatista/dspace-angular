@@ -1,0 +1,51 @@
+.saiba-mais-section {
+  position: relative;
+  background: #ffffff;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+/* círculo decorativo */
+.saiba-mais-section::before {
+  content: "";
+  position: absolute;
+  top: -220px;
+  left: -260px;
+  width: 720px;
+  height: 720px;
+  background: #f4d3da;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.saiba-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.saiba-container h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2e1b2f;
+}
+
+.saiba-container p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.saiba-container ul {
+  margin: 0 0 25px 20px;
+}
+
+.saiba-container li {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  color: #444;
+}
