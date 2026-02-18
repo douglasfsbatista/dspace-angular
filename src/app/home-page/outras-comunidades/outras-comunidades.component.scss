@@ -1,0 +1,91 @@
+.outras-comunidades {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.outras-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ========================
+   TEXTO ESQUERDA
+======================== */
+
+.outras-texto h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #3a2237;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.outras-texto p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ========================
+   CARDS (PADRÃO CREJAS)
+======================== */
+
+.outras-card {
+  background: #FEE6FE;                 // mesmo fundo do crejas
+  border: 1px solid #8A0DBA;           // mesma borda
+  border-radius: 20px;
+  padding: 25px;
+  min-height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+}
+
+.outras-card:hover {
+  transform: translateY(-5px);
+}
+
+.outras-card h3 {
+  font-size: 24px;                     // mesmo tamanho do crejas
+  font-weight: 700;
+  color: #8A0DBA;                       // mesmo vinho do crejas
+  margin-bottom: 15px;
+}
+
+.outras-card p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  text-align: left;
+  flex-grow: 1;
+  hyphens: auto;
+}
+
+/* ========================
+   BOTÃO (IGUAL CREJAS)
+======================== */
+
+.btn-acessar {
+  align-self: flex-start;
+  margin-top: 20px;
+
+  background: #8A0DBA;                  // vinho sólido igual crejas
+  color: #ffffff;
+  padding: 10px 26px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+.btn-acessar:hover {
+  background: #8A0DBA;                  // hover igual crejas
+}

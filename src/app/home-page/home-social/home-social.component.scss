@@ -1,32 +1,55 @@
 .home-social-section {
-  padding: 80px 0;     // 👈 já vamos aumentar
-  margin-bottom: 0;
-  margin-top: 0 !important;
+  padding: 60px 0;
+  margin: 0;
+  text-align: center;
 }
+
+/* ========================
+   TÍTULO
+======================== */
+
+.social-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+/* ========================
+   WRAPPER
+======================== */
 
 .social-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 140px;   // espaço igual ao design
+  align-items: flex-start;
+  gap: 90px;
+  flex-wrap: wrap;
 }
+
+/* ========================
+   ITEM
+======================== */
 
 .social-item {
   display: flex;
+  flex-direction: column;  // 👈 ÍCONE EM CIMA, TEXTO EMBAIXO
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+
   text-decoration: none;
-  font-size: 26px;
+  color: inherit;
+  font-size: 20px;
   font-weight: 500;
   transition: 0.3s ease;
-  color: inherit;
 }
 
 .social-item img {
-  width: 55px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .social-item:hover {
   opacity: 0.8;
+  transform: translateY(-3px);
 }

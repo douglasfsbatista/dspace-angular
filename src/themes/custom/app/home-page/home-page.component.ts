@@ -23,6 +23,7 @@ import { CarrosselBannersComponent } from '../../../../app/home-page/carrossel-b
 import { BannerAlfaejaComponent } from '../../../../app/home-page/banner-alfaeja/banner-alfaeja.component';
 import { InformacoesAlfaejaComponent } from '../../../../app/home-page/informacoes-alfaeja/informacoes-alfaeja.component';
 import { HomeSocialComponent } from '../../../../app/home-page/home-social/home-social.component';
+import { OutrasComunidadesComponent } from '../../../../app/home-page/outras-comunidades/outras-comunidades.component';
 
 @Component({
   selector: 'ds-themed-home-page',
@@ -31,7 +32,29 @@ import { HomeSocialComponent } from '../../../../app/home-page/home-social/home-
   // templateUrl: './home-page.component.html'
   templateUrl: '../../../../app/home-page/home-page.component.html',
   standalone: true,
-  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ViewTrackerComponent, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent, DestaquesMesComponent, FiltroPesquisaComponent, CarrosselBannersComponent, BannerAlfaejaComponent, InformacoesAlfaejaComponent, HomeSocialComponent],
+  imports: [
+    ThemedHomeNewsComponent, 
+    NgTemplateOutlet, 
+    NgIf, 
+    ViewTrackerComponent, 
+    ThemedSearchFormComponent, 
+    ThemedTopLevelCommunityListComponent, 
+    RecentItemListComponent, 
+    AsyncPipe, 
+    TranslateModule, 
+    NgClass, 
+    SuggestionsPopupComponent, 
+    ThemedConfigurationSearchPageComponent, 
+    PageWithSidebarComponent, 
+    HomeCoarComponent, 
+    DestaquesMesComponent, 
+    FiltroPesquisaComponent, 
+    CarrosselBannersComponent, 
+    BannerAlfaejaComponent, 
+    InformacoesAlfaejaComponent, 
+    HomeSocialComponent,
+    OutrasComunidadesComponent,
+  ],
 })
 export class HomePageComponent extends BaseComponent {
 

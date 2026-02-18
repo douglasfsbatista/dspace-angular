@@ -3,6 +3,7 @@ import { BannerPauloFreireComponent } from './banner-paulo-freire/banner-paulo-f
 import { InformacoesPauloFreireComponent } from './informacoes-paulo-freire/informacoes-paulo-freire.component';
 import { HomeSocialComponent } from './home-social/home-social.component';
 import { DestaquesMesComponent } from './destaques-mes/destaques-mes.component';
+import { OutrasComunidadesComponent } from './outras-comunidades/outras-comunidades.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
       InformacoesPauloFreireComponent,
       HomeSocialComponent,
       DestaquesMesComponent,
+      OutrasComunidadesComponent
     ],
   templateUrl: './paulo-freire-home.component.html',
   styleUrls: ['./paulo-freire-home.component.scss']

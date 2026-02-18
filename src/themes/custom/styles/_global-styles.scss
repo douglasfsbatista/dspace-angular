@@ -2,3 +2,20 @@
 
 // imports the base global style
 @import '../../../styles/_global-styles.scss';
+@import url('https://fonts.googleapis.com/css2?family=Besley:wght@400;600;700;800&display=swap');
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #222;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+}

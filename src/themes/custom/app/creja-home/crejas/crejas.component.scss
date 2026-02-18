@@ -22,13 +22,13 @@
 .crejas-title h2 {
   font-size: 36px;
   font-weight: 700;
-  color: #A0183C;
+  color: #a0183c;
   letter-spacing: 2px;
 }
 
 .ornament {
   font-size: 30px;
-  color: #A0183C;
+  color: #a0183c;
 }
 
 /* =========================
@@ -60,26 +60,44 @@
 }
 
 .creja-card h3 {
-  font-size: 24px;
-  color: #A0183C;
+  font-family: 'Besley', serif;
+  font-weight: 700;      // Bold
+  font-size: 32px;
+  line-height: 1.08;     // 108%
+  letter-spacing: 0;
+  color: #a0183c;
   margin-bottom: 15px;
-  font-weight: 700;
 }
 
+
 .creja-card p {
-  font-size: 16px;
-  color: #333;
+  font-family: 'Besley', serif;
+  font-weight: 400;      // Regular
+  font-size: 20px;
   line-height: 1.6;
-  flex-grow: 1;
-  text-align: justify;
+  flex-grow: 1;     // 108%
+  letter-spacing: 0;
+  color: black;
+  text-align: left;
   hyphens: auto;
-  font-weight: 700;
 }
+
+.creja-card a {
+  font-family: 'Besley', serif;
+  font-weight: 500;      // Medium
+  font-size: 20px;
+  line-height: 1.08;     // 108%
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
 
 .creja-btn {
   align-self: flex-start;
   margin-top: 20px;
-  background: #A0183C;
+  background: #a0183c;
   color: white;
   text-decoration: none;  // 👈 remove sublinhado
   padding: 10px 26px;
@@ -89,5 +107,5 @@
 }
 
 .creja-btn:hover {
-  background: #A0183C;
+  background: #a0183c;
 }

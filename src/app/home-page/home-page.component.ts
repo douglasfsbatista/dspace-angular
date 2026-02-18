@@ -23,6 +23,7 @@ import { CarrosselBannersComponent } from './carrossel-banners/carrossel-banners
 import { BannerAlfaejaComponent } from './banner-alfaeja/banner-alfaeja.component';
 import { InformacoesAlfaejaComponent } from './informacoes-alfaeja/informacoes-alfaeja.component';
 import { HomeSocialComponent } from './home-social/home-social.component';
+import { OutrasComunidadesComponent } from './outras-comunidades/outras-comunidades.component';
 
 @Component({
   selector: 'ds-base-home-page',
@@ -50,6 +51,7 @@ import { HomeSocialComponent } from './home-social/home-social.component';
     BannerAlfaejaComponent,
     InformacoesAlfaejaComponent,
     HomeSocialComponent,
+    OutrasComunidadesComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
