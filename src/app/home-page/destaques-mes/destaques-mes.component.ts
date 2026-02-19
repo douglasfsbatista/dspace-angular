@@ -13,27 +13,27 @@ export class DestaquesMesComponent {
   destaquesMes = [
     {
       id: '123456',
-      title: 'Flecha - Jullyana Cariri',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar67f68ca59fe2c.png'
+      title: 'Leitura do Mundo: Ação na Educação de Jovens, Adultos e Idosos em Alto do Rodrigues (RN)',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-1.png'
     },
     {
       id: '789012',
-      title: 'Uma forma poética de resistência',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250411192204Patr%C3%ADcia%20Roberta%20(2)%20(1).jpeg'
+      title: 'Leitura do Mundo: Ação na Educação de Jovens, Adultos e Idosos em Fortaleza (CE)',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-2.png'
     },
     {
       id: '789013',
-      title: 'História de vida, Maria Crescência, 98 anos',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://img.youtube.com/vi/GI9EWJO-CU8/hqdefault.jpg'
+      title: 'Leitura do Mundo: Ação na Educação de Jovens, Adultos e Idosos - Escola em Alto do Cabo de Santo Agostinho (PE)',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-3.png'
     },
     {
       id: '789014',
-      title: 'Takoramono',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250425175453Screenshot_20250419_221345_Chrome.jpg'
+      title: 'Oficina de Leitura e Escrita',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-4.png'
     }
   ];
 }

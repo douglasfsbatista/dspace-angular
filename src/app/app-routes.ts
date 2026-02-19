@@ -292,7 +292,7 @@ export const APP_ROUTES: Route[] = [
         canActivate: [authenticatedGuard],
       },
       {
-        path: 'creja-home',
+        path: 'crejao',
         component: CrejaHomeComponent,
       },
       {

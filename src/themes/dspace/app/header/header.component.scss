@@ -8,24 +8,33 @@ body, button, input, select, textarea, li, a {
 
 /* ===== Navegação (estilos compartilhados) ===== */
 .custom-nav {
-  row-gap: .25rem;
 
   .nav-link {
     position: relative;
     display: inline-block;
-    padding: .5rem 1.25rem .75rem;
+    padding: .5rem 1rem .75rem; // leve ajuste
     color: #fff !important;
     text-decoration: none !important;
     white-space: nowrap;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;  // 👈 Medium
+    font-size: 17px;   // 👈 tamanho solicitado
+    letter-spacing: 0;
+
     transition: color .2s ease, opacity .2s ease;
 
     &:hover { color: #e0e0e0 !important; }
-    &:focus-visible { outline: 2px dashed #fff; outline-offset: 2px; }
 
     &.active::after {
       content: '';
-      position: absolute; left: 0; right: 0; bottom: 0;
-      height: 3px; background-color: #fff; border-radius: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
     }
   }
 }
@@ -62,8 +71,8 @@ body, button, input, select, textarea, li, a {
   .nav-collapsible {
     display: flex !important;
     justify-content: center;
-    gap: .5rem .75rem;
-    flex-wrap: wrap; /* segurança caso falte espaço */
+    gap: .5rem .4rem;  // 👈 reduz espaço horizontal
+    flex-wrap: nowrap; // 👈 não quebra linha
   }
 }
 

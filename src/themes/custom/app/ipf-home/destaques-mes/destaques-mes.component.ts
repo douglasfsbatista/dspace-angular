@@ -13,27 +13,27 @@ export class DestaquesMesComponent {
   destaquesMes = [
     {
       id: '123456',
-      title: 'Flecha - Jullyana Cariri',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar67f68ca59fe2c.png'
+      title: 'O Sujeito irreverente',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-1.png'
     },
     {
       id: '789012',
-      title: 'Uma forma poética de resistência',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250411192204Patr%C3%ADcia%20Roberta%20(2)%20(1).jpeg'
+      title: 'Que e como é necessário aprender',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-2.png'
     },
     {
       id: '789013',
-      title: 'História de vida, Maria Crescência, 98 anos',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://img.youtube.com/vi/GI9EWJO-CU8/hqdefault.jpg'
+      title: 'Alfabetização inicial de jovens, adultos e idosos: a ousadia de fazer e o dever de mostrar',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-3.png'
     },
     {
       id: '789014',
-      title: 'Takoramono',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250425175453Screenshot_20250419_221345_Chrome.jpg'
+      title: 'Confintea - Brasil +6 -Fóruns EJA Brasil - Moacir Gadotti e Almerico Biondi',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-alfaeja/destaque-4.png'
     }
   ];
 }

@@ -1,6 +1,4 @@
 .destaques-mes-container {
-  /* opcional: alinhar com outras seções */
-  /* max-width já controlado pelo .container */
 
   .card-link {
     display: block;
@@ -9,46 +7,31 @@
   }
 
   .destaque-card {
-    background: #fff;
+    background: transparent;
     border: none;
-    border-radius: 0.75rem;
-    overflow: hidden;
     box-shadow: none;
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: transform .2s ease;
+  }
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    }
+  .card-link:hover .destaque-card {
+    transform: translateY(-4px);
+  }
 
-    .card-img-top {
-      width: 100%;
-      aspect-ratio: 1 / 1;      /* quadrado; ajuste se quiser 4/3 */
-      object-fit: cover;
-      background-color: #e0e0e0;
-      border-radius: 0.75rem;
-    }
+  .destaque-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 20px;
+    background: #e0e0e0;
+    display: block;
+  }
 
-    .card-body {
-      padding: 0.75rem;
-
-      .card-title {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      .card-text {
-        font-size: 0.75rem;
-        color: #6c757d;
-        margin: 0;
-      }
-    }
+  .destaque-title {
+    margin-top: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;   // pode ajustar se quiser 500
+    font-size: 20px;
+    line-height: 1.3;
+    color: #508BD1;     // azul da imagem 2
   }
 }
-
-/* se quiser limitar a largura máxima do container em telas enormes:
-@media (min-width: 1400px) {
-  .destaques-mes-container.container { max-width: 1320px; } // padrão do Bootstrap
-}
-*/

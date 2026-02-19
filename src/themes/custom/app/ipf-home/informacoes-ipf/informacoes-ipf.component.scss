@@ -14,16 +14,19 @@
 }
 
 .info-bloco h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: #3a1f35;   // tom roxo escuro do design
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;        // Bold
+  font-size: 50px;         // 👈 conforme Figma
+  color: #0D0D70;   // tom roxo escuro do design
   margin-bottom: 20px;
 }
 
 .info-bloco p {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #444;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;        // Bold
+  font-size: 20px;         // 👈 conforme Figma
+  line-height: 1.7;        // equivalente ao "Auto"
+  color: #000000;
   text-align: left;
 }
 

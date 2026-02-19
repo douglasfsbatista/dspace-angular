@@ -1,6 +1,6 @@
 .creja-hero {
   background: #ffffff;
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 /* =========================
@@ -18,13 +18,13 @@
    COLUNA ESQUERDA
 ========================= */
 
-.hero-left h1 {
+.hero-left h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 40px;  
   line-height: 1.08; 
   letter-spacing: 0;
-  color: #222;
+  color: black;
   margin: 0;
 }
 
@@ -46,12 +46,14 @@
 }
 
 .btn-saiba {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px; 
   background: #b71c3a;
   color: white;
   border: none;
   padding: 12px 28px;
   border-radius: 30px;
-  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -72,7 +74,7 @@
 .hero-right {
   font-size: 20px;
   color: black;
-  line-height: 1.7;
+  line-height: 1.0;
   text-align: left;
   max-width: 100%;
   overflow-wrap: break-word;
@@ -80,9 +82,8 @@
 
 .hero-right p {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;   // Regular
-  font-size: 20px;    // 👈 tamanho do Figma
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* =========================
@@ -106,9 +107,11 @@
 
 .stats-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* centraliza o bloco */
+  gap: 100px;               /* 🔥 gap fixo */
   text-align: center;
 }
+
 
 .stat-item h2 {
   font-family: 'Besley', serif;
@@ -124,7 +127,7 @@
   font-family: 'Besley', serif;
   font-weight: 400;      // Regular
   font-size: 20px;
-  line-height: 1.08;     // 108%
+  line-height: 1.3;     // 108%
   letter-spacing: 0;
   color: #F7D5DD;
 }

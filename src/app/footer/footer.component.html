@@ -1,46 +1,140 @@
-<footer class="text-dark pt-4" style="background-color:#D5D5D5;">
-  <div class="container text-black pt-4 pb-2" style="background-color:#D5D5D5;">
-    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center align-items-lg-start gap-4">
-      <div class="text-center text-lg-start fw-bold">
-        <img src="assets/images/CREJA_ALFAEJABRASIL.svg" alt="ALFA-EJA Brasil" class="img-fluid mb-2"
-          style="max-width:350px;">
-        <p class="mb-0" style="font-weight: bold; color: black;">Educação para jovens, adultos e idosos</p>
+<footer class="pt-5 pb-5" [style.background-color]="footerBottomColor">
+  <div class="container pt-4 pb-4" [style.background-color]="footerBottomColor">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-4">
+      <div class="footer-left">
+
+        <!-- ALFA -->
+        <img
+          *ngIf="currentCommunity === 'home' || currentCommunity === 'default'"
+          src="assets/images/creja-alfaeja-logo.svg"
+          alt="ALFA-EJA Brasil"
+          class="img-fluid mb-2"
+          style="max-width:400px;"
+        >
+
+        <!-- Paulo Freire -->
+        <img
+          *ngIf="currentCommunity === 'paulo'"
+          src="assets/images/creja-paulo-freire-logo.svg"
+          alt="CREJA Paulo Freire"
+          class="img-fluid mb-2"
+          style="max-width:400px;"
+        >
+
+        <!-- IPF -->
+        <img
+          *ngIf="currentCommunity === 'ipf'"
+          src="assets/images/creja-ipf-logo.svg"
+          alt="CREJA Instituto Paulo Freire"
+          class="img-fluid mb-2"
+          style="max-width:400px;"
+        >
+
+        <!-- CREJÃO -->
+        <img
+          *ngIf="currentCommunity === 'crejao'"
+          src="assets/images/crejao-logo.svg"
+          alt="CREJA Instituto Paulo Freire"
+          class="img-fluid mb-2"
+          style="max-width:400px;"
+        >
+
+        <p class="footer-description">
+          CREJA é um Centro de Referência da
+          Educação de Jovens e Adultos.
+        </p>
+
       </div>
 
-      <nav class="fw-bold text-center text-lg-start" aria-label="Links principais">
-        <ul class="list-unstyled d-flex flex-column gap-2 mb-0" style="color: black; text-decoration: none;">
-          <li><a routerLink="/" class="text-decoration-none d-inline-block">Pesquisas e Memórias</a></li>
-          <li><a routerLink="/" class="text-decoration-none d-inline-block">Práticas Alfabetizadoras</a></li>
-          <li><a routerLink="/" class="text-decoration-none d-inline-block">Vozes da EJA</a></li>
+      <nav class="text-between text-lg-start" aria-label="Links principais">
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0 footer-links">
+
+          <!-- MENU NORMAL (Alfa, IPF, Paulo) -->
+          <ng-container *ngIf="currentCommunity !== 'crejao'; else menuCrejao">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/">Sobre o CREJA</a></li>
+            <li><a routerLink="/">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/">Práticas Alfabetizadoras</a></li>
+          </ng-container>
+
+          <!-- MENU CREJÃO -->
+          <ng-template #menuCrejao>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/">Sobre o CREJA</a></li>
+            <li><a routerLink="/">CREJA Paulo Freire</a></li>
+            <li><a routerLink="/">CREJA Instituto Paulo Freire</a></li>
+          </ng-template>
+
         </ul>
       </nav>
 
-      <nav class="fw-bold text-center text-lg-start" aria-label="Institucional">
+      <nav class="text-between text-lg-start">
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0 footer-links">
+
+          <ng-container *ngIf="currentCommunity !== 'crejao'; else menuCrejaoCol2">
+            <li><a routerLink="/">Vozes</a></li>
+            <li><a routerLink="/">Redes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/">Ajuda</a></li>
+          </ng-container>
+
+          <ng-template #menuCrejaoCol2>
+            <li><a routerLink="/">CREJA ALFA-EJA Brasil</a></li>
+            <li><a routerLink="/">Redes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/">Como Colaborar</a></li>
+          </ng-template>
+
+        </ul>
+      </nav>
+
+      <nav class="text-between text-lg-start" aria-label="Institucional">
         <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
-          <li><a routerLink="/" class="text-decoration-none d-inline-block">Redes</a></li>
-          <li><a routerLink="/" class="text-decoration-none d-inline-block">Sobre o CREJA</a></li>
+          <li><a routerLink="/" class="text-decoration-none d-inline-block">Como colaborar</a></li>
+          <li><a routerLink="/" class="text-decoration-none d-inline-block">Termos de Uso</a></li>
+          <li><a routerLink="/" class="text-decoration-none d-inline-block">Políticas de Privacidade</a></li>
+          <li><a routerLink="/" class="text-decoration-none d-inline-block">Fale Conosco</a></li>
         </ul>
       </nav>
     </div>
 
     <hr class="my-4">
 
+    <!-- BLOCO LOGOS INFERIORES -->
     <div
-      class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-between align-items-center gap-4" style="font-weight: bold; color: black;">
+      class="d-flex flex-column flex-sm-row align-items-center footer-logos"
+      [ngClass]="{
+        'footer-logos-alfa': currentCommunity === 'home' || currentCommunity === 'default',
+        'footer-logos-single': currentCommunity !== 'home' && currentCommunity !== 'default'
+      }"
+    >
+
+      <!-- IPF (sempre aparece) -->
       <div class="text-center">
-        <p class="mb-2">Realização</p>
-        <img src="assets/images/logo_ipf_preto.png" alt="Instituto Paulo Freire" class="img-fluid"
-          style="max-width:180px;">
+        <p class="mb-3 text-black">Realização</p>
+        <img src="assets/images/logo_ipf_preto.png"
+            alt="Instituto Paulo Freire"
+            class="img-fluid"
+            style="max-width:180px;">
       </div>
 
-      <div class="text-center">
-        <p class="mb-2">Parceria</p>
-        <img src="assets/images/logo_petrobras_preto.png" alt="Petrobras" class="img-fluid" style="max-width:180px;">
+      <!-- Petrobras (apenas no Alfa) -->
+      <div class="text-center"
+          *ngIf="currentCommunity === 'home' || currentCommunity === 'default'">
+        <p class="mb-3 text-black">Parceria</p>
+        <img src="assets/images/logo_petrobras_preto.png"
+            alt="Petrobras"
+            class="img-fluid"
+            style="max-width:180px;">
       </div>
     </div>
   </div>
 
-  <div class="text-center py-2 small" style="background-color:#D5D5D5; color:black; font-weight: bold;">
+  <hr class="my-4">
+
+  <div 
+    class="text-center py-2 footer-ipf-text"
+    [style.background-color]="footerBottomColor">
     INSTITUTO DE EDUCAÇÃO E DIREITOS HUMANOS PAULO FREIRE | CNPJ 04.950.603/0001-05
   </div>
 </footer>

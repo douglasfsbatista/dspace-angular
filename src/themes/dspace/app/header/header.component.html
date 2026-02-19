@@ -1,67 +1,147 @@
-<header id="social-header" class="py-3"
-  style="background-color:#FFFFFF; color:black; --bs-link-color:#000; --bs-link-hover-color:#000;">
+<!-- HEADER SUPERIOR (BRANCO) -->
+<header id="social-header"
+        class="py-3"
+        style="background-color:#FFFFFF; color:black; --bs-link-color:#000; --bs-link-hover-color:#000;">
+
   <div class="container">
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
-      <a class="d-inline-flex align-items-center" routerLink="/home" [attr.aria-label]="'home.title' | translate">
-        <img id="header-logo" src="assets/images/CREJA_ALFAEJABRASIL.svg"
-          [attr.alt]="'menu.header.image.logo' | translate" class="img-fluid d-block">
+      <!-- 🔥 LOGO DINÂMICA -->
+      <a class="d-inline-flex align-items-center"
+         routerLink="/home"
+         [attr.aria-label]="'home.title' | translate">
+
+        <img id="header-logo"
+             [src]="getLogo()"
+             alt="CREJA Logo"
+             class="img-fluid d-block">
       </a>
 
-      <div role="menubar" aria-label="Ações do cabeçalho"
-        class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-end gap-2">
+      <div role="menubar"
+           aria-label="Ações do cabeçalho"
+           class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-end gap-2">
+
         <ds-lang-switch></ds-lang-switch>
         <ds-context-help-toggle></ds-context-help-toggle>
         <ds-impersonate-navbar></ds-impersonate-navbar>
         <ds-auth-nav-menu></ds-auth-nav-menu>
+
       </div>
 
     </div>
   </div>
 </header>
 
-<header class="py-1 site-nav" style="background-color:#9602C7; color:#fff;">
+
+
+<!-- 🔥 NAVBAR PRINCIPAL (COR DINÂMICA) -->
+<header class="py-1 site-nav"
+        [style.background-color]="getHeaderColor()"
+        style="color:#fff;">
+
   <nav class="container" aria-label="Menu principal">
+
     <div class="d-flex align-items-center justify-content-between">
       <span class="d-lg-none"></span>
 
-      <!-- Botão hambúrguer só no < lg -->
+      <!-- Botão hambúrguer mobile -->
       <button
         type="button"
         class="navbar-toggler d-inline-flex d-lg-none align-items-center"
         aria-label="Abrir menu"
         (click)="isNavOpen = !isNavOpen"
         [attr.aria-expanded]="isNavOpen">
+
         <span class="hamburger" [class.open]="isNavOpen">
           <span></span><span></span><span></span>
         </span>
+
       </button>
     </div>
 
-    <!-- Menu: dropdown no mobile, horizontal no desktop -->
+    <!-- MENU -->
     <div class="custom-nav nav-collapsible d-lg-flex"
-         [class.open]="isNavOpen"
-         (click)="isNavOpen = false">
-      <a class="nav-link" routerLink="/home" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Home</a>
+     [class.open]="isNavOpen"
+     (click)="isNavOpen = false">
 
-      <a class="nav-link" routerLink="/sobre-o-creja" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Sobre o CREJA</a>
+      <!-- FIXOS -->
+      <a class="nav-link"
+        routerLink="/crejao"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
 
-      <a class="nav-link" routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Pesquisas e Memórias</a>
+      <a class="nav-link"
+        routerLink="/sobre-o-creja"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Sobre
+      </a>
 
-      <a class="nav-link" routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Práticas Alfabetizadoras</a>
+      <!-- 🔥 MENU NORMAL (ALFA, IPF, PAULO) -->
+      <ng-container *ngIf="currentCommunity !== 'crejao'">
 
-      <a class="nav-link" routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Vozes da EJA</a>
+        <a class="nav-link"
+          routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Pesquisas e Memórias
+        </a>
 
-      <a class="nav-link" routerLink="/redes" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Redes</a>
+        <a class="nav-link"
+          routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Práticas Alfabetizadoras
+        </a>
 
-      <a class="nav-link" routerLink="/ajuda" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">Ajuda</a>
+        <a class="nav-link"
+          routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Vozes da EJA
+        </a>
+
+      </ng-container>
+
+      <!-- 🔥 MENU CREJÃO -->
+      <ng-container *ngIf="currentCommunity === 'crejao'">
+
+        <a class="nav-link"
+          routerLink="/paulo-freire-home"
+          routerLinkActive="active">
+          CREJA Paulo Freire
+        </a>
+
+        <a class="nav-link"
+          routerLink="/ipf-home"
+          routerLinkActive="active">
+          CREJA Instituto Paulo Freire
+        </a>
+
+        <a class="nav-link"
+          routerLink="/home"
+          routerLinkActive="active">
+          CREJA ALFA-EJA Brasil
+        </a>
+
+      </ng-container>
+
+      <!-- FIXOS -->
+      <a class="nav-link"
+        routerLink="/redes"
+        routerLinkActive="active">
+        Redes
+      </a>
+
+      <a class="nav-link"
+        routerLink="/ajuda"
+        routerLinkActive="active">
+        Ajuda
+      </a>
+
     </div>
+
   </nav>
 </header>

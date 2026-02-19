@@ -13,27 +13,27 @@ export class DestaquesMesComponent {
   destaquesMes = [
     {
       id: '123456',
-      title: 'Flecha - Jullyana Cariri',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar67f68ca59fe2c.png'
+      title: 'Passagem: Educação de Adultos, com a presença de Paulo Freire e a Prefeita Luiza Erundina',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-paulo-freire/destaque-1.png'
     },
     {
       id: '789012',
-      title: 'Uma forma poética de resistência',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250411192204Patr%C3%ADcia%20Roberta%20(2)%20(1).jpeg'
+      title: 'Paulo Freire com representantes do ensino da Jamaica',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-paulo-freire/destaque-2.png'
     },
     {
       id: '789013',
-      title: 'História de vida, Maria Crescência, 98 anos',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://img.youtube.com/vi/GI9EWJO-CU8/hqdefault.jpg'
+      title: 'MOVA: aula inaugural com Paulo Freire',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-paulo-freire/destaque-3.png'
     },
     {
       id: '789014',
-      title: 'Takoramono',
-      resumo: 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',
-      thumbnail: 'https://museudapessoa.org/wp-content/uploads/avatar/20250425175453Screenshot_20250419_221345_Chrome.jpg'
+      title: 'I congresso de alfabetizandos da cidade de São Paulo do MOVA-SP',
+      resumo: '',
+      thumbnail: 'assets/images/destaques-paulo-freire/destaque-4.png'
     }
   ];
 }

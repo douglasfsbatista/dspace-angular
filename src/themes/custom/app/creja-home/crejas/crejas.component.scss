@@ -10,25 +10,13 @@
 .crejas-title {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .crejas-title-img {
-  width: 100%;        // 👈 ocupa toda largura do container
-  max-width: 100%;    // remove limitação anterior
+  width: 100%;
+  max-width: 100%;
   height: auto;
-}
-
-.crejas-title h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #a0183c;
-  letter-spacing: 2px;
-}
-
-.ornament {
-  font-size: 30px;
-  color: #a0183c;
 }
 
 /* =========================
@@ -38,74 +26,74 @@
 .crejas-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1150px;   // 👈 largura menor que o título
-  margin: 0 4%;
+  gap: 35px;                 /* mais espaço lateral */
+  max-width: 1070px;         /* 🔥 cards mais largos */
+  margin: 0 auto;            /* centraliza */
 }
+
+/* CARD */
 
 .creja-card {
   background: #f7e1e5;
   border: 1px solid #e2a4b1;
-  border-radius: 20px;
+  border-radius: 22px;
+  padding: 30px 20px 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: 0.3s ease;
-  padding: 25px;
-  min-height: 240px;
+  min-height: 210px;        /* 🔥 menos alto */
 }
 
 .creja-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
+
+/* TÍTULO */
 
 .creja-card h3 {
   font-family: 'Besley', serif;
   font-weight: 700;      // Bold
   font-size: 32px;
-  line-height: 1.08;     // 108%
+  line-height: 1.2;
   letter-spacing: 0;
   color: #a0183c;
   margin-bottom: 15px;
 }
 
+/* TEXTO */
 
 .creja-card p {
-  font-family: 'Besley', serif;
-  font-weight: 400;      // Regular
-  font-size: 20px;
-  line-height: 1.6;
-  flex-grow: 1;     // 108%
+  font-family: 'Besley', sans-serif;  /* 🔥 alterado */
+  font-weight: 400;                        /* Regular */
+  font-size: 16px;                         /* 🔥 16px */
+  line-height: 1.3;
   letter-spacing: 0;
-  color: black;
+  color: #000000;
   text-align: left;
-  hyphens: auto;
+  flex-grow: 1;
+  margin-bottom: 25px;
 }
 
+/* BOTÃO */
+
 .creja-card a {
-  font-family: 'Besley', serif;
-  font-weight: 500;      // Medium
-  font-size: 20px;
-  line-height: 1.08;     // 108%
-  letter-spacing: 0;
-  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   text-decoration: none;
   color: white;
 }
 
-
 .creja-btn {
   align-self: flex-start;
-  margin-top: 20px;
   background: #a0183c;
-  color: white;
-  text-decoration: none;  // 👈 remove sublinhado
-  padding: 10px 26px;
-  border-radius: 25px;
+  padding: 10px 28px;
+  border-radius: 28px;
   display: inline-block;
   transition: 0.3s;
 }
 
 .creja-btn:hover {
-  background: #a0183c;
+  opacity: 0.9;
 }

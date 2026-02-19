@@ -1,3 +1,7 @@
+/* =========================
+   CONTAINER RESPONSIVO
+========================= */
+
 .custom-container {
   padding: 0 1rem;
   max-width: 100%;
@@ -15,11 +19,84 @@
   }
 }
 
-a[routerLink],
-a[routerLink]:hover,
-a[routerLink]:visited,
-a[routerLink]:focus {
+/* =========================
+   LINKS (RESET GLOBAL DO FOOTER)
+========================= */
+
+footer a[routerLink],
+footer a[routerLink]:hover,
+footer a[routerLink]:visited,
+footer a[routerLink]:focus {
   color: #000 !important;
-  font-weight: bold;
   text-decoration: none;
+}
+
+/* =========================
+   LINKS DO MENU (INTER 16 REGULAR)
+========================= */
+
+.footer-links a,
+footer nav ul li a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; // Regular
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.footer-links a:hover,
+footer nav ul li a:hover {
+  opacity: 0.8;
+}
+
+.footer-ipf-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; 
+  font-size: 16px;
+  color: #000;
+}
+
+/* =========================
+   BLOCO LOGOS (ALFA)
+========================= */
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: fit-content;   // 🔥 ESSENCIAL
+}
+
+.footer-logos-alfa {
+  gap: 240px;
+}
+
+.footer-logos-single {
+  gap: 0;
+}
+
+/* =========================
+   DESCRIÇÃO ABAIXO DO LOGO
+========================= */
+
+.footer-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;     // Regular
+  font-size: 20px;      // Igual Figma
+  line-height: 1.4;
+  color: #000;
+  max-width: 420px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* =========================
+   COLUNA ESQUERDA
+========================= */
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
