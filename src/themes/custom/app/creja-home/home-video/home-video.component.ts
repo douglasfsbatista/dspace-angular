@@ -15,7 +15,7 @@ export class HomeVideoComponent {
 
   constructor(private sanitizer: DomSanitizer) {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      'https://www.youtube.com/embed/JRm-mIGRHdE'
+      'https://www.youtube.com/embed/1Bx-TNFRq74?si=3ZPd69zXeJvVCQMC'
     );
   }
 }

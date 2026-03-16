@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { EagerThemeModule as DSpaceEagerThemeModule } from './dspace/eager-theme.module';
 // import { EagerThemeModule as CustomEagerThemeModule } from './custom/eager-theme.module';
+import { EagerThemeModule as AlfaEJABrasilEagerThemeModule } from './alfaejabrasil/eager-theme.module';
 
 /**
  * This module bundles the eager theme modules for all available themes.
@@ -12,6 +13,7 @@ import { EagerThemeModule as DSpaceEagerThemeModule } from './dspace/eager-theme
  */
 @NgModule({
   imports: [
+    AlfaEJABrasilEagerThemeModule,
     DSpaceEagerThemeModule,
     // CustomEagerThemeModule,
   ],

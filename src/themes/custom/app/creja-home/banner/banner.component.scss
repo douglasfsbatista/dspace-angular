@@ -9,22 +9,22 @@
 
 .hero-content {
   display: grid;
-  grid-template-columns: 4fr 6fr;   // proporcional e seguro
-  gap: 60px;
+  grid-template-columns: 47% 53%; /* 🔥 direita ligeiramente maior */
+  gap: 70px;
   align-items: start;
 }
+
 
 /* =========================
    COLUNA ESQUERDA
 ========================= */
 
-.hero-left h2 {
+.hero-left h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 40px;  
-  line-height: 1.08; 
-  letter-spacing: 0;
-  color: black;
+  font-size: 40px;
+  line-height: 1.15;
+  color: #000;
   margin: 0;
 }
 
@@ -39,33 +39,38 @@
 ========================= */
 
 .hero-actions {
-  margin-top: 30px;
+  margin-top: 35px;
   display: flex;
-  align-items: flex-start;     // 👈 alinhar pelo topo real
-  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
 
 .btn-saiba {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 20px; 
-  background: #b71c3a;
-  color: white;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
+  font-size: 20px;
+  padding: 14px 36px;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  background: linear-gradient(90deg, #A0183C 0%, #E07A8E 100%);
+  transition: all .3s ease;
 }
 
 .btn-saiba:hover {
-  background: #A0183C;
+  transform: translateY(-2px);
+  opacity: .9;
 }
 
 .hero-illustration img {
-  width: 200px;
+  width: 199px;
+  height: 153px;
+  object-fit: contain;
   display: block;
+  transform: translate(120px, 10px); 
 }
+
 
 /* =========================
    COLUNA DIREITA
@@ -75,15 +80,14 @@
   font-size: 20px;
   color: black;
   line-height: 1.0;
-  text-align: left;
-  max-width: 100%;
-  overflow-wrap: break-word;
+  max-width: 510px;
 }
 
 .hero-right p {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 20px;
+  margin-bottom: 18px;
 }
 
 /* =========================

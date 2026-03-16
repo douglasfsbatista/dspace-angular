@@ -96,9 +96,13 @@ export class FooterComponent implements OnInit {
       this.currentCommunity = 'home';
       this.footerBottomColor = '#FEE6FE';
 
-    } else {
+    } else if (url.includes('saiba-mais-creja')) {
+      this.currentCommunity = 'saiba-mais-creja';
+      this.footerBottomColor = '#FFE6ED';
+
+    }else {
       this.currentCommunity = 'default';
-      this.footerBottomColor = '#D5D5D5';
+      this.footerBottomColor = '#FEE6FE';
     }
 
     console.log('Footer comunidade detectada:', this.currentCommunity);
