@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { HomeSocialComponent } from '../../themes/custom/app/creja-home/home-social/home-social.component';
 import {
   Observable,
   of as observableOf,
@@ -33,7 +34,7 @@ import { hasValue } from '../shared/empty.util';
   styleUrls: ['footer.component.scss'],
   templateUrl: 'footer.component.html',
   standalone: true,
-  imports: [NgIf, NgClass, RouterLink, AsyncPipe, DatePipe, TranslateModule],
+  imports: [NgIf, NgClass, RouterLink, AsyncPipe, DatePipe, TranslateModule, HomeSocialComponent,],
 })
 export class FooterComponent implements OnInit {
 
@@ -88,7 +89,7 @@ export class FooterComponent implements OnInit {
       this.currentCommunity = 'ipf';
       this.footerBottomColor = '#DFECF2';
 
-    } else if (url.includes('crejao')) {
+    } else if (url.includes('creja-home') || url.includes('saiba-mais-creja') || url.includes('redes-creja')) {
       this.currentCommunity = 'crejao';
       this.footerBottomColor = '#FFE6ED';
 

@@ -6,13 +6,13 @@
   <div class="container">
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
-      <!-- 🔥 LOGO DINÂMICA -->
+      <!-- LOGO DINÂMICA -->
       <a class="d-inline-flex align-items-center"
          routerLink="/home"
          [attr.aria-label]="'home.title' | translate">
 
         <img id="header-logo"
-             [src]="getLogo()"
+             [src]="config.logo"
              alt="CREJA Logo"
              class="img-fluid d-block">
       </a>
@@ -33,10 +33,9 @@
 </header>
 
 
-
-<!-- 🔥 NAVBAR PRINCIPAL (COR DINÂMICA) -->
+<!-- NAVBAR PRINCIPAL -->
 <header class="py-1 site-nav"
-        [style.background-color]="getHeaderColor()"
+        [style.background-color]="config.color"
         style="color:#fff;">
 
   <nav class="container" aria-label="Menu principal">
@@ -44,12 +43,12 @@
     <div class="d-flex align-items-center justify-content-between">
       <span class="d-lg-none"></span>
 
-      <!-- Botão hambúrguer mobile -->
+      <!-- Botão hamburguer -->
       <button
         type="button"
         class="navbar-toggler d-inline-flex d-lg-none align-items-center"
         aria-label="Abrir menu"
-        (click)="isNavOpen = !isNavOpen"
+        (click)="toggleNav()"
         [attr.aria-expanded]="isNavOpen">
 
         <span class="hamburger" [class.open]="isNavOpen">
@@ -61,83 +60,88 @@
 
     <!-- MENU -->
     <div class="custom-nav nav-collapsible d-lg-flex"
-     [class.open]="isNavOpen"
-     (click)="isNavOpen = false">
+         [class.open]="isNavOpen"
+         (click)="closeNav()">
 
-      <!-- FIXOS -->
+      <!-- MENU DINÂMICO -->
       <a class="nav-link"
-        routerLink="/crejao"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">
+         [routerLink]="config.home"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
         Home
       </a>
 
       <a class="nav-link"
-        routerLink="/sobre-o-creja"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">
+         [routerLink]="config.sobre"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
         Sobre
       </a>
 
-      <!-- 🔥 MENU NORMAL (ALFA, IPF, PAULO) -->
+
+      <!-- MENU NORMAL -->
       <ng-container *ngIf="currentCommunity !== 'crejao'">
 
         <a class="nav-link"
-          routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
+          [routerLink]="config.collections?.pesquisas"
+          routerLinkActive="active">
           Pesquisas e Memórias
         </a>
 
         <a class="nav-link"
-          routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
+          [routerLink]="config.collections?.praticas"
+          routerLinkActive="active">
           Práticas Alfabetizadoras
         </a>
 
         <a class="nav-link"
-          routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
+          [routerLink]="config.collections?.vozes"
+          routerLinkActive="active">
           Vozes da EJA
+        </a>
+
+        <a class="nav-link"
+           routerLink="/redes"
+           routerLinkActive="active">
+          Redes
         </a>
 
       </ng-container>
 
-      <!-- 🔥 MENU CREJÃO -->
-      <ng-container *ngIf="currentCommunity === 'crejao' || currentCommunity === 'saiba-mais-creja'">
+
+      <!-- MENU CREJÃO -->
+      <ng-container *ngIf="currentCommunity === 'crejao'">
 
         <a class="nav-link"
-          routerLink="/paulo-freire-home"
-          routerLinkActive="active">
+           routerLink="/paulo-freire-home"
+           routerLinkActive="active">
           CREJA Paulo Freire
         </a>
 
         <a class="nav-link"
-          routerLink="/ipf-home"
-          routerLinkActive="active">
+           routerLink="/ipf-home"
+           routerLinkActive="active">
           CREJA Instituto Paulo Freire
         </a>
 
         <a class="nav-link"
-          routerLink="/home"
-          routerLinkActive="active">
+           routerLink="/home"
+           routerLinkActive="active">
           CREJA ALFA-EJA Brasil
+        </a>
+
+        <a class="nav-link"
+           routerLink="/redes-creja"
+           routerLinkActive="active">
+          Redes
         </a>
 
       </ng-container>
 
-      <!-- FIXOS -->
+      <!-- FIXO -->
       <a class="nav-link"
-        routerLink="/redes"
-        routerLinkActive="active">
-        Redes
-      </a>
-
-      <a class="nav-link"
-        routerLink="/ajuda"
-        routerLinkActive="active">
+         routerLink="/ajuda"
+         routerLinkActive="active">
         Ajuda
       </a>
 

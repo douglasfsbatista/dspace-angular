@@ -22,7 +22,7 @@ export class DestaquesMesComponent {
       id: '789012',
       title: 'Leitura do Mundo: Ação na Educação de Jovens, Adultos e Idosos em Fortaleza (CE)',
       resumo: '',
-      link: 'https://creja-test.alfaejabrasil.org.br/items/43644566-002e-4350-af5d-122b0c4ad248',
+      link: '/items/43644566-002e-4350-af5d-122b0c4ad248',
       thumbnail: 'assets/images/destaques-alfaeja/destaque-2.png'
     },
     {

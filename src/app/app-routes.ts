@@ -51,6 +51,7 @@ import { BannerComponent } from '../themes/custom/app/creja-home/banner/banner.c
 import { IpfHomeComponent } from '../themes/custom/app/ipf-home/ipf-home.component';
 import { PauloFreireHomeComponent } from '../themes/custom/app/paulo-freire-home/paulo-freire-home.component';
 import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/saiba-mais-creja.component';
+import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -147,6 +148,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'banner',
         component: BannerComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'redes-creja',
+        component: RedesCrejaComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
@@ -292,7 +298,7 @@ export const APP_ROUTES: Route[] = [
         canActivate: [authenticatedGuard],
       },
       {
-        path: 'crejao',
+        path: 'creja-home',
         component: CrejaHomeComponent,
       },
       {

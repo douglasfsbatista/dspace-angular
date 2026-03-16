@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule, NavigationEnd } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 import { MenuService } from 'src/app/shared/menu/menu.service';
 import { HostWindowService } from 'src/app/shared/host-window.service';
@@ -47,66 +47,177 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   constructor(
     protected menuService: MenuService,
     protected windowService: HostWindowService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {
-    // 🔥 super recebe exatamente os 2 argumentos do pai
     super(menuService, windowService);
   }
 
+  /*
+  CONFIGURAÇÃO DAS COMUNIDADES
+  */
+
+  communityConfigs: any = {
+
+    alfa: {
+      color: '#8A0DBA',
+      logo: 'assets/images/creja-alfaeja-logo.svg',
+      home: '/home',
+      sobre: '/sobre-o-creja',
+      collections: {
+        pesquisas: '/collections/420f504b-2ede-4acc-b302-666a8c58ffbf',
+        praticas: '/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f',
+        vozes: '/collections/8d031651-c18f-4011-ac15-a28c3e69b78e'
+      }
+    },
+
+    paulo: {
+      color: '#075B31',
+      logo: 'assets/images/creja-paulo-freire-logo.svg',
+      home: '/paulo-freire-home',
+      sobre: '/sobre-o-creja-paulo-freire',
+      collections: {
+        pesquisas: '/collections/cec3209d-90f6-4e51-ada5-00b32174e762',
+        praticas: '/collections/d9ed559b-9885-44f2-99cd-c72ba535f47e',
+        vozes: '/collections/009d8b45-9862-48b2-97d2-aca052d3ccad'
+      }
+    },
+
+    ipf: {
+      color: '#2A2AC6',
+      logo: 'assets/images/creja-ipf-logo.svg',
+      home: '/ipf-home',
+      sobre: '/sobre-o-creja-ipf',
+      collections: {
+        pesquisas: '/collections/9b91bbad-f8b8-424d-af74-80587036584a',
+        praticas: '/collections/607198ac-b89b-43e3-ab28-23a755a378ee',
+        vozes: '/collections/8aefaf34-edb6-4c7b-a312-b015b22f8526'
+      }
+    },
+
+    crejao: {
+      color: '#A0183C',
+      logo: 'assets/images/crejao-logo.svg',
+      home: '/creja-home',
+      sobre: '/saiba-mais-creja'
+    },
+
+    default: {
+      color: '#8A0DBA',
+      logo: 'assets/images/creja-alfaeja-logo.svg',
+      home: '/home',
+      sobre: '/sobre-o-creja',
+      collections: {
+        pesquisas: '/collections/420f504b-2ede-4acc-b302-666a8c58ffbf',
+        praticas: '/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f',
+        vozes: '/collections/8d031651-c18f-4011-ac15-a28c3e69b78e'
+      }
+    }
+
+  };
+
+  get config() {
+    return this.communityConfigs[this.currentCommunity] || this.communityConfigs.default;
+  }
+
   ngOnInit(): void {
+
     super.ngOnInit();
 
-    // Detecta na carga inicial
-    this.setCommunity(this.router.url);
+    this.detectCommunity(this.router.url);
 
-    // Atualiza ao navegar
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.setCommunity(event.urlAfterRedirects);
+        this.detectCommunity(event.urlAfterRedirects);
       });
   }
 
-  private setCommunity(url: string): void {
+  /*
+  DETECÇÃO DA COMUNIDADE
+  */
 
-    if (url.includes('paulo-freire')) {
-      this.currentCommunity = 'paulo';
+  private detectCommunity(url: string): void {
 
-    } else if (url.includes('ipf')) {
-      this.currentCommunity = 'ipf';
+    const segments = url.split('/');
 
-    } else if (url.includes('crejao')) {
-      this.currentCommunity = 'crejao';
+    // rota normal
+    const first = segments[1];
 
-    } else if (url.includes('home') || url.includes('alfa')) {
-      this.currentCommunity = 'alfa';
+    const routeMap: any = {
 
-    } else {
-      this.currentCommunity = 'default';
+      'paulo-freire-home': 'paulo',
+      'sobre-o-creja-paulo-freire': 'paulo',
+
+      'ipf-home': 'ipf',
+      'sobre-o-creja-ipf': 'ipf',
+
+      'creja-home': 'crejao',
+      'saiba-mais-creja': 'crejao',
+      'redes-creja': 'crejao',
+
+      'home': 'alfa',
+      'sobre-o-creja': 'alfa',
+      'redes': 'alfa'
+    };
+
+    if (routeMap[first]) {
+      this.currentCommunity = routeMap[first];
+      return;
     }
+
+    /*
+    CASO SEJA COLLECTION
+    */
+
+    if (first === 'collections') {
+
+      const uuid = segments[2];
+
+      this.http.get(`/server/api/core/collections/${uuid}?embed=parentCommunity`)
+        .subscribe((res: any) => {
+
+          const name = res?._embedded?.parentCommunity?.name?.toLowerCase() || '';
+
+          if (name.includes('paulo')) this.currentCommunity = 'paulo';
+          else if (name.includes('ipf')) this.currentCommunity = 'ipf';
+          else this.currentCommunity = 'alfa';
+
+        });
+
+      return;
+    }
+
+    /*
+    CASO SEJA ITEM
+    */
+
+    if (first === 'items') {
+
+      const uuid = segments[2];
+
+      this.http.get(`/server/api/core/items/${uuid}?embed=owningCollection`)
+        .subscribe((res: any) => {
+
+          const collectionUuid = res?._embedded?.owningCollection?.uuid;
+
+          this.detectCommunity(`/collections/${collectionUuid}`);
+
+        });
+
+      return;
+    }
+
+    this.currentCommunity = 'default';
+
   }
 
-  getHeaderColor(): string {
-    switch (this.currentCommunity) {
-      case 'alfa': return '#8A0DBA';
-      case 'ipf': return '#2A2AC6';
-      case 'paulo': return '#075B31';
-      case 'crejao': return '#A0183C';
-      default: return '#8A0DBA';
-    }
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen;
   }
 
-  getLogo(): string {
-    switch (this.currentCommunity) {
-      case 'paulo': return 'assets/images/creja-paulo-freire-logo.svg';
-      case 'ipf': return 'assets/images/creja-ipf-logo.svg';
-      case 'crejao': return 'assets/images/crejao-logo.svg';
-      case 'alfa':
-      default:
-        return 'assets/images/creja-alfaeja-logo.svg';
-    }
+  closeNav() {
+    this.isNavOpen = false;
   }
 
-  toggleNav() { this.isNavOpen = !this.isNavOpen; }
-  closeNav() { this.isNavOpen = false; }
 }
