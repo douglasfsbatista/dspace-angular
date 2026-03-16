@@ -4,22 +4,39 @@
     <!-- 1) Cabeçalho e título -->
     <div class="pm-header text-center" *ngIf="rd.payload as collection">
       <div class="pm-header-title flex-wrap">
-        <img src="assets/images/linha.svg" alt="" class="pm-line d-none d-md-inline-block img-fluid">
-
         <ng-container [ngSwitch]="collection.id">
-          <img *ngSwitchCase="'420f504b-2ede-4acc-b302-666a8c58ffbf'" src="assets/images/Pesquisas e memórias.svg"
-            alt="Pesquisas e Memórias" class="pm-title-img img-fluid">
+          <!-- ALFA-EJA -->
+          <img *ngSwitchCase="'420f504b-2ede-4acc-b302-666a8c58ffbf'" src="assets/images/alfa-eja/pesquisas-titulo-alfaeja.svg"
+            alt="Pesquisas e Memórias" class="titulo-img">
 
-          <img *ngSwitchCase="'ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f'" src="assets/images/PraticasAlfabetizadoras.svg"
-            alt="Práticas Alfabetizadoras" class="pm-title-img img-fluid">
+          <img *ngSwitchCase="'ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f'" src="assets/images/alfa-eja/praticas-titulo-alfaeja.svg"
+            alt="Práticas Alfabetizadoras" class="titulo-img">
 
-          <img *ngSwitchCase="'8d031651-c18f-4011-ac15-a28c3e69b78e'" src="assets/images/vozes-da-eja.svg"
-            alt="Vozes da EJA" class="pm-title-img img-fluid">
+          <img *ngSwitchCase="'8d031651-c18f-4011-ac15-a28c3e69b78e'" src="assets/images/alfa-eja/vozes-titulo-alfaeja.svg"
+            alt="Vozes da EJA" class="titulo-vozes">
+
+            <!-- Paulo Freire -->
+             <img *ngSwitchCase="'cec3209d-90f6-4e51-ada5-00b32174e762'" src="assets/images/paulo-freire/pesquisas-titulo-pf.svg"
+            alt="Pesquisas e Memórias" class="titulo-img">
+
+            <img *ngSwitchCase="'d9ed559b-9885-44f2-99cd-c72ba535f47e'" src="assets/images/paulo-freire/praticas-titulo-pf.svg"
+              alt="Práticas Alfabetizadoras" class="titulo-img">
+
+            <img *ngSwitchCase="'009d8b45-9862-48b2-97d2-aca052d3ccad'" src="assets/images/paulo-freire/vozes-titulo-pf.svg"
+              alt="Vozes da EJA" class="titulo-vozes">
+
+            <!-- IPF -->
+             <img *ngSwitchCase="'9b91bbad-f8b8-424d-af74-80587036584a'" src="assets/images/ipf/pesquisas-titulo-ipf.svg"
+            alt="Pesquisas e Memórias" class="titulo-img">
+
+            <img *ngSwitchCase="'607198ac-b89b-43e3-ab28-23a755a378ee'" src="assets/images/ipf/praticas-titulo-ipf.svg"
+              alt="Práticas Alfabetizadoras" class="titulo-img">
+
+            <img *ngSwitchCase="'8aefaf34-edb6-4c7b-a312-b015b22f8526'" src="assets/images/ipf/vozes-titulo-ipf.svg"
+              alt="Vozes da EJA" class="titulo-vozes">
 
           <img *ngSwitchDefault src="assets/images/Destaques.svg" alt="Destaques" class="pm-title-img img-fluid">
         </ng-container>
-
-        <img src="assets/images/linha.svg" alt="" class="pm-line d-none d-md-inline-block img-fluid">
       </div>
 
       <!-- subtítulos -->
@@ -45,6 +62,70 @@
         </p>
 
         <p class="pm-subtitle mx-auto" *ngSwitchCase="'8d031651-c18f-4011-ac15-a28c3e69b78e'">
+          A coleção Vozes da EJA reúne relatos vividos por educadores(as) e educandos(as) em diferentes contextos da
+          Educação de Jovens,
+          Adultos e Idosos. São histórias de vida que documentam relações humanas, vidas e realidades transformadas pela
+          educação, fortalecendo
+          a memória coletiva e dando visibilidade a trajetórias de luta, aprendizado e transformação social construídas
+          no cotidiano da EJA em todo o país.
+        </p>
+      </ng-container>
+
+      <!-- Paulo Freire -->
+      <ng-container [ngSwitch]="collection.id">
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'cec3209d-90f6-4e51-ada5-00b32174e762'">
+          Na coleção Pesquisas e Memórias do CREJA, você encontrará materiais produzidos por pessoas e instituições que
+          pesquisam a Educação de Jovens, Adultos e Idosos (EJA) no Brasil. São documentos que registram experiências,
+          práticas e ações no campo da alfabetização e da educação popular, preservando a memória e fortalecendo a
+          construção de
+          saberes comprometidos com a transformação social.
+        </p>
+
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'d9ed559b-9885-44f2-99cd-c72ba535f47e'">
+          A coleção Práticas Alfabetizadoras apresenta experiências de alfabetização de jovens, adultos e idosos
+          inspiradas nos princípios
+          filosófico-político-pedagógicos freirianos, visando a uma educação emancipadora e humanizadora. A coleção
+          valoriza práticas diversas
+          e transformadoras em todo o Brasil. Nesta coleção, você vai encontrar práticas alfabetizadoras que valorizam e
+          promovem a participação
+          ativa dos alunos, a realidade como ponto de partida para o aprendizado, a relação horizontal entre educador(a)
+          e educando(a), baseada
+          no diálogo e no compartilhamento de experiências.
+        </p>
+
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'009d8b45-9862-48b2-97d2-aca052d3ccad'">
+          A coleção Vozes da EJA reúne relatos vividos por educadores(as) e educandos(as) em diferentes contextos da
+          Educação de Jovens,
+          Adultos e Idosos. São histórias de vida que documentam relações humanas, vidas e realidades transformadas pela
+          educação, fortalecendo
+          a memória coletiva e dando visibilidade a trajetórias de luta, aprendizado e transformação social construídas
+          no cotidiano da EJA em todo o país.
+        </p>
+      </ng-container>
+
+      <!-- IPF -->
+       <ng-container [ngSwitch]="collection.id">
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'9b91bbad-f8b8-424d-af74-80587036584a'">
+          Na coleção Pesquisas e Memórias do CREJA, você encontrará materiais produzidos por pessoas e instituições que
+          pesquisam a Educação de Jovens, Adultos e Idosos (EJA) no Brasil. São documentos que registram experiências,
+          práticas e ações no campo da alfabetização e da educação popular, preservando a memória e fortalecendo a
+          construção de
+          saberes comprometidos com a transformação social.
+        </p>
+
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'607198ac-b89b-43e3-ab28-23a755a378ee'">
+          A coleção Práticas Alfabetizadoras apresenta experiências de alfabetização de jovens, adultos e idosos
+          inspiradas nos princípios
+          filosófico-político-pedagógicos freirianos, visando a uma educação emancipadora e humanizadora. A coleção
+          valoriza práticas diversas
+          e transformadoras em todo o Brasil. Nesta coleção, você vai encontrar práticas alfabetizadoras que valorizam e
+          promovem a participação
+          ativa dos alunos, a realidade como ponto de partida para o aprendizado, a relação horizontal entre educador(a)
+          e educando(a), baseada
+          no diálogo e no compartilhamento de experiências.
+        </p>
+
+        <p class="pm-subtitle mx-auto" *ngSwitchCase="'8aefaf34-edb6-4c7b-a312-b015b22f8526'">
           A coleção Vozes da EJA reúne relatos vividos por educadores(as) e educandos(as) em diferentes contextos da
           Educação de Jovens,
           Adultos e Idosos. São histórias de vida que documentam relações humanas, vidas e realidades transformadas pela

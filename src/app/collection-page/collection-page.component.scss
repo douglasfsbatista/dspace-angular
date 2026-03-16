@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
+.titulo-img {
+  width: 761px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 20px;
+  background: transparent;
+  display: block;
+}
+
+.titulo-vozes {
+  max-width: 550px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+}
+
 .pesquisa-memorias-page {
   /* remove o padding fixo */
   max-width: 100%;
