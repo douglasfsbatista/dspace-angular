@@ -36,11 +36,8 @@
 ========================= */
 
 .crejas-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
   max-width: 1150px;   // 👈 largura menor que o título
-  margin: 0 4%;
+  font-family: "Besley", serif;
 }
 
 .creja-card {
@@ -53,6 +50,7 @@
   transition: 0.3s ease;
   padding: 25px;
   min-height: 240px;
+  height: 100%;
 }
 
 .creja-card:hover {
@@ -60,7 +58,7 @@
 }
 
 .creja-card h3 {
-  font-size: 24px;
+  font-size: 32px;
   color: #A0183C;
   margin-bottom: 15px;
   font-weight: 700;
@@ -68,12 +66,12 @@
 
 .creja-card p {
   font-size: 16px;
-  color: #333;
+  color: #000000;
   line-height: 1.6;
   flex-grow: 1;
   text-align: justify;
   hyphens: auto;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .creja-btn {
@@ -86,6 +84,7 @@
   border-radius: 25px;
   display: inline-block;
   transition: 0.3s;
+  font-weight: 500;
 }
 
 .creja-btn:hover {
