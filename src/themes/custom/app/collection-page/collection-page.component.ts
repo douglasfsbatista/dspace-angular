@@ -1,18 +1,12 @@
 import {
-  CommonModule,
   AsyncPipe,
   NgIf,
-  NgForOf,
 } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {
-  RouterModule,
-  RouterOutlet,
-} from '@angular/router';
 import {
   ChangeDetectionStrategy,
   Component,
 } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CollectionPageComponent as BaseComponent } from '../../../../app/collection-page/collection-page.component';
@@ -34,7 +28,9 @@ import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dsp
 
 @Component({
   selector: 'ds-themed-collection-page',
+  // templateUrl: './collection-page.component.html',
   templateUrl: '../../../../app/collection-page/collection-page.component.html',
+  // styleUrls: ['./collection-page.component.scss']
   styleUrls: ['../../../../app/collection-page/collection-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -43,25 +39,21 @@ import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dsp
   ],
   standalone: true,
   imports: [
-    CommonModule,
-    NgIf,
-    NgForOf,
-    AsyncPipe,
-    FormsModule,
-    RouterModule,
-    RouterOutlet,
-    TranslateModule,
     ThemedComcolPageContentComponent,
     ErrorComponent,
+    NgIf,
     ThemedLoadingComponent,
+    TranslateModule,
     ViewTrackerComponent,
     VarDirective,
+    AsyncPipe,
     ComcolPageHeaderComponent,
     ComcolPageLogoComponent,
     ThemedComcolPageHandleComponent,
     DsoEditMenuComponent,
     ThemedComcolPageBrowseByComponent,
     ObjectCollectionComponent,
+    RouterOutlet,
   ],
 })
 /**

@@ -1,27 +1,24 @@
 import {
   AsyncPipe,
-  CommonModule,
   NgIf,
 } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {
-  ActivatedRoute,
-  Router,
-  RouterModule,
-  RouterOutlet,
-} from '@angular/router';
 import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
 } from '@angular/core';
+import {
+  ActivatedRoute,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   filter,
   map,
   mergeMap,
-  switchMap,
+  take,
 } from 'rxjs/operators';
 
 import { AuthService } from '../core/auth/auth.service';
@@ -55,141 +52,82 @@ import { PaginationComponentOptions } from '../shared/pagination/pagination-comp
 import { VarDirective } from '../shared/utils/var.directive';
 import { ViewTrackerComponent } from '../statistics/angulartics/dspace/view-tracker.component';
 import { getCollectionPageRoute } from './collection-page-routing-paths';
-import { CollectionDataService } from '../core/data/collection-data.service';
 
 @Component({
   selector: 'ds-base-collection-page',
-  standalone: true,
+  styleUrls: ['./collection-page.component.scss'],
+  templateUrl: './collection-page.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    fadeIn,
+    fadeInOut,
+  ],
   imports: [
-    CommonModule,
-    NgIf,
-    AsyncPipe,
-    FormsModule,              // <-- para ngModel
-    RouterModule,             // <-- para routerLink / routerLinkActive
-    RouterOutlet,
-    TranslateModule,
     ThemedComcolPageContentComponent,
     ErrorComponent,
+    NgIf,
     ThemedLoadingComponent,
+    TranslateModule,
     ViewTrackerComponent,
     VarDirective,
+    AsyncPipe,
     ComcolPageHeaderComponent,
     ComcolPageLogoComponent,
     ThemedComcolPageHandleComponent,
     DsoEditMenuComponent,
     ThemedComcolPageBrowseByComponent,
     ObjectCollectionComponent,
+    RouterOutlet,
   ],
-  templateUrl: './collection-page.component.html',
-  styleUrls: ['./collection-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [fadeIn, fadeInOut],
+  standalone: true,
 })
 export class CollectionPageComponent implements OnInit {
-  // Dados da coleção (resolvidos pelo resolver ou pelo service)
   collectionRD$: Observable<RemoteData<Collection>>;
   logoRD$: Observable<RemoteData<Bitstream>>;
+  paginationConfig: PaginationComponentOptions;
+  sortConfig: SortOptions;
+
+  /**
+   * Whether the current user is a Community admin
+   */
   isCollectionAdmin$: Observable<boolean>;
+
+  /**
+   * Route to the community page
+   */
   collectionPageRoute$: Observable<string>;
-
-  private sub!: Subscription;
-
-  showFilters = false;
-
-  toggleFiltersMobile() {
-    this.showFilters = !this.showFilters;
-  }
-
-  // === NOVIDADES PARA A PÁGINA “Pesquisas e Memórias” ===
-  searchTerm = '';
-  temas: string[] = [
-    'Diversidade', 'Educação antirracista', 'Comunidades quilombolas',
-    'Ciganas', 'Indígenas', 'EJA e novas tecnologias', 'EJA e deficiencia',
-    'EJA e crise climatica', 'Educação em Direitos Humanos',
-    'Educação popular', 'Educação de jovens e adultos', 'Congressos',
-    'Conferências'
-  ];
-  regioes: string[] = ['Norte', 'Nordeste I', 'Nordeste II'];
-  municipios: string[] = ['Alto do Rodrigues','Araçás','Belém','Brejo Grande','Cabo de Santo Agostinho','Carauari','Caucaia',
-                          'Conde','Fortaleza','Icapuí','Ipojuca','Oiapoque','Porto do Mangue','Santa Luzia de Itanhy','São Francisco do Conde'];
-  tipoDocumentos: string[] = ['Áudio', 'Imagem', 'Vídeo'];
-
-  selectedTemas: Record<string,boolean> = {};
-  selectedRegioes: Record<string,boolean> = {};
-  selectedMunicipios: Record<string,boolean> = {};
-  selectedTipoDocumentos: Record<string,boolean> = {};
-
-  items: any[] = [];          // deverá vir do payload ou de um serviço
-  filteredItems: any[] = [];  // items filtrados por search/filtros
 
   constructor(
     protected route: ActivatedRoute,
     protected router: Router,
     protected authService: AuthService,
     protected authorizationDataService: AuthorizationDataService,
-    protected dsoNameService: DSONameService,
-    protected collectionDataService: CollectionDataService,
-  ) {}
+    public dsoNameService: DSONameService,
+  ) {
+  }
 
   ngOnInit(): void {
-    // Carrega a coleção toda vez que :id mudar
-    this.collectionRD$ = this.route.paramMap.pipe(
-      map(params => params.get('id')!),
-      switchMap(id =>
-        this.collectionDataService.findById(id).pipe(
-          redirectOn4xx(this.router, this.authService)
-        )
-      )
+    this.collectionRD$ = this.route.data.pipe(
+      map((data) => data.dso as RemoteData<Collection>),
+      redirectOn4xx(this.router, this.authService),
+      take(1),
     );
-
-    // Logo
     this.logoRD$ = this.collectionRD$.pipe(
       map((rd: RemoteData<Collection>) => rd.payload),
-      filter((col: Collection) => hasValue(col)),
-      mergeMap((col: Collection) => col.logo),
+      filter((collection: Collection) => hasValue(collection)),
+      mergeMap((collection: Collection) => collection.logo),
     );
+    this.isCollectionAdmin$ = this.authorizationDataService.isAuthorized(FeatureID.IsCollectionAdmin);
 
-    // Permissões
-    this.isCollectionAdmin$ = this.authorizationDataService.isAuthorized(
-      FeatureID.IsCollectionAdmin
-    );
-
-    // Rota do cabeçalho
     this.collectionPageRoute$ = this.collectionRD$.pipe(
       getAllSucceededRemoteDataPayload(),
-      map(col => getCollectionPageRoute(col.id)),
+      map((collection) => getCollectionPageRoute(collection.id)),
     );
-
-    // Quando a coleção vier, inicializa os items e o filteredItems
-    this.collectionRD$.pipe(
-      getAllSucceededRemoteDataPayload(),
-    ).subscribe(col => {
-      // Supondo que sua Collection tenha uma propriedade .items[]
-      this.items = (col as any).items || [];
-      this.filteredItems = [...this.items];
-    });
-  }
-
-  /** Filtra grid por termo e checkboxes */
-  filter(): void {
-    const term = this.searchTerm.toLowerCase();
-    this.filteredItems = this.items.filter(item => {
-      const matchesTerm = item.title.toLowerCase().includes(term);
-      // aqui você adiciona checagem de tema/região/município se quiser
-      return matchesTerm;
-    });
-  }
-
-  /** Aumenta / carrega mais items (exemplo de paginação) */
-  loadMore(): void {
-    // implemente a lógica de paginação ou fetch de mais itens
   }
 
   isNotEmpty(object: any) {
     return isNotEmpty(object);
   }
 
-  ngOnDestroy(): void {
-    this.sub?.unsubscribe();
-  }
+
 }
