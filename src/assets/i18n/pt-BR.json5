@@ -6551,6 +6551,10 @@
   // "search.filters.filter.title.head": "Title",
   "search.filters.filter.title.head": "Título",
 
+  "search.filters.filter.city.head": "Município",
+  "search.filters.filter.state.head": "Estado (UF)",
+  "search.filters.filter.region.head": "Região",
+
   // "search.filters.filter.title.placeholder": "Title",
   "search.filters.filter.title.placeholder": "Título",
 
