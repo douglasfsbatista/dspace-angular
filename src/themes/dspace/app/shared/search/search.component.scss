@@ -1,7 +1,7 @@
 :host ::ng-deep {
   .form-group.input-group {
     input {
-      border: 2px solid #9602c7;
+      border: 2px solid var(--comunidade);
       height: 3rem;
       border-top-left-radius: 2rem;
       border-bottom-left-radius: 2rem;
@@ -10,9 +10,9 @@
     button {
       border-top-right-radius: 2rem;
       border-bottom-right-radius: 2rem;
-      border: 2px solid #9602c7;
+      border: 2px solid var(--comunidade);
       background-color: #fff;
-      color: #9602c7;
+      color: var(--comunidade);
       border-left: 0;
       font-size: 0;
       i {

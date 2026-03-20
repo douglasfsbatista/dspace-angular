@@ -63,6 +63,16 @@
                 "input": "src/themes/alfaejabrasil/styles/theme.scss",
                 "inject": false,
                 "bundleName": "alfaejabrasil-theme"
+              },
+              {
+                "input": "src/themes/paulofreire/styles/theme.scss",
+                "inject": false,
+                "bundleName": "paulofreire-theme"
+              },
+              {
+                "input": "src/themes/institutopaulofreire/styles/theme.scss",
+                "inject": false,
+                "bundleName": "institutopaulofreire-theme"
               }
             ],
             "scripts": [],

@@ -7,14 +7,14 @@
     height: 37px;
     margin-right: .75rem;
     background-color: #fff;
-    border: 1px solid #9602c7;
+    border: 1px solid var(--comunidade);
     border-radius: .25rem;
     position: relative;
     cursor: pointer;
     flex-shrink: 0;
   }
   input[type="checkbox"]:checked {
-    background-color: #9602c7;
+    background-color: var(--comunidade);
   }
   input.filter-checkbox:checked::after {
     content: '';
@@ -35,7 +35,7 @@
     font-weight: 400;
   }
   span.badge {
-    background-color: #9602c7;
+    background-color: var(--comunidade);
     color: #fff;
   }
   .filter-name span {

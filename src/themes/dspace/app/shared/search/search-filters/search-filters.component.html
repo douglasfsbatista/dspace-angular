@@ -17,7 +17,7 @@
 }
 
 @if (inPlaceSearch) {
-  <button class="btn btn-outline-alfaeja" [routerLink]="[searchLink]" [queryParams]="clearParams | async" (click)="minimizeFilters()" queryParamsHandling="merge" role="button">
+  <button class="btn btn-outline-comunidade" [routerLink]="[searchLink]" [queryParams]="clearParams | async" (click)="minimizeFilters()" queryParamsHandling="merge" role="button">
     <i class="fas fa-undo"></i> {{"search.filters.reset" | translate}}
   </button>
 }

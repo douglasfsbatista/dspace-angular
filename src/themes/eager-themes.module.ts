@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { EagerThemeModule as DSpaceEagerThemeModule } from './dspace/eager-theme.module';
 // import { EagerThemeModule as CustomEagerThemeModule } from './custom/eager-theme.module';
 import { EagerThemeModule as AlfaEJABrasilEagerThemeModule } from './alfaejabrasil/eager-theme.module';
+import { EagerThemeModule as PauloFreireEagerThemeModule } from './paulofreire/eager-theme.module';
+import { EagerThemeModule as InstitutoPauloFreireEagerThemeModule } from './institutopaulofreire/eager-theme.module';
 
 /**
  * This module bundles the eager theme modules for all available themes.
@@ -14,6 +16,8 @@ import { EagerThemeModule as AlfaEJABrasilEagerThemeModule } from './alfaejabras
 @NgModule({
   imports: [
     AlfaEJABrasilEagerThemeModule,
+    PauloFreireEagerThemeModule,
+    InstitutoPauloFreireEagerThemeModule,
     DSpaceEagerThemeModule,
     // CustomEagerThemeModule,
   ],
