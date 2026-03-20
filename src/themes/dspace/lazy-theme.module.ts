@@ -12,6 +12,13 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { RootModule } from '../../app/root.module';
 
+import { CollectionPageComponent } from './app/collection-page/collection-page.component';
+import { SearchComponent } from './app/shared/search/search.component';
+import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
+import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
+import { SearchFilterComponent } from './app/shared/search/search-filters/search-filter/search-filter.component';
+
+
 const DECLARATIONS = [
 ];
 
@@ -29,6 +36,11 @@ const DECLARATIONS = [
     StoreRouterConnectingModule,
     TranslateModule,
     FormsModule,
+    CollectionPageComponent,
+    SearchComponent,
+    SearchSidebarComponent,
+    SearchFiltersComponent,
+    SearchFilterComponent,
   ],
   declarations: DECLARATIONS,
 })

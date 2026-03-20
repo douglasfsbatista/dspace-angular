@@ -1,0 +1,16 @@
+<div class="d-block py-3" *ngIf="active$ | async"
+     [id]="regionId" [attr.aria-labelledby]="toggleId" [ngClass]="{ 'focus': focusBox }" role="region">
+  <div class="filter-name d-flex" [attr.aria-controls]="regionId" [id]="toggleId">
+    <span class="h4 d-inline-block text-left mt-auto mb-auto dark:text-white text-dark">
+      {{'search.filters.filter.' + filter.name + '.head'| translate}}
+    </span>
+  </div>
+  <div class="search-filter-wrapper">
+    <ds-search-facet-filter-wrapper
+      [scope]="scope"
+      [filterConfig]="filter"
+      [inPlaceSearch]="inPlaceSearch"
+      [refreshFilters]="refreshFilters">
+    </ds-search-facet-filter-wrapper>
+  </div>
+</div>

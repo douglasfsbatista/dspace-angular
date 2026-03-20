@@ -1,0 +1,48 @@
+:host ::ng-deep {
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 37px;
+    height: 37px;
+    margin-right: .75rem;
+    background-color: #fff;
+    border: 1px solid #9602c7;
+    border-radius: .25rem;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #9602c7;
+  }
+  input.filter-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 7px;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  label {
+    align-items: center;
+    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+    color: #6B6B6B;
+    font-weight: 400;
+  }
+  span.badge {
+    background-color: #9602c7;
+    color: #fff;
+  }
+  .filter-name span {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #000000 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

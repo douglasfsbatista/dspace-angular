@@ -1,0 +1,43 @@
+:host ::ng-deep {
+  .form-group.input-group {
+    input {
+      border: 2px solid #9602c7;
+      height: 3rem;
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+      border-right: 0;
+    }
+    button {
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      border: 2px solid #9602c7;
+      background-color: #fff;
+      color: #9602c7;
+      border-left: 0;
+      font-size: 0;
+      i {
+        font-size: 17px;
+      }
+    }
+  }
+  button {
+      font-family: 'Inter', sans-serif;
+  }
+  font-family: 'Montserrat', sans-serif;
+  .card-title, .item-list-title {
+    font-size: 20px;
+    color: #000;
+    font-weight: 600;
+  }
+  .item-list-abstract, .item-authors, .item-abstract {
+    font-size: 15px;
+    font-weight: 400;
+    color: #787878;
+  }
+  .card {
+    border: 0;
+  }
+  img.thumbnail-content {
+    border-radius: 37px;
+  }
+}

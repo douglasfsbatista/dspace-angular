@@ -48,18 +48,21 @@ $font-family-sans-serif: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI"
 // ...
 
 // Override semantic colors here
-$primary:   #43515f;  // Gray
 $secondary: #495057;  // As Bootstrap $gray-700
 $success:   #92c642;  // Lime
-$info:      #1e6f90;  // Light blue
 $warning:   #ec9433;  // Orange
 $danger:    #cf4444;  // Red
 $light:     #f8f9fa;  // As Bootstrap $gray-100
 $dark:      #43515f;  // Gray
+$alfaeja:   #9602C7;
+$info:      $alfaeja; 
+$primary:   $alfaeja; 
+
 
 // Add new semantic colors here (you don't need to add existing semantic colors)
 $theme-colors: (
   // ...
+  'alfaeja': $alfaeja,
 );
 
 
@@ -70,7 +73,7 @@ $yiq-contrasted-threshold: 170;
 
 $body-color: #343a40;       // As Bootstrap $gray-800
 
-$link-color: #1e6f90;       // Blue green, as DSpace $info
+$link-color: $alfaeja;       // Blue green, as DSpace $info
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
@@ -88,3 +91,7 @@ $ds-header-navbar-border-bottom-color: #92c642;
 
 $ds-breadcrumb-link-color: #154E66 !default;
 $ds-breadcrumb-link-active-color: #040D11 !default;
+
+.dso-logo {
+    --ds-comcol-logo-max-width: 1440px;
+}
