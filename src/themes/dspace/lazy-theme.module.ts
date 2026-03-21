@@ -17,6 +17,7 @@ import { SearchComponent } from './app/shared/search/search.component';
 import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
 import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
 import { SearchFilterComponent } from './app/shared/search/search-filters/search-filter/search-filter.component';
+import { ComcolPageLogoComponent } from './app/shared/comcol/comcol-page-logo/comcol-page-logo.component';
 
 
 const DECLARATIONS = [
@@ -41,6 +42,7 @@ const DECLARATIONS = [
     SearchSidebarComponent,
     SearchFiltersComponent,
     SearchFilterComponent,
+    ComcolPageLogoComponent,
   ],
   declarations: DECLARATIONS,
 })

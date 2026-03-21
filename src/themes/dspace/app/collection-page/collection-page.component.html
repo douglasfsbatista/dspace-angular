@@ -12,6 +12,7 @@
             </ds-comcol-page-header> -->
             <!-- Collection logo -->
             <ds-comcol-page-logo *ngIf="logoRD$"
+                                 [src]="'assets/images/logos-collections/' + collection.uuid + '.svg'"
                                  [logo]="(logoRD$ | async)?.payload"
                                  [alternateText]="'collection.logo' | translate">
             </ds-comcol-page-logo>
