@@ -1,16 +1,19 @@
+.banner-link {
+  display: block;
+}
+
 .banner-alfaeja {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
   margin-top: 0 !important;
 
   display: flex;
-  justify-content: center; // 👈 centraliza a imagem
+  justify-content: center;
+  cursor: pointer;
 }
 
 .banner-alfaeja img {
   width: 100%;
-  max-width: 1440px; // 👈 limite máximo
+  max-width: 1440px;
   height: auto;
   display: block;
 }
