@@ -1,12 +1,28 @@
 .introductory-text {
-    font-family: 'Montserrat';
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 38px;
-    text-align: center;
-    margin-top: 22px;
-    color: #787878;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 38px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #787878;
+
+  margin-top: 22px;
+
+  // Responsividade
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 12px;
+  }
 }
+
 :host {
     font-family: 'Inter', sans-serif;
 }
