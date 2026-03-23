@@ -1,5 +1,5 @@
 .outras-comunidades {
-  padding: 120px 0;
+  padding: 60px 16px;
   background: #ffffff;
 }
 
@@ -8,9 +8,37 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
   gap: 40px;
   align-items: start;
+
+  /* MOBILE FIRST */
+  grid-template-columns: 1fr;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .outras-comunidades {
+    padding: 100px 0;
+  }
+
+  .outras-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outras-texto {
+    grid-column: span 2; // texto ocupa topo inteiro
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .outras-container {
+    grid-template-columns: 1.1fr 1fr 1fr;
+  }
+
+  .outras-texto {
+    grid-column: auto;
+  }
 }
 
 /* ========================
@@ -18,17 +46,40 @@
 ======================== */
 
 .outras-texto h2 {
-  font-size: 42px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #3a2237;
-  line-height: 1.2;
+  color: #8A0DBA;
   margin-bottom: 20px;
+
+  /* MOBILE FIRST (Figma) */
+  font-size: 40px;
+  line-height: 1.08;
+}
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+  .outras-texto h2 {
+    font-size: clamp(40px, 4vw, 42px);
+    line-height: 1.2;
+  }
 }
 
 .outras-texto p {
-  font-size: 18px;
-  color: #444;
-  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #000000;
+
+  /* MOBILE (Figma) */
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+  .outras-texto p {
+    font-size: clamp(20px, 1.2vw, 22px);
+    line-height: 1.5;
+  }
 }
 
 /* ========================

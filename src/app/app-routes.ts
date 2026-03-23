@@ -52,6 +52,7 @@ import { IpfHomeComponent } from '../themes/custom/app/ipf-home/ipf-home.compone
 import { PauloFreireHomeComponent } from '../themes/custom/app/paulo-freire-home/paulo-freire-home.component';
 import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/saiba-mais-creja.component';
 import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
+import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -153,6 +154,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'redes-creja',
         component: RedesCrejaComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'ajuda-alfa-eja',
+        component: AjudaAlfaEjaComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {

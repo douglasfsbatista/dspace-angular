@@ -1,7 +1,18 @@
 .home-social-section {
-  padding: 65px 0;
-  margin: 0;
+  padding: 65px 16px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .home-social-section {
+    padding: 80px 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-social-section {
+    padding: 100px 0;
+  }
 }
 
 /* ========================
@@ -10,12 +21,10 @@
 
 .social-title {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;        // Bold
-  font-size: 35px;         // 👈 conforme Figma
-  line-height: 1.2;        // equivalente ao "Auto"
-  letter-spacing: 0;
-  color: #FFFFFF;          // ajuste se necessário
-  text-align: center;      // conforme o Figma
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.2;
+  color: #FFFFFF;
   margin-bottom: 30px;
 }
 
@@ -26,29 +35,29 @@
 .social-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; // 👈 mantém alinhamento natural
   gap: 90px;
   flex-wrap: wrap;
 }
 
 .social-wrapper a {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;        // Medium
-  font-size: 16px;  
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ========================
-   ITEM
+   ITEM PADRÃO
 ======================== */
 
 .social-item {
   display: flex;
-  flex-direction: column;  // 👈 ÍCONE EM CIMA, TEXTO EMBAIXO
+  flex-direction: column;
   align-items: center;
   gap: 12px;
 
-  text-decoration: none;
-  color: inherit;
   font-size: 20px;
   font-weight: 500;
   transition: 0.3s ease;
@@ -60,24 +69,27 @@
   object-fit: contain;
 }
 
+/* ========================
+   ITEM ALFA (LOGO)
+======================== */
+
 .social-item-alfa {
   display: flex;
-  flex-direction: column;  // 👈 ÍCONE EM CIMA, TEXTO EMBAIXO
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-
-  text-decoration: none;
-  color: inherit;
-  font-size: 20px;
-  font-weight: 500;
-  transition: 0.3s ease;
 }
 
+/* Ajuste visual fino do logo */
 .social-item-alfa img {
   width: 130px;
   height: auto;
   object-fit: contain;
+  margin-top: 16px; // 👈 ajuste fino pra alinhar visualmente
 }
+
+/* ========================
+   HOVER
+======================== */
 
 .social-item:hover {
   opacity: 0.8;

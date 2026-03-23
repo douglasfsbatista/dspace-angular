@@ -1,14 +1,3 @@
-<!--<ds-home-coar></ds-home-coar>
-<ds-home-news></ds-home-news>
-<ds-configuration-search-page *ngIf="showDiscoverFilters"
-                              [sideBarWidth]="3"
-                              [showViewModes]="false"
-                              [searchEnabled]="false"
-                              [inPlaceSearch]="false"
-                              [showScopeSelector]="false">
-  <ng-container searchContentTop *ngTemplateOutlet="homeContent"></ng-container>
-</ds-configuration-search-page> -->
-
 <app-banner-alfaeja
   imageUrl="assets/images/alfa-eja/banner-alfa-eja.png"
   height="auto">
@@ -16,34 +5,20 @@
 
 <app-informacoes-alfaeja></app-informacoes-alfaeja>
 
-
-
-<!--<div *ngIf="!showDiscoverFilters" class="container">
-  <ng-container *ngTemplateOutlet="homeContent"></ng-container>
-</div>
-<ds-suggestions-popup></ds-suggestions-popup> 
-
-<ng-template #homeContent>
-  <ng-container *ngIf="(site$ | async) as site">
-    <ds-view-tracker [object]="site"></ds-view-tracker>
-  </ng-container>
-  <ds-search-form [inPlaceSearch]="false"
-                         [searchPlaceholder]="'Digite aqui o que você procura'">
-  </ds-search-form> -->
-  <!-- <ds-top-level-community-list></ds-top-level-community-list>
-  <ds-recent-item-list *ngIf="recentSubmissionspageSize>0"></ds-recent-item-list> -->
-  
-  <!-- <ds-filtro-pesquisa></ds-filtro-pesquisa> 
-</ng-template> -->
-
-<div class="container py-4">
+<div class="container">
   <!-- Cabeçalho -->
-  <div class="row justify-content-center my-4">
+  <div class="row justify-content-center mb-4">
     <div class="col-12 d-flex justify-content-center align-items-center">
-      <img 
-        src="assets/images/alfa-eja/destaques-alfa-eja.svg" 
-        alt="Destaques" 
-        class="title-img img-fluid">
+      <picture>
+        <source 
+          srcset="assets/images/alfa-eja/destaques-alfaeja-mobile.svg" 
+          media="(max-width: 768px)">
+          
+        <img 
+          src="assets/images/alfa-eja/destaques-alfa-eja.svg"
+          alt="Destaques"
+          class="title-img img-fluid">
+      </picture>
     </div>
   </div>
 
@@ -58,7 +33,6 @@
   </div>
 </div>
 
-
 <ds-destaques-mes></ds-destaques-mes>
 
 <br>
@@ -66,6 +40,5 @@
 <app-outras-comunidades></app-outras-comunidades>
 
 <app-home-social></app-home-social>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

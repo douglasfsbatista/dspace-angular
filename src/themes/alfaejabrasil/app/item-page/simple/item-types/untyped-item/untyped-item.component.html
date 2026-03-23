@@ -1,118 +1,291 @@
-<ds-results-back-button *ngIf="showBackButton$ | async" [back]="back"></ds-results-back-button>
+<ds-results-back-button
+  *ngIf="showBackButton$ | async"
+  [back]="back">
+</ds-results-back-button>
 
-<div class="row" *ngIf="iiifEnabled">
-  <div class="col-12">
-    <ds-mirador-viewer id="iiif-viewer"
-                   [object]="object"
-                   [searchable]="iiifSearchEnabled"
-                   [query]="iiifQuery$ | async">
-    </ds-mirador-viewer>
-  </div>
-</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Inter:wght@600&display=swap');
 
-<div class="d-flex flex-row">
-  <ds-item-page-title-field [item]="object" class="mr-auto">
-  </ds-item-page-title-field>
-  <ds-dso-edit-menu></ds-dso-edit-menu>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-md-4">
-    <ng-container *ngIf="!(mediaViewer.image || mediaViewer.video)">
-      <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
+.item-page {
+  font-family: 'Montserrat', sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #000;
+}
+
+.item-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.item-header ds-item-page-title-field {
+  display: block;
+  font-size: 40px;
+  font-weight: 600;
+  color: #9602C7;
+  line-height: 38px;
+}
+
+.item-author {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #777777;
+}
+
+/* LAYOUT */
+.item-layout {
+  display: grid !important;
+  grid-template-columns: 260px 1fr !important;
+  gap: 40px !important;
+}
+
+/* SIDEBAR MEDIA */
+.sidebar-video video,
+.sidebar-video iframe {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* LABEL */
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* SIDEBAR BOX */
+.sidebar-block {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.sidebar-block li {
+  font-size: 16px;
+  color: #000;
+}
+
+/* TEXTO */
+.section-text {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 38px;
+}
+
+/* TITULOS */
+.section h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section h3::before {
+  content: '◆';
+  color: #9602C7;
+  font-size: 18px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: #f5f5f5;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #000;
+  word-break: break-word;
+}
+
+.card span {
+  font-size: 14px;
+  color: #777;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* remover "Arquivos" */
+ds-item-page-file-section .file-section-title,
+ds-item-page-file-section h2,
+ds-item-page-file-section h3 {
+  display: none !important;
+}
+
+/* 🔥 RESPONSIVO */
+@media (max-width: 768px) {
+
+  .item-page {
+    padding: 20px 12px;
+  }
+
+  .item-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .item-header ds-item-page-title-field {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .section-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .section h3 {
+    font-size: 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .sidebar-block {
+    padding: 14px;
+  }
+}
+</style>
+
+<div class="item-page my-3">
+
+  <header class="item-header">
+    <ds-item-page-title-field [item]="object"></ds-item-page-title-field>
+
+    <div class="item-author">
+      Autoria:
+      <ds-metadata-representation-list
+        [parentItem]="object"
+        [metadataFields]="['dc.contributor.author', 'dc.creator']">
+      </ds-metadata-representation-list>
+    </div>
+  </header>
+
+  <div class="item-layout">
+
+    <aside class="item-sidebar">
+
+      <div class="sidebar-video" *ngIf="mediaViewer.image || mediaViewer.video">
+        <ds-media-viewer [item]="object"></ds-media-viewer>
+      </div>
+
+      <div *ngIf="!(mediaViewer.image || mediaViewer.video)">
         <ds-thumbnail [thumbnail]="object?.thumbnail | async"></ds-thumbnail>
-      </ds-metadata-field-wrapper>
-    </ng-container>
-    <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
-      <ds-media-viewer [item]="object"></ds-media-viewer>
-    </div>
-    <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
-    <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
-    <ds-metadata-representation-list class="ds-item-page-mixed-author-field"
-      [parentItem]="object"
-      [itemType]="'Person'"
-      [metadataFields]="['dc.contributor.author', 'dc.creator']"
-      [label]="'relationships.isAuthorOf' | translate">
-    </ds-metadata-representation-list>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journal.title']"
-      [label]="'item.page.journal-title'">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journal.identifier.issn']"
-      [label]="'item.page.journal-issn'">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journalvolume.identifier.name']"
-      [label]="'item.page.volume-title'">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.publisher']"
-      [label]="'item.page.publisher'">
-    </ds-generic-item-page-field>
-  </div>
-  <div class="col-xs-12 col-md-6">
-    <ds-item-page-abstract-field [item]="object"></ds-item-page-abstract-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.description']"
-      [label]="'item.page.description'">
-    </ds-generic-item-page-field>
+      </div>
 
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.subject']"
-      [separator]="', '"
-      [label]="'item.page.subject'">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.identifier.citation']"
-      [label]="'item.page.citation'">
-    </ds-generic-item-page-field>
-    <!-- <ds-item-page-uri-field [item]="object"
-      [fields]="['dc.identifier.uri']"
-      [label]="'item.page.uri'">
-    </ds-item-page-uri-field> -->
-    <!-- init custom fields -->
-    <!-- Município -->
-    <ds-generic-item-page-field
-    [item]="object"
-    [fields]="['local.spatial.city']"
-    [label]="'Município'">
-    </ds-generic-item-page-field>
-    <!-- Estado (UF) -->
-    <ds-generic-item-page-field
-    [item]="object"
-    [fields]="['local.spatial.state']"
-    [label]="'Estado (UF)'">
-    </ds-generic-item-page-field>
-    <!-- Região Geográfica -->
-    <ds-generic-item-page-field
-    [item]="object"
-    [fields]="['local.spatial.region']"
-    [label]="'Região Geográfica'">
-    </ds-generic-item-page-field>
-    <!-- end custom fields -->
-    <ds-item-page-collections [item]="object"></ds-item-page-collections>
-    <ds-item-page-uri-field [item]="object"
-      [fields]="['coar.notify.endorsedBy']"
-      [label]="'item.page.endorsement'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
-      [fields]="['datacite.relation.isReviewedBy']"
-      [label]="'item.page.review'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
-      [fields]="['datacite.relation.isSupplementedBy']"
-      [label]="'item.page.supplemented'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
-      [fields]="['datacite.relation.isReferencedBy']"
-      [label]="'item.page.referenced'">
-    </ds-item-page-uri-field>
-    <ds-item-page-cc-license-field [item]="object" [variant]="'full'">
-    </ds-item-page-cc-license-field>
-    <div>
-      <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
-        <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
-      </a>
-    </div>
+      <div class="sidebar-block">
+        <span class="label">AUTORIA</span>
+        <ds-metadata-representation-list
+          [parentItem]="object"
+          [metadataFields]="['dc.contributor.author', 'dc.creator']">
+        </ds-metadata-representation-list>
+      </div>
+
+      <div class="sidebar-block">
+        <span class="label">AÇÕES</span>
+        <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
+      </div>
+
+    </aside>
+
+    <main class="item-content">
+
+      <section class="section">
+        <h3>Resumo</h3>
+
+        <div class="section-text">
+          <ds-generic-item-page-field
+            [item]="object"
+            [fields]="['dc.description.abstract']"
+            [label]="''">
+          </ds-generic-item-page-field>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Localização</h3>
+
+        <div class="cards">
+          <div class="card">
+            <span>Município</span>
+            <ds-generic-item-page-field
+              [item]="object"
+              [fields]="['local.spatial.city']">
+            </ds-generic-item-page-field>
+          </div>
+
+          <div class="card">
+            <span>Estado (UF)</span>
+            <ds-generic-item-page-field
+              [item]="object"
+              [fields]="['local.spatial.state']">
+            </ds-generic-item-page-field>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Referências</h3>
+
+        <ds-generic-item-page-field
+          [item]="object"
+          [fields]="['dc.identifier.citation']"
+          [label]="''">
+        </ds-generic-item-page-field>
+      </section>
+
+      <section class="section">
+        <h3>Datas de Publicação</h3>
+
+        <div class="cards">
+
+          <div class="card">
+            <span>Publicação nesta coleção:</span>
+            {{
+              object?.metadata['dc.date.issued']?.[0]?.value?.includes('-')
+                ? (
+                    (object?.metadata['dc.date.issued']?.[0]?.value.split('-')[2]) + ' ' +
+                    ({
+                      '01':'Jan','02':'Fev','03':'Mar','04':'Abr','05':'Mai','06':'Jun',
+                      '07':'Jul','08':'Ago','09':'Set','10':'Out','11':'Nov','12':'Dez'
+                    }[object?.metadata['dc.date.issued']?.[0]?.value.split('-')[1]]) + ' ' +
+                    object?.metadata['dc.date.issued']?.[0]?.value.split('-')[0]
+                  )
+                : object?.metadata['dc.date.issued']?.[0]?.value
+            }}
+          </div>
+
+          <div class="card">
+            <span>Data do Fascículo:</span>
+            {{ object?.metadata['dc.date.issued']?.[0]?.value?.split('-')[0] }}
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
   </div>
 </div>

@@ -9,7 +9,7 @@ import { ComcolPageLogoComponent as BaseComponent } from '../../../../../../app/
 
 @Component({
   selector: 'ds-comcol-page-logo',
-  styleUrls: ['../../../../../../app/shared/comcol/comcol-page-logo/comcol-page-logo.component.scss'],
+  styleUrls: ['./comcol-page-logo.component.scss'],
   templateUrl: './comcol-page-logo.component.html',
   imports: [NgIf],
   standalone: true,

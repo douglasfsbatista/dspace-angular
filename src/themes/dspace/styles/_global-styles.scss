@@ -24,3 +24,9 @@
     font-size: 1.1rem
   }
 }
+
+// Remove margem nas páginas customizadas
+main.my-cs:has(ds-creja-home,ds-ipf-home,ds-paulo-freire-home,ds-redes-page,app-saiba-mais-creja,ds-sobre-creja-page,ds-home-page,ds-themed-home-page) { 
+  margin-top: 0;
+  margin-bottom: 0;
+}

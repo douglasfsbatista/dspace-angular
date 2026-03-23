@@ -1,7 +1,7 @@
 <div *ngIf="src || logo" class="dso-logo mb-3">
   <img
     [src]="src ? src : logo._links.content.href"
-    class="w-100 img-fluid"
+    class="logo-img img-fluid"
     [attr.alt]="alternateText ? alternateText : null"
     (error)="errorHandler($event)"
   />
