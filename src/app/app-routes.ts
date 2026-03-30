@@ -53,6 +53,8 @@ import { PauloFreireHomeComponent } from '../themes/custom/app/paulo-freire-home
 import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/saiba-mais-creja.component';
 import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
 import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
+import { TermosDeUsoComponent } from 'src/themes/alfaejabrasil/app/termos-de-uso/termos-de-uso.component';
+import { PoliticasDePrivacidadeComponent } from 'src/themes/alfaejabrasil/app/politicas-de-privacidade/politicas-de-privacidade.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -159,6 +161,16 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'ajuda-alfa-eja',
         component: AjudaAlfaEjaComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'termos-de-uso-alfa-eja',
+        component: TermosDeUsoComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'politicas-de-privacidade-alfa-eja',
+        component: PoliticasDePrivacidadeComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
