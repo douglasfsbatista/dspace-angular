@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { BreadcrumbsComponent } from './app/breadcrumbs/breadcrumbs.component';
+import { FooterComponent } from './app/footer/footer.component';
 import { RootModule } from '../../app/root.module';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
@@ -27,6 +28,7 @@ const DECLARATIONS = [
   imports: [
     CommonModule,
     RootModule,
+    FooterComponent,
     ...DECLARATIONS,
   ],
   providers: [

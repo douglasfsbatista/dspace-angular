@@ -1,183 +1,55 @@
-.footer {
-  font-family: 'Inter', sans-serif;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.footer-container {
-  padding: 40px 16px;
-}
-
-/* =========================
-   TOPO
-========================= */
-
-.footer-main {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* =========================
-   ESQUERDA (LOGO + TEXTO)
-========================= */
-
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.footer-logo {
-  max-width: 220px;
-  margin-bottom: 10px;
-}
-
-.footer-description {
-  font-size: 16px;
-  line-height: 1.5;
-  max-width: 320px;
-}
-
-/* =========================
-   LINKS
-========================= */
-
-/* MOBILE */
-.footer-links-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* 🔥 Faz os navs "sumirem" no grid */
-.footer-links-wrapper nav {
-  display: contents;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  font-size: 16px;
-  color: #000;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  opacity: 0.7;
-}
-
-/* =========================
-   LOGOS INFERIORES
-========================= */
-
-.footer-logos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-logos p {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  color: #3A183A;
-  font-size: 16px;
-}
-
-.footer-logos div {
-  text-align: center;
-}
-
-.footer-logos img {
-  width: clamp(140px, 15vw, 220px);
-  height: auto;
-}
-
-/* =========================
-   TEXTO FINAL
-========================= */
-
-.footer-ipf-text {
-  text-align: center;
-  font-size: 14px;
-  padding: 10px 16px;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media (min-width: 992px) {
-
-  .footer-main {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .footer-links-wrapper {
-    display: flex;
-    gap: 60px;
-  }
-
-  .footer-links-wrapper nav {
-    display: block;
-  }
-
-  .footer-logo {
-    max-width: 300px;
-  }
-
-  .footer-description {
-    font-size: 20px;
-    max-width: 420px;
-  }
-
-  /* 🔥 AJUSTE CORRETO DAS LOGOS */
-  .footer-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center; // 👈 centraliza verticalmente
-    gap: 200px;
+:host {
+  footer {
+    background-color: var(--ds-footer-bg);
     text-align: center;
+    z-index: var(--ds-footer-z-index);
+    border-top: var(--ds-footer-border);
+    padding: var(--ds-footer-padding);
+
+    p {
+      margin: 0;
+    }
+
+    div > img {
+      height: var(--ds-footer-logo-height);
+    }
+
+
+    .top-footer {
+      background-color: var(--ds-top-footer-bg);
+      padding: var(--ds-footer-padding);
+      margin: calc(var(--ds-footer-padding) * -1);
+    }
+
+    .bottom-footer {
+      ul {
+        li {
+          display: inline-flex;
+
+          a, .btn-link {
+            padding: 0 calc(var(--bs-spacer) / 2);
+            color: inherit;
+            font-size: .875em;
+
+            &:focus {
+              box-shadow: none;
+              text-decoration: underline;
+            }
+
+            &:focus-visible {
+              box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+            }
+          }
+
+          &:not(:last-child) {
+            &:after {
+              content: '';
+              border-right: 1px var(--bs-secondary) solid;
+            }
+
+          }
+        }
+      }
+    }
   }
-
-  .footer-logos div {
-    display: flex;
-    flex-direction: column;
-    align-items: center; // 👈 centraliza conteúdo interno
-  }
-
-  .footer-ipf-text {
-    font-size: 16px;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .footer-logos {
-    width: 100%;
-    max-width: 320px; // 👈 controla o quanto "afasta das bordas"
-    margin: 0 auto;   // 👈 centraliza o bloco
-
-    display: flex;
-    justify-content: space-between; // mantém uma de cada lado
-    align-items: center;
-  }
-
-  .footer-logos div {
-    text-align: center;
-  }
-
 }

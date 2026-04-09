@@ -1,0 +1,101 @@
+<footer class="footer" [style.background-color]="footerBottomColor">
+
+  <div class="container footer-container">
+
+    <!-- TOPO -->
+    <div class="footer-main">
+
+      <!-- ESQUERDA -->
+      <div class="footer-left">
+
+        <!-- LOGOS DINÂMICOS -->
+        <img *ngIf="currentCommunity === 'home' || currentCommunity === 'default'"
+             src="assets/images/creja-alfaeja-logo.svg"
+             alt="ALFA-EJA Brasil"
+             class="footer-logo">
+
+        <img *ngIf="currentCommunity === 'paulo'"
+             src="assets/images/creja-paulo-freire-logo.svg"
+             alt="CREJA Paulo Freire"
+             class="footer-logo">
+
+        <img *ngIf="currentCommunity === 'ipf'"
+             src="assets/images/creja-ipf-logo.svg"
+             alt="CREJA Instituto Paulo Freire"
+             class="footer-logo">
+
+        <img *ngIf="currentCommunity === 'crejao' || currentCommunity === 'saiba-mais-creja'"
+             src="assets/images/crejao-logo.svg"
+             alt="CREJÃO"
+             class="footer-logo">
+
+        <p class="footer-description">
+          CREJA é um Centro de Referência da
+          Educação de Jovens e Adultos.
+        </p>
+
+      </div>
+
+      <!-- LINKS -->
+      <div class="footer-links-wrapper">
+
+        <!-- COLUNA 1 -->
+        <nav>
+          <ul class="footer-links">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/sobre-o-creja">Sobre o CREJA</a></li>
+            <li><a routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f">Práticas Alfabetizadoras</a></li>
+            <li><a routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e">Vozes</a></li>
+          </ul>
+        </nav>
+
+        <!-- COLUNA 2 -->
+        <nav>
+          <ul class="footer-links">
+            <li><a routerLink="/redes">Redes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/ajuda-alfa-eja">Ajuda</a></li>
+            <li><a routerLink="/sobre-o-creja">Como Colaborar</a></li>
+          </ul>
+        </nav>
+
+        <!-- COLUNA 3 -->
+        <nav>
+          <ul class="footer-links">
+            <li><a routerLink="/termos-de-uso-alfa-eja">Termos de Uso</a></li>
+            <li><a routerLink="/politicas-de-privacidade-alfa-eja">Política de Privacidade</a></li>
+            <li><a routerLink="'/'">Fale conosco</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- LOGOS INFERIORES -->
+    <div class="footer-logos">
+
+      <div>
+        <p>Realização</p>
+        <img src="assets/images/logo_ipf_preto.png" alt="IPF">
+      </div>
+
+      <div *ngIf="currentCommunity === 'home' || currentCommunity === 'default'">
+        <p>Parceria</p>
+        <img src="assets/images/logo_petrobras_preto.png" alt="Petrobras">
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="footer-ipf-text">
+    INSTITUTO DE EDUCAÇÃO E DIREITOS HUMANOS PAULO FREIRE | CNPJ 04.950.603/0001-05
+  </div>
+
+</footer>
