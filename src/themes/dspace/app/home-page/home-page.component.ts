@@ -16,7 +16,6 @@ import { SuggestionsPopupComponent } from '../../../../app/notifications/suggest
 import { ThemedConfigurationSearchPageComponent } from '../../../../app/search-page/themed-configuration-search-page.component';
 import { ThemedSearchFormComponent } from '../../../../app/shared/search-form/themed-search-form.component';
 import { PageWithSidebarComponent } from '../../../../app/shared/sidebar/page-with-sidebar.component';
-import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dspace/view-tracker.component';
 
 import { DestaquesMesComponent } from '../../../../app/home-page/destaques-mes/destaques-mes.component';
 import { FiltroPesquisaComponent } from '../../../../app/home-page/filtro-pesquisa/filtro-pesquisa.component';
@@ -37,7 +36,6 @@ import { OutrasComunidadesComponent } from '../../../../app/home-page/outras-com
     ThemedHomeNewsComponent,
     NgTemplateOutlet,
     NgIf,
-    ViewTrackerComponent,
     ThemedSearchFormComponent,
     ThemedTopLevelCommunityListComponent,
     RecentItemListComponent,
