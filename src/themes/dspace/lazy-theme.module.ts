@@ -13,6 +13,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { RootModule } from '../../app/root.module';
 
 import { CollectionPageComponent } from './app/collection-page/collection-page.component';
+import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
+import { HomePageComponent } from './app/home-page/home-page.component';
 import { SearchComponent } from './app/shared/search/search.component';
 import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
 import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
@@ -38,6 +40,8 @@ const DECLARATIONS = [
     TranslateModule,
     FormsModule,
     CollectionPageComponent,
+    HomeNewsComponent,
+    HomePageComponent,
     SearchComponent,
     SearchSidebarComponent,
     SearchFiltersComponent,

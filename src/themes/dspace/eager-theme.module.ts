@@ -6,7 +6,6 @@ import { FooterComponent } from './app/footer/footer.component';
 import { RootModule } from '../../app/root.module';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
-import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
 
 /**
@@ -18,7 +17,7 @@ const ENTRY_COMPONENTS = [];
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
   BreadcrumbsComponent,
-  HomeNewsComponent,
+  FooterComponent,
   HeaderComponent,
   HeaderNavbarWrapperComponent,
   NavbarComponent,
@@ -28,7 +27,6 @@ const DECLARATIONS = [
   imports: [
     CommonModule,
     RootModule,
-    FooterComponent,
     ...DECLARATIONS,
   ],
   providers: [

@@ -17,13 +17,6 @@ import { ThemedConfigurationSearchPageComponent } from '../../../../app/search-p
 import { ThemedSearchFormComponent } from '../../../../app/shared/search-form/themed-search-form.component';
 import { PageWithSidebarComponent } from '../../../../app/shared/sidebar/page-with-sidebar.component';
 import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dspace/view-tracker.component';
-import { DestaquesMesComponent } from '../../../../app/home-page/destaques-mes/destaques-mes.component';
-import { FiltroPesquisaComponent } from '../../../../app/home-page/filtro-pesquisa/filtro-pesquisa.component';
-import { CarrosselBannersComponent } from '../../../../app/home-page/carrossel-banners/carrossel-banners.component';
-import { BannerAlfaejaComponent } from '../../../../app/home-page/banner-alfaeja/banner-alfaeja.component';
-import { InformacoesAlfaejaComponent } from '../../../../app/home-page/informacoes-alfaeja/informacoes-alfaeja.component';
-import { HomeSocialComponent } from '../../../../app/home-page/home-social/home-social.component';
-import { OutrasComunidadesComponent } from '../../../../app/home-page/outras-comunidades/outras-comunidades.component';
 
 @Component({
   selector: 'ds-themed-home-page',
@@ -32,29 +25,7 @@ import { OutrasComunidadesComponent } from '../../../../app/home-page/outras-com
   // templateUrl: './home-page.component.html'
   templateUrl: '../../../../app/home-page/home-page.component.html',
   standalone: true,
-  imports: [
-    ThemedHomeNewsComponent, 
-    NgTemplateOutlet, 
-    NgIf, 
-    ViewTrackerComponent, 
-    ThemedSearchFormComponent, 
-    ThemedTopLevelCommunityListComponent, 
-    RecentItemListComponent, 
-    AsyncPipe, 
-    TranslateModule, 
-    NgClass, 
-    SuggestionsPopupComponent, 
-    ThemedConfigurationSearchPageComponent, 
-    PageWithSidebarComponent, 
-    HomeCoarComponent, 
-    DestaquesMesComponent, 
-    FiltroPesquisaComponent, 
-    CarrosselBannersComponent, 
-    BannerAlfaejaComponent, 
-    InformacoesAlfaejaComponent, 
-    HomeSocialComponent,
-    OutrasComunidadesComponent,
-  ],
+  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ViewTrackerComponent, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent],
 })
 export class HomePageComponent extends BaseComponent {
 

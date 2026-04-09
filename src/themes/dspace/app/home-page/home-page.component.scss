@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+body, button, input, select, textarea {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/* Cabeçalho */
+.title-line {
+  max-width: 150px;
+  height: auto;
+  opacity: 1; /* mantém cor original */
+}
+
+.title-img {
+  width: 100%;
+  max-width: 914.61px; // 👈 limite exato desktop
+  height: auto;
+  display: block;
+  margin: 0 auto; // garante centralização
+}
+
+/* Parágrafo */
+.section-lead {
+  color: #000000;
+  font-weight: 500;
+  font-size: clamp(20px, 1.2vw + 0.8rem, 20px); // 👈 trava em 20px no mobile
+  line-height: 1.4; // ~28px baseado em 20px
+  text-align: center;
+  max-width: 1152px;
+}
+
+/* Remover paddings fixos antigos desta página */
+.texto-destaque { padding-left: 0; padding-right: 0; }
+
+/* Caso use o container global custom, mantém respiros progressivos */
+.custom-container { padding: 0 1rem; max-width: 100%; }
+@media (min-width: 768px)  { .custom-container { padding: 0 3rem; } }
+@media (min-width: 1200px) { .custom-container { padding: 0 6rem; } }
+
+/* Ajuste opcional: estreitar um pouco em telas muito largas */
+@media (min-width: 1400px) {
+  .container .section-lead { margin-left: auto; margin-right: auto; }
+}
+
+.titulo-destaques {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;       // Bold
+  font-size: clamp(32px, 3.5vw, 50px);       // 👈 ajustado
+  line-height: 1.08;      // 👈 108%
+  letter-spacing: 0;
+  color: #8A0DBA;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
