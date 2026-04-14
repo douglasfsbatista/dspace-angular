@@ -6571,14 +6571,14 @@
   // "search.filters.filter.title.head": "Title",
   "search.filters.filter.title.head": "Título",
 
-  "search.filters.filtercidadehead": "Município",
+  "search.filters.filter.cidade.head": "Município",
   "search.filters.filter.estado.head": "Estado (UF)",
   "search.filters.filter.regiao.head": "Região",
 
   // "search.filters.filter.title.placeholder": "Title",
   "search.filters.filter.title.placeholder": "Título",
 
-  "search.filters.filtercidadeplaceholder": "Município",
+  "search.filters.filter.cidade.placeholder": "Município",
   "search.filters.filter.estado.placeholder": "Estado (UF)",
   "search.filters.filter.regiao.placeholder": "Região",
 
