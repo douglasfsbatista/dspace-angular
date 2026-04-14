@@ -959,9 +959,9 @@
   // "admin.reports.items.title": "Title",
   "admin.reports.items.title": "Título",
 
-  "admin.reports.items.city": "Município",
-  "admin.reports.items.state": "Estado (UF)",
-  "admin.reports.items.region": "Região",
+  "admin.reports.items.cidade": "Município",
+  "admin.reports.items.estado": "Estado (UF)",
+  "admin.reports.items.regiao": "Região",
 
   // "admin.reports.commons.filters": "Filters",
   "admin.reports.commons.filters": "Filtros",
@@ -1536,9 +1536,9 @@
   // "browse.metadata.title": "Title",
   "browse.metadata.title": "Título",
 
-  "browse.metadata.city": "Município",
-  "browse.metadata.state": "Estado (UF)",
-  "browse.metadata.region": "Região",
+  "browse.metadata.cidade": "Município",
+  "browse.metadata.estado": "Estado (UF)",
+  "browse.metadata.regiao": "Região",
 
   // "browse.metadata.srsc": "Subject Category",
   "browse.metadata.srsc": "Categoria de Assunto",
@@ -2011,9 +2011,9 @@
   // "collection.select.table.title": "Title",
   "collection.select.table.title": "Título",
 
-  "collection.select.table.city": "Município",
-  "collection.select.table.state": "Estado (UF)",
-  "collection.select.table.region": "Região",
+  "collection.select.table.cidade": "Município",
+  "collection.select.table.estado": "Estado (UF)",
+  "collection.select.table.regiao": "Região",
 
   // "collection.source.controls.head": "Harvest Controls",
   "collection.source.controls.head": "Controles de Agregação",
@@ -4319,9 +4319,9 @@
   // "item.select.table.title": "Title",
   "item.select.table.title": "Título",
 
-  "item.select.table.city": "Município",
-  "item.select.table.state": "Estado (UF)",
-  "item.select.table.region": "Região",
+  "item.select.table.cidade": "Município",
+  "item.select.table.estado": "Estado (UF)",
+  "item.select.table.regiao": "Região",
 
   // "item.version.history.empty": "There are no other versions for this item yet.",
   "item.version.history.empty": "Não existem ainda outras versões deste item.",
@@ -6489,9 +6489,9 @@
   // "search.filters.applied.f.title": "Title",
   "search.filters.applied.f.title": "Título",
 
-  "search.filters.applied.f.city": "Município",
-  "search.filters.applied.f.state": "Estado (UF)",
-  "search.filters.applied.f.region": "Região",
+  "search.filters.applied.f.cidade": "Município",
+  "search.filters.applied.f.estado": "Estado (UF)",
+  "search.filters.applied.f.regiao": "Região",
 
   // "search.filters.applied.f.author": "Author",
   "search.filters.applied.f.author": "Autor",
@@ -6571,16 +6571,16 @@
   // "search.filters.filter.title.head": "Title",
   "search.filters.filter.title.head": "Título",
 
-  "search.filters.filter.city.head": "Município",
-  "search.filters.filter.state.head": "Estado (UF)",
-  "search.filters.filter.region.head": "Região",
+  "search.filters.filtercidadehead": "Município",
+  "search.filters.filter.estado.head": "Estado (UF)",
+  "search.filters.filter.regiao.head": "Região",
 
   // "search.filters.filter.title.placeholder": "Title",
   "search.filters.filter.title.placeholder": "Título",
 
-  "search.filters.filter.city.placeholder": "Município",
-  "search.filters.filter.state.placeholder": "Estado (UF)",
-  "search.filters.filter.region.placeholder": "Região",
+  "search.filters.filtercidadeplaceholder": "Município",
+  "search.filters.filter.estado.placeholder": "Estado (UF)",
+  "search.filters.filter.regiao.placeholder": "Região",
 
   // "search.filters.filter.title.label": "Search Title",
   "search.filters.filter.title.label": "Título da Pesquisa",
@@ -8085,9 +8085,9 @@
   // "submission.sections.sherpa.publication.information.title": "Title",
   "submission.sections.sherpa.publication.information.title": "Título",
 
-  "submission.sections.sherpa.publication.information.city": "Município",
-  "submission.sections.sherpa.publication.information.state": "Estado (UF)",
-  "submission.sections.sherpa.publication.information.region": "Região",
+  "submission.sections.sherpa.publication.information.cidade": "Município",
+  "submission.sections.sherpa.publication.information.estado": "Estado (UF)",
+  "submission.sections.sherpa.publication.information.regiao": "Região",
 
   // "submission.sections.sherpa.publication.information.issns": "ISSNs",
   "submission.sections.sherpa.publication.information.issns": "ISSNs",
