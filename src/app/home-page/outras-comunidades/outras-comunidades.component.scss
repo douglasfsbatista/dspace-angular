@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap');
 .outras-comunidades {
   padding: 60px 16px;
   background: #ffffff;
@@ -48,7 +49,8 @@
 .outras-texto h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #8A0DBA;
+  font-size: clamp(24px, 2.86vw, 40px);
+  color: #3A183A;
   margin-bottom: 20px;
 
   /* MOBILE FIRST (Figma) */
@@ -87,16 +89,16 @@
 ======================== */
 
 .outras-card {
-  background: #FEE6FE;                 // mesmo fundo do crejas
-  border: 1px solid #8A0DBA;           // mesma borda
-  border-radius: 20px;
-  padding: 25px;
-  min-height: 240px;
+  background: #FEE6FE;
+  border: 1px solid #E88B9F;
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 320px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .outras-card:hover {
@@ -104,39 +106,44 @@
 }
 
 .outras-card h3 {
-  font-size: 24px;                     // mesmo tamanho do crejas
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.4vw, 32px);
   font-weight: 700;
-  color: #8A0DBA;                       // mesmo vinho do crejas
-  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #8A0DBA;
+  margin-bottom: 18px;
 }
 
 .outras-card p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  color: #333;
-  line-height: 1.6;
+  font-weight: 400;
+  color: #000000;
+  line-height: 108%;
   text-align: left;
   flex-grow: 1;
-  hyphens: auto;
+  margin-bottom: 24px;
 }
 
 /* ========================
-   BOTÃO (IGUAL CREJAS)
+   BOTÃO
 ======================== */
 
 .btn-acessar {
   align-self: flex-start;
-  margin-top: 20px;
-
-  background: #8A0DBA;                  // vinho sólido igual crejas
+  margin-top: auto;
+  font-family: "Besley", serif;
+  background: #8A0DBA;
   color: #ffffff;
-  padding: 10px 26px;
-  border-radius: 25px;
+  padding: 12px 32px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
-
-  transition: 0.3s ease;
+  font-size: 20px;
+  line-height: 1;
+  transition: background 0.3s ease;
 }
 
 .btn-acessar:hover {
-  background: #8A0DBA;                  // hover igual crejas
+  background: #740aa0;
 }

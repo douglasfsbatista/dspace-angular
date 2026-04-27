@@ -2,13 +2,10 @@
 
   <div class="container footer-container">
 
-    <!-- TOPO -->
     <div class="footer-main">
 
-      <!-- ESQUERDA -->
       <div class="footer-left">
 
-        <!-- LOGOS DINÂMICOS -->
         <img *ngIf="currentCommunity === 'home' || currentCommunity === 'default'"
              src="assets/images/creja-alfaeja-logo.svg"
              alt="ALFA-EJA Brasil"
@@ -33,13 +30,67 @@
           CREJA é um Centro de Referência da
           Educação de Jovens e Adultos.
         </p>
-
       </div>
 
-      <!-- LINKS -->
-      <div class="footer-links-wrapper">
+      <!-- LINKS MOBILE -->
+      <div class="footer-links-mobile">
+        <nav>
+          <ul class="footer-links" *ngIf="currentCommunity === 'paulo'">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e">Vozes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/sobre-o-creja">Como Colaborar</a></li>
+            <li><a routerLink="/politicas-de-privacidade-paulo-freire">Política de Privacidade</a></li>
+          </ul>
+           <ul class="footer-links" *ngIf="currentCommunity === 'home' || currentCommunity === 'default'">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e">Vozes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/sobre-o-creja">Como Colaborar</a></li>
+            <li><a routerLink="/politicas-de-privacidade-alfa-eja">Política de Privacidade</a></li>
+          </ul>
+           <ul class="footer-links" *ngIf="currentCommunity === 'ipf'">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/collections/420f504b-2ede-4acc-b302-666a8c58ffbf">Pesquisas e Memórias</a></li>
+            <li><a routerLink="/collections/8d031651-c18f-4011-ac15-a28c3e69b78e">Vozes</a></li>
+            <li><a routerLink="/">Pesquisar</a></li>
+            <li><a routerLink="/sobre-o-creja">Como Colaborar</a></li>
+            <li><a routerLink="/politicas-de-privacidade-ipf">Política de Privacidade</a></li>
+          </ul>
+        </nav>
 
-        <!-- COLUNA 1 -->
+        <nav>
+          <ul class="footer-links" *ngIf="currentCommunity === 'paulo'">
+            <li><a routerLink="/sobre-o-creja">Sobre o CREJA</a></li>
+            <li><a routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f">Práticas Alfabetizadoras</a></li>
+            <li><a routerLink="/redes">Redes</a></li>
+            <li><a routerLink="/ajuda-alfa-eja">Ajuda</a></li>
+            <li><a routerLink="/termos-de-uso-paulo-freire">Termos de Uso</a></li>
+            <li><a routerLink="/">Fale Conosco</a></li>
+          </ul>
+          <ul class="footer-links" *ngIf="currentCommunity === 'ipf'">
+            <li><a routerLink="/sobre-o-creja">Sobre o CREJA</a></li>
+            <li><a routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f">Práticas Alfabetizadoras</a></li>
+            <li><a routerLink="/redes">Redes</a></li>
+            <li><a routerLink="/ajuda-ipf">Ajuda</a></li>
+            <li><a routerLink="/termos-de-uso-ipf">Termos de Uso</a></li>
+            <li><a routerLink="/">Fale Conosco</a></li>
+          </ul>
+          <ul class="footer-links" *ngIf="currentCommunity === 'home' || currentCommunity === 'default'">
+            <li><a routerLink="/sobre-o-creja">Sobre o CREJA</a></li>
+            <li><a routerLink="/collections/ac9d871b-3cc2-4b4e-9097-8dcfe40dd20f">Práticas Alfabetizadoras</a></li>
+            <li><a routerLink="/redes">Redes</a></li>
+            <li><a routerLink="/ajuda-alfa-eja">Ajuda</a></li>
+            <li><a routerLink="/termos-de-uso-alfa-eja">Termos de Uso</a></li>
+            <li><a routerLink="/">Fale Conosco</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- LINKS DESKTOP -->
+      <div class="footer-links-desktop">
         <nav>
           <ul class="footer-links">
             <li><a routerLink="/">Home</a></li>
@@ -50,7 +101,6 @@
           </ul>
         </nav>
 
-        <!-- COLUNA 2 -->
         <nav>
           <ul class="footer-links">
             <li><a routerLink="/redes">Redes</a></li>
@@ -60,24 +110,30 @@
           </ul>
         </nav>
 
-        <!-- COLUNA 3 -->
         <nav>
-          <ul class="footer-links">
-            <li><a routerLink="/termos-de-uso-alfa-eja">Termos de Uso</a></li>
-            <li><a routerLink="/politicas-de-privacidade-alfa-eja">Política de Privacidade</a></li>
-            <li><a routerLink="'/'">Fale conosco</a></li>
+          <ul class="footer-links" *ngIf="currentCommunity === 'paulo'">
+            <li><a routerLink="/termos-de-uso-paulo-freire">Termos de Uso</a></li>
+            <li><a routerLink="/politicas-de-privacidade-paulo-freire">Política de Privacidade</a></li>
+            <li><a routerLink="/">Fale conosco</a></li>
+          </ul>
+          <ul class="footer-links" *ngIf="currentCommunity === 'home' || currentCommunity === 'default'">
+             <li><a routerLink="/termos-de-uso-alfa-eja">Termos de Uso</a></li>
+             <li><a routerLink="/politicas-de-privacidade-alfa-eja">Política de Privacidade</a></li>
+             <li><a routerLink="/">Fale conosco</a></li>
+          </ul>
+          <ul class="footer-links" *ngIf="currentCommunity === 'ipf' || currentCommunity === 'default'">
+             <li><a routerLink="/termos-de-uso-ipf">Termos de Uso</a></li>
+             <li><a routerLink="/politicas-de-privacidade-ipf">Política de Privacidade</a></li>
+             <li><a routerLink="/">Fale conosco</a></li>
           </ul>
         </nav>
-
       </div>
 
     </div>
 
     <hr>
 
-    <!-- LOGOS INFERIORES -->
     <div class="footer-logos">
-
       <div>
         <p>Realização</p>
         <img src="assets/images/logo_ipf_preto.png" alt="IPF">
@@ -87,7 +143,6 @@
         <p>Parceria</p>
         <img src="assets/images/logo_petrobras_preto.png" alt="Petrobras">
       </div>
-
     </div>
 
   </div>

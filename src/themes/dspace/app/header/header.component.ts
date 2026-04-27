@@ -148,6 +148,8 @@ export class HeaderComponent extends BaseComponent implements OnInit {
 
       'paulo-freire-home': 'paulo',
       'sobre-o-creja-paulo-freire': 'paulo',
+      'politicas-de-privacidade-paulo-freire': 'paulo',
+      'termos-de-uso-paulo-freire': 'paulo',
 
       'ipf-home': 'ipf',
       'sobre-o-creja-ipf': 'ipf',

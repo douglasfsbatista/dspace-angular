@@ -52,6 +52,7 @@ export class FooterComponent extends BaseComponent {
   }
 
     private setCommunity(url: string): void {
+      console.log('URL recebida:', url);
 
     if (url.includes('paulo-freire')) {
       this.currentCommunity = 'paulo';

@@ -54,7 +54,9 @@ import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/s
 import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
 import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
 import { TermosDeUsoComponent } from 'src/themes/alfaejabrasil/app/termos-de-uso/termos-de-uso.component';
+import { TermosDeUsoPFComponent } from 'src/themes/paulofreire/app/termos-de-uso/termos-de-uso.component';
 import { PoliticasDePrivacidadeComponent } from 'src/themes/alfaejabrasil/app/politicas-de-privacidade/politicas-de-privacidade.component';
+import { PoliticasDePrivacidadePFComponent } from 'src/themes/paulofreire/app/politicas-de-privacidade/politicas-de-privacidade.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -169,8 +171,18 @@ export const APP_ROUTES: Route[] = [
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
+        path: 'termos-de-uso-paulo-freire',
+        component: TermosDeUsoPFComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
         path: 'politicas-de-privacidade-alfa-eja',
         component: PoliticasDePrivacidadeComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'politicas-de-privacidade-paulo-freire',
+        component: PoliticasDePrivacidadePFComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {

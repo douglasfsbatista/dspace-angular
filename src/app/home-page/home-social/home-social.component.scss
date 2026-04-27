@@ -36,14 +36,14 @@
   display: flex;
   justify-content: center;
   align-items: flex-start; // 👈 mantém alinhamento natural
-  gap: 90px;
+  gap: 120px;
   flex-wrap: wrap;
 }
 
 .social-wrapper a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   text-decoration: none;
   color: inherit;
 }

@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap');
 .outras-comunidades {
-  padding: 120px 0;
+  padding: 60px 16px;
   background: #ffffff;
 }
 
@@ -8,9 +9,37 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
   gap: 40px;
   align-items: start;
+
+  /* MOBILE FIRST */
+  grid-template-columns: 1fr;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .outras-comunidades {
+    padding: 100px 0;
+  }
+
+  .outras-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outras-texto {
+    grid-column: span 2; // texto ocupa topo inteiro
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .outras-container {
+    grid-template-columns: 1.1fr 1fr 1fr;
+  }
+
+  .outras-texto {
+    grid-column: auto;
+  }
 }
 
 /* ========================
@@ -18,17 +47,41 @@
 ======================== */
 
 .outras-texto h2 {
-  font-size: 42px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: clamp(24px, 2.86vw, 40px);
   color: #075b31;
-  line-height: 1.2;
   margin-bottom: 20px;
+
+  /* MOBILE FIRST (Figma) */
+  font-size: 40px;
+  line-height: 1.08;
+}
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+  .outras-texto h2 {
+    font-size: clamp(40px, 4vw, 42px);
+    line-height: 1.2;
+  }
 }
 
 .outras-texto p {
-  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   color: #444;
-  line-height: 1.6;
+
+  /* MOBILE (Figma) */
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+  .outras-texto p {
+    font-size: clamp(20px, 1.2vw, 22px);
+    line-height: 1.5;
+  }
 }
 
 /* ========================
@@ -36,16 +89,16 @@
 ======================== */
 
 .outras-card {
-  background: #E4F4E6;                 // mesmo fundo do crejas
-  border: 1px solid #075b31;           // mesma borda
-  border-radius: 20px;
-  padding: 25px;
-  min-height: 240px;
+  background: #E4F4E6;
+  border: 1px solid #075b31;
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 320px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .outras-card:hover {
@@ -53,39 +106,44 @@
 }
 
 .outras-card h3 {
-  font-size: 24px;                     // mesmo tamanho do crejas
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.4vw, 32px);
   font-weight: 700;
-  color: #075b31;                       // mesmo vinho do crejas
-  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #075b31;
+  margin-bottom: 18px;
 }
 
 .outras-card p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  color: #333;
-  line-height: 1.6;
+  font-weight: 400;
+  color: #444;
+  line-height: 108%;
   text-align: left;
   flex-grow: 1;
-  hyphens: auto;
+  margin-bottom: 24px;
 }
 
 /* ========================
-   BOTÃO (IGUAL CREJAS)
+   BOTÃO
 ======================== */
 
 .btn-acessar {
   align-self: flex-start;
-  margin-top: 20px;
-
-  background: #075b31;                  // vinho sólido igual crejas
+  margin-top: auto;
+  font-family: "Besley", serif;
+  background: #075b31;
   color: #ffffff;
-  padding: 10px 26px;
-  border-radius: 25px;
+  padding: 12px 32px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
-
-  transition: 0.3s ease;
+  font-size: 20px;
+  line-height: 1;
+  transition: background 0.3s ease;
 }
 
 .btn-acessar:hover {
-  background: #075b31;                  // hover igual crejas
+  background: #075b31;
 }
