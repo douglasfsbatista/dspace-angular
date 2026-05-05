@@ -68,6 +68,21 @@
   // "access-status.unknown.listelement.badge": "Unknown",
   "access-status.unknown.listelement.badge": "Desconhecido",
 
+  // "accessibility.font-size.menu": "Accessibility font size options",
+  "accessibility.font-size.menu": "Opções de acessibilidade para tamanho da letra",
+
+  // "accessibility.font-size.label": "Font size",
+  "accessibility.font-size.label": "Tamanho da letra",
+
+  // "accessibility.font-size.decrease": "Decrease font size",
+  "accessibility.font-size.decrease": "Diminuir tamanho da letra",
+
+  // "accessibility.font-size.increase": "Increase font size",
+  "accessibility.font-size.increase": "Aumentar tamanho da letra",
+
+  // "accessibility.font-size.reset": "Reset font size",
+  "accessibility.font-size.reset": "Repor tamanho da letra",
+
   // "admin.curation-tasks.breadcrumbs": "System curation tasks",
   "admin.curation-tasks.breadcrumbs": "Tarefas de curadoria",
 

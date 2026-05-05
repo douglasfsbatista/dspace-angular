@@ -1,0 +1,43 @@
+<div ngbDropdown class="accessibility-font-size" placement="bottom-right">
+  <button
+    type="button"
+    class="btn accessibility-font-size-toggle"
+    id="accessibility-font-size-dropdown"
+    ngbDropdownToggle
+    [attr.aria-label]="'accessibility.font-size.menu' | translate"
+    [title]="'accessibility.font-size.menu' | translate">
+    <i class="fas fa-universal-access fa-fw" aria-hidden="true"></i>
+  </button>
+
+  <div ngbDropdownMenu aria-labelledby="accessibility-font-size-dropdown" class="accessibility-font-size-menu">
+    <div class="dropdown-header">{{ 'accessibility.font-size.label' | translate }}</div>
+
+    <div class="d-flex align-items-center px-3 py-2" *ngIf="fontSize$ | async as fontSize">
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm accessibility-font-size-action"
+        (click)="fontSizeService.decrease()"
+        [disabled]="!fontSizeService.canDecrease(fontSize)"
+        [attr.aria-label]="'accessibility.font-size.decrease' | translate">
+        A-
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-link btn-sm accessibility-font-size-value"
+        (click)="fontSizeService.reset()"
+        [attr.aria-label]="'accessibility.font-size.reset' | translate">
+        {{ fontSize }}%
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm accessibility-font-size-action"
+        (click)="fontSizeService.increase()"
+        [disabled]="!fontSizeService.canIncrease(fontSize)"
+        [attr.aria-label]="'accessibility.font-size.increase' | translate">
+        A+
+      </button>
+    </div>
+  </div>
+</div>

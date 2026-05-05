@@ -1,6 +1,7 @@
 html {
     position: relative;
     min-height: 100%;
+    font-size: var(--ds-accessibility-font-size, 100%);
 }
 
 body {

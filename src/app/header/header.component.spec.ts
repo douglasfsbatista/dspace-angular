@@ -24,6 +24,7 @@ import { MenuService } from '../shared/menu/menu.service';
 import { ActivatedRouteStub } from '../shared/testing/active-router.stub';
 import { HostWindowServiceStub } from '../shared/testing/host-window-service.stub';
 import { MenuServiceStub } from '../shared/testing/menu-service.stub';
+import { AccessibilityFontSizeComponent } from './accessibility-font-size/accessibility-font-size.component';
 import { ContextHelpToggleComponent } from './context-help-toggle/context-help-toggle.component';
 import { HeaderComponent } from './header.component';
 
@@ -59,7 +60,7 @@ describe('HeaderComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
     })
       .overrideComponent(HeaderComponent, {
-        remove: { imports: [ ThemedLangSwitchComponent, ThemedSearchNavbarComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent] },
+         remove: { imports: [ ThemedLangSwitchComponent, ThemedSearchNavbarComponent, AccessibilityFontSizeComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent] },
       })
       .compileComponents();  // compile template and css
   }));

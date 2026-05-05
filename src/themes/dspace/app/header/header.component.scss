@@ -3,7 +3,7 @@
 body, button, input, select, textarea, li, a {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: 15px;
+  font-size: .9375rem;
 }
 
 /* ===== Navegação (estilos compartilhados) ===== */
@@ -19,7 +19,7 @@ body, button, input, select, textarea, li, a {
 
     font-family: "Montserrat", sans-serif;
     font-weight: 400;  // 👈 Medium
-    font-size: 17px;   // 👈 tamanho solicitado
+    font-size: 1.0625rem;    // 👈 tamanho solicitado
     letter-spacing: 0;
 
     transition: color .2s ease, opacity .2s ease;

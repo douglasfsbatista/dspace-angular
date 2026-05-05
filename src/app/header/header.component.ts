@@ -21,6 +21,7 @@ import { ImpersonateNavbarComponent } from '../shared/impersonate-navbar/imperso
 import { ThemedLangSwitchComponent } from '../shared/lang-switch/themed-lang-switch.component';
 import { MenuService } from '../shared/menu/menu.service';
 import { MenuID } from '../shared/menu/menu-id.model';
+import { AccessibilityFontSizeComponent } from './accessibility-font-size/accessibility-font-size.component';
 import { ContextHelpToggleComponent } from './context-help-toggle/context-help-toggle.component';
 
 /**
@@ -31,7 +32,7 @@ import { ContextHelpToggleComponent } from './context-help-toggle/context-help-t
   styleUrls: ['header.component.scss'],
   templateUrl: 'header.component.html',
   standalone: true,
-  imports: [RouterLink, ThemedLangSwitchComponent, NgbDropdownModule, ThemedSearchNavbarComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, TranslateModule, AsyncPipe, NgIf],
+  imports: [RouterLink, ThemedLangSwitchComponent, NgbDropdownModule, ThemedSearchNavbarComponent, AccessibilityFontSizeComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, TranslateModule, AsyncPipe, NgIf],
 })
 export class HeaderComponent implements OnInit {
   /**

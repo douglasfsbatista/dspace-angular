@@ -1,0 +1,30 @@
+:host {
+  display: inline-flex;
+}
+
+.accessibility-font-size-toggle {
+  color: var(--ds-header-icon-color);
+  padding: 0.375rem 0.5rem;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--ds-header-icon-color-hover);
+  }
+}
+
+.accessibility-font-size-menu {
+  min-width: 13rem;
+}
+
+.accessibility-font-size-action {
+  min-width: 2.5rem;
+}
+
+.accessibility-font-size-value {
+  min-width: 4.25rem;
+  text-decoration: none;
+}

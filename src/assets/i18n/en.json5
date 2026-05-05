@@ -44,6 +44,16 @@
 
   "access-status.unknown.listelement.badge": "Unknown",
 
+  "accessibility.font-size.menu": "Accessibility font size options",
+
+  "accessibility.font-size.label": "Font size",
+
+  "accessibility.font-size.decrease": "Decrease font size",
+
+  "accessibility.font-size.increase": "Increase font size",
+
+  "accessibility.font-size.reset": "Reset font size",
+
   "admin.curation-tasks.breadcrumbs": "System curation tasks",
 
   "admin.curation-tasks.title": "System curation tasks",
