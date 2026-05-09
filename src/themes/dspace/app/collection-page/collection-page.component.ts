@@ -43,6 +43,10 @@ import { hasValue } from '../../../../app/shared/empty.util';
 import { FeatureID } from '../../../../app/core/data/feature-authorization/feature-id';
 import { getAllSucceededRemoteDataPayload } from '../../../../app/core/shared/operators';
 import { getCollectionPageRoute } from '../../../../app/collection-page/collection-page-routing-paths';
+import {
+  CREJA_COMMUNITY_CONFIGS,
+  getCrejaCommunityByCollectionUuid,
+} from '../../../../app/shared/creja-community/creja-community-config';
 
 @Component({
   selector: 'ds-themed-collection-page',
@@ -105,5 +109,10 @@ export class CollectionPageComponent extends BaseComponent {
       getAllSucceededRemoteDataPayload(),
       map((collection) => getCollectionPageRoute(collection.id)),
     );
+  }
+
+  public getCollectionTitleColor(collectionUuid: string): string {
+    const community = getCrejaCommunityByCollectionUuid(collectionUuid) || 'default';
+    return CREJA_COMMUNITY_CONFIGS[community].color;
   }
 }

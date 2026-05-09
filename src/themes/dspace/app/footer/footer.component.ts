@@ -19,6 +19,11 @@ import { KlaroService } from 'src/app/shared/cookies/klaro.service';
 import { AuthorizationDataService } from 'src/app/core/data/feature-authorization/authorization-data.service';
 import { NotifyInfoService } from 'src/app/core/coar-notify/notify-info/notify-info.service';
 import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
+import {
+  CREJA_COMMUNITY_CONFIGS,
+  CrejaCommunityKey,
+  getCrejaCommunityByUrl,
+} from 'src/app/shared/creja-community/creja-community-config';
 
 @Component({
   selector: 'ds-themed-footer',
@@ -30,9 +35,8 @@ import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
   imports: [NgIf, NgClass, RouterLink, AsyncPipe, DatePipe, TranslateModule, HomeSocialComponent],
 })
 export class FooterComponent extends BaseComponent {
-  currentCommunity: string = 'default';
+  currentCommunity: CrejaCommunityKey = 'default';
 
-  // 🔥 NOVA PROPRIEDADE PARA CONTROLAR A COR
   footerBottomColor: string = '#D5D5D5';
 
   constructor(
@@ -45,34 +49,24 @@ export class FooterComponent extends BaseComponent {
     super(cookies, authorizationService, notifyInfoService, appConfig);
   }
 
+  get config() {
+    return CREJA_COMMUNITY_CONFIGS[this.currentCommunity] || CREJA_COMMUNITY_CONFIGS.default;
+  }
+
   ngOnInit(): void {
     this.setCommunity(this.router.url);
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.setCommunity(event.urlAfterRedirects);
+      });
 
     super.ngOnInit();
   }
 
-    private setCommunity(url: string): void {
-      console.log('URL recebida:', url);
-
-    if (url.includes('paulo-freire')) {
-      this.currentCommunity = 'paulo';
-      this.footerBottomColor = '#E4F4E6';
-
-    } else if (url.includes('ipf')) {
-      this.currentCommunity = 'ipf';
-      this.footerBottomColor = '#DFECF2';
-
-    } else if (url.includes('creja-home') || url.includes('saiba-mais-creja') || url.includes('redes-creja')) {
-      this.currentCommunity = 'crejao';
-      this.footerBottomColor = '#FFE6ED';
-
-    } else if (url.includes('home')) {
-      this.currentCommunity = 'home';
-      this.footerBottomColor = '#FEE6FE';
-
-    } else {
-      this.currentCommunity = 'default';
-      this.footerBottomColor = '#FEE6FE';
-    }
+  private setCommunity(url: string): void {
+    this.currentCommunity = getCrejaCommunityByUrl(url) || 'default';
+    this.footerBottomColor = this.config.footerColor;
   }
 }

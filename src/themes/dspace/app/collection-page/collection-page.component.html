@@ -8,6 +8,7 @@
           <header class="comcol-header mr-auto">
             <!-- Collection Name -->
             <ds-comcol-page-header class="titulo-colecoes"
+                [style.--creja-collection-title-color]="getCollectionTitleColor(collection.uuid)"
                 [name]="dsoNameService.getName(collection)">
             </ds-comcol-page-header>
             <!-- Collection logo -->
