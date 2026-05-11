@@ -52,11 +52,13 @@ import { IpfHomeComponent } from '../themes/custom/app/ipf-home/ipf-home.compone
 import { PauloFreireHomeComponent } from '../themes/custom/app/paulo-freire-home/paulo-freire-home.component';
 import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/saiba-mais-creja.component';
 import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
+import { AjudaPauloFreireComponent } from 'src/themes/paulofreire/app/ajuda-paulo-freire/ajuda-paulo-freire.component';
 import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
 import { TermosDeUsoComponent } from 'src/themes/alfaejabrasil/app/termos-de-uso/termos-de-uso.component';
 import { TermosDeUsoPFComponent } from 'src/themes/paulofreire/app/termos-de-uso/termos-de-uso.component';
 import { PoliticasDePrivacidadeComponent } from 'src/themes/alfaejabrasil/app/politicas-de-privacidade/politicas-de-privacidade.component';
 import { PoliticasDePrivacidadePFComponent } from 'src/themes/paulofreire/app/politicas-de-privacidade/politicas-de-privacidade.component';
+import { RedesPauloFreireComponent } from 'src/themes/paulofreire/app/redes-paulo-freire/redes-paulo-freire.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -136,6 +138,11 @@ export const APP_ROUTES: Route[] = [
         canActivate: [endUserAgreementCurrentUserGuard],
       },
       {
+        path: 'redes-paulo-freire',
+        component: RedesPauloFreireComponent,
+        canActivate: [endUserAgreementCurrentUserGuard],
+      },
+      {
         path: 'sobre-o-creja',
         component: SobreCrejaComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
@@ -163,6 +170,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'ajuda-alfa-eja',
         component: AjudaAlfaEjaComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'ajuda-paulo-freire',
+        component: AjudaPauloFreireComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {

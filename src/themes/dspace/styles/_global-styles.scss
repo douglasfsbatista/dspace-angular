@@ -26,7 +26,7 @@
 }
 
 // Remove margem nas páginas customizadas
-main.my-cs:has(ds-creja-home,ds-ipf-home,ds-paulo-freire-home,ds-redes-page,app-saiba-mais-creja,ds-sobre-creja-page,ds-home-page,ds-themed-home-page) { 
+main.my-cs:has(ds-creja-home,ds-ipf-home,ds-paulo-freire-home,ds-redes-page,ds-redes-paulo-freire-page,app-ajuda-paulo-freire,app-saiba-mais-creja,ds-sobre-creja-page,ds-home-page,ds-themed-home-page) {
   margin-top: 0;
   margin-bottom: 0;
 }
