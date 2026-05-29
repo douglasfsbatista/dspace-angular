@@ -3,6 +3,7 @@ import {
   Injectable,
   InjectionToken,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Operation } from 'fast-json-patch';
 import cloneDeep from 'lodash/cloneDeep';
@@ -26,6 +27,10 @@ import { EPerson } from '../../core/eperson/models/eperson.model';
 import { CAPTCHA_NAME } from '../../core/google-recaptcha/google-recaptcha.service';
 import { CookieService } from '../../core/services/cookie.service';
 import { getFirstCompletedRemoteData } from '../../core/shared/operators';
+import {
+  CREJA_COMMUNITY_CONFIGS,
+  getCrejaCommunityByUrl,
+} from '../creja-community/creja-community-config';
 import {
   hasValue,
   isEmpty,
@@ -96,6 +101,7 @@ export class BrowserKlaroService extends KlaroService {
     private ePersonService: EPersonDataService,
     private configService: ConfigurationDataService,
     private cookieService: CookieService,
+    private router: Router,
     @Inject(LAZY_KLARO) private lazyKlaro: Promise<any>,
   ) {
     super();
@@ -112,6 +118,8 @@ export class BrowserKlaroService extends KlaroService {
     if (!environment.info.enablePrivacyStatement) {
       delete this.klaroConfig.privacyPolicy;
       this.klaroConfig.translations.zy.consentNotice.description = 'cookies.consent.content-notice.description.no-privacy';
+    } else {
+      this.klaroConfig.privacyPolicy = this.getPrivacyPolicyLink();
     }
 
     const hideGoogleAnalytics$ = this.configService.findByPropertyName(this.GOOGLE_ANALYTICS_KEY).pipe(
@@ -356,6 +364,14 @@ export class BrowserKlaroService extends KlaroService {
    */
   private filterConfigServices(servicesToHide: string[]): Pick<typeof klaroConfiguration, 'services'>[] {
     return this.klaroConfig.services.filter(service => !servicesToHide.some(name => name === service.name));
+  }
+
+  /**
+   * Resolve the privacy policy route for the CREJA community identified by the current URL.
+   */
+  private getPrivacyPolicyLink(): string {
+    const community = getCrejaCommunityByUrl(this.router.url);
+    return CREJA_COMMUNITY_CONFIGS[community ?? 'default'].privacidade;
   }
 
 }

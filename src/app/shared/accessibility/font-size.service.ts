@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 
 const FONT_SIZE_STORAGE_KEY = 'ds-accessibility-font-size';
 const DEFAULT_FONT_SIZE = 100;
-const MIN_FONT_SIZE = 90;
+const MIN_FONT_SIZE = 100;
 const MAX_FONT_SIZE = 130;
 const FONT_SIZE_STEP = 10;
 

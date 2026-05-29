@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { getTestScheduler } from 'jasmine-marbles';
 import clone from 'lodash/clone';
@@ -35,6 +36,7 @@ describe('BrowserKlaroService', () => {
   let ePersonService;
   let authService;
   let cookieService;
+  let router;
 
   let user;
   let service: BrowserKlaroService;
@@ -75,6 +77,7 @@ describe('BrowserKlaroService', () => {
         /* empty */
       },
     });
+    router = { url: '/home' };
 
     TestBed.configureTestingModule({
       providers: [
@@ -98,6 +101,10 @@ describe('BrowserKlaroService', () => {
         {
           provide: ConfigurationDataService,
           useValue: configurationDataService,
+        },
+        {
+          provide: Router,
+          useValue: router,
         },
       ],
     });
@@ -173,6 +180,20 @@ describe('BrowserKlaroService', () => {
   it('translateConfiguration', () => {
     service.translateConfiguration();
     expect((service as any).translateService.instant).toHaveBeenCalledWith(testKey);
+  });
+
+  describe('getPrivacyPolicyLink', () => {
+    it('should return the privacy policy link for the current CREJA community route', () => {
+      router.url = '/paulo-freire-home';
+
+      expect((service as any).getPrivacyPolicyLink()).toBe('/politicas-de-privacidade-paulo-freire');
+    });
+
+    it('should return the default privacy policy link when the route has no CREJA community', () => {
+      router.url = '/search';
+
+      expect((service as any).getPrivacyPolicyLink()).toBe('/politicas-de-privacidade-alfa-eja');
+    });
   });
 
   describe('initializeUser when there is a metadata field value', () => {
