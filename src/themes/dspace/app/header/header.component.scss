@@ -44,7 +44,7 @@ body, button, input, select, textarea, li, a {
 }
 
 /* ===== Hamburguer + colapso ===== */
-.site-nav { --nav-bg:#9602C7; --nav-fg:#fff; }
+.site-nav { --nav-bg: var(--bs-primary); --nav-fg:#fff; }
 .site-nav nav { position: relative; }
 
 .navbar-toggler {
@@ -120,7 +120,7 @@ body, button, input, select, textarea, li, a {
 :host {
   #main-site-header {
     min-height: var(--ds-header-height);
-    background-color: #9602C7;
+    background-color: var(--bs-primary);
   }
   img#header-logo { height: var(--ds-header-logo-height); }
   button#navbar-toggler {
