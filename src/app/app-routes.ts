@@ -54,10 +54,12 @@ import { SaibaMaisCrejaComponent } from '../themes/custom/app/saiba-mais-creja/s
 import { RedesCrejaComponent } from '../themes/custom/app/redes-creja/redes-creja.component';
 import { AjudaPauloFreireComponent } from 'src/themes/paulofreire/app/ajuda-paulo-freire/ajuda-paulo-freire.component';
 import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
+import { AjudaIpfComponent } from 'src/themes/institutopaulofreire/app/ajuda-ipf/ajuda-ipf.component';
 import { TermosDeUsoComponent } from 'src/themes/alfaejabrasil/app/termos-de-uso/termos-de-uso.component';
 import { TermosDeUsoPFComponent } from 'src/themes/paulofreire/app/termos-de-uso/termos-de-uso.component';
 import { PoliticasDePrivacidadeComponent } from 'src/themes/alfaejabrasil/app/politicas-de-privacidade/politicas-de-privacidade.component';
 import { PoliticasDePrivacidadePFComponent } from 'src/themes/paulofreire/app/politicas-de-privacidade/politicas-de-privacidade.component';
+import { RedesIpfComponent } from '../themes/institutopaulofreire/app/redes-ipf/redes-ipf.component';
 import { RedesPauloFreireComponent } from 'src/themes/paulofreire/app/redes-paulo-freire/redes-paulo-freire.component';
 
 export const APP_ROUTES: Route[] = [
@@ -143,6 +145,11 @@ export const APP_ROUTES: Route[] = [
         canActivate: [endUserAgreementCurrentUserGuard],
       },
       {
+        path: 'redes-ipf',
+        component: RedesIpfComponent,
+        canActivate: [endUserAgreementCurrentUserGuard],
+      },
+      {
         path: 'sobre-o-creja',
         component: SobreCrejaComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
@@ -175,6 +182,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'ajuda-paulo-freire',
         component: AjudaPauloFreireComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'ajuda-ipf',
+        component: AjudaIpfComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
