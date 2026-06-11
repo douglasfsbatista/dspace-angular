@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { HomeSocialComponent } from '../../../custom/app/creja-home/home-social/home-social.component';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
@@ -22,7 +23,9 @@ import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
 import {
   CREJA_COMMUNITY_CONFIGS,
   CrejaCommunityKey,
+  getCrejaCommunityByCollectionUuid,
   getCrejaCommunityByUrl,
+  getPathSegments,
 } from 'src/app/shared/creja-community/creja-community-config';
 
 @Component({
@@ -44,7 +47,8 @@ export class FooterComponent extends BaseComponent {
     protected authorizationService: AuthorizationDataService,
     protected notifyInfoService: NotifyInfoService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
-    private router: Router
+    private router: Router,
+    private http: HttpClient,
   ) {
     super(cookies, authorizationService, notifyInfoService, appConfig);
   }
@@ -54,19 +58,70 @@ export class FooterComponent extends BaseComponent {
   }
 
   ngOnInit(): void {
-    this.setCommunity(this.router.url);
+    this.detectCommunity(this.router.url);
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.setCommunity(event.urlAfterRedirects);
+        this.detectCommunity(event.urlAfterRedirects);
       });
 
     super.ngOnInit();
   }
 
-  private setCommunity(url: string): void {
-    this.currentCommunity = getCrejaCommunityByUrl(url) || 'default';
+  private detectCommunity(url: string): void {
+    const community = getCrejaCommunityByUrl(url);
+
+    if (community) {
+      this.setCommunity(community);
+      return;
+    }
+
+    const [first, uuid] = getPathSegments(url);
+
+    if (first === 'collections' && uuid) {
+      this.http.get(`/server/api/core/collections/${uuid}?embed=parentCommunity`)
+        .subscribe((res: any) => {
+          const name = res?._embedded?.parentCommunity?.name?.toLowerCase() || '';
+          this.setCommunity(this.getCommunityFromName(name));
+        });
+
+      return;
+    }
+
+    if (first === 'items' && uuid) {
+      this.http.get(`/server/api/core/items/${uuid}?embed=owningCollection`)
+        .subscribe((res: any) => {
+          const collectionUuid = res?._embedded?.owningCollection?.uuid;
+          const communityByCollection = getCrejaCommunityByCollectionUuid(collectionUuid);
+
+          if (communityByCollection) {
+            this.setCommunity(communityByCollection);
+          } else {
+            this.detectCommunity(`/collections/${collectionUuid}`);
+          }
+        });
+
+      return;
+    }
+
+    this.setCommunity('default');
+  }
+
+  private setCommunity(community: CrejaCommunityKey): void {
+    this.currentCommunity = community;
     this.footerBottomColor = this.config.footerColor;
+  }
+
+  private getCommunityFromName(name: string): CrejaCommunityKey {
+    if (name.includes('paulo')) {
+      return 'paulo';
+    }
+
+    if (name.includes('ipf')) {
+      return 'ipf';
+    }
+
+    return 'alfa';
   }
 }
