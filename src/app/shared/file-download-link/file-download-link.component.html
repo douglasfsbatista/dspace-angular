@@ -1,12 +1,69 @@
-<a [routerLink]="(bitstreamPath$| async)?.routerLink" class="dont-break-out"
-   [queryParams]="(bitstreamPath$| async)?.queryParams"
-   [target]="isBlank ? '_blank': '_self'"
-   [ngClass]="cssClasses"
-   [attr.aria-label]="('file-download-link.download' | translate) + dsoNameService.getName(bitstream)">
-  <span role="img" *ngIf="(canDownload$ |async) !== true" [attr.aria-label]="'file-download-link.restricted' | translate" class="pr-1"><i class="fas fa-lock"></i></span>
-  <ng-container *ngTemplateOutlet="content"></ng-container>
-</a>
+<ng-container *ngIf="{ path: bitstreamPath$ | async, canDownload: canDownload$ | async } as downloadState">
+  <a *ngIf="downloadState.canDownload === true && item && downloadState.path; else directDownloadLink"
+     href=""
+     class="dont-break-out"
+     [ngClass]="cssClasses"
+     (click)="onDownloadClick($event, downloadTermsModal, downloadState.path, downloadState.canDownload)"
+     [attr.aria-label]="('file-download-link.download' | translate) + dsoNameService.getName(bitstream)">
+    <span role="img" *ngIf="downloadState.canDownload !== true" [attr.aria-label]="'file-download-link.restricted' | translate" class="pr-1"><i class="fas fa-lock"></i></span>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+
+  <ng-template #directDownloadLink>
+    <a [routerLink]="downloadState.path?.routerLink" class="dont-break-out"
+       [queryParams]="downloadState.path?.queryParams"
+       [target]="isBlank ? '_blank': '_self'"
+       [ngClass]="cssClasses"
+       [attr.aria-label]="('file-download-link.download' | translate) + dsoNameService.getName(bitstream)">
+      <span role="img" *ngIf="downloadState.canDownload !== true" [attr.aria-label]="'file-download-link.restricted' | translate" class="pr-1"><i class="fas fa-lock"></i></span>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </a>
+  </ng-template>
+</ng-container>
 
 <ng-template #content>
   <ng-content></ng-content>
+</ng-template>
+
+<ng-template #downloadTermsModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="creja-download-terms-title">Termo de Ciência - Uso do Acervo CREJA</h4>
+    <button type="button" class="close" aria-label="Fechar" (click)="d('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>
+      O Instituto de Educação e Direitos Humanos Paulo Freire (IEDHPF) disponibiliza os materiais do Centro de
+      Referência da Educação de Jovens e Adultos (CREJA) sob licenças Creative Commons, prioritariamente para fins
+      pedagógicos, educacionais e de pesquisa.
+    </p>
+    <p>Ao acessar e realizar o download, você declara estar ciente de que:</p>
+    <ul>
+      <li>Deve respeitar as condições de uso e atribuição de cada obra;</li>
+      <li>Não é permitido o uso comercial dos materiais sem autorização dos detentores dos direitos;</li>
+      <li>O IEDHPF não se responsabiliza por usos indevidos realizados por terceiros.</li>
+    </ul>
+    <div class="form-check">
+      <input
+        id="creja-download-terms-checkbox"
+        class="form-check-input"
+        type="checkbox"
+        [checked]="downloadTermsAccepted"
+        (change)="downloadTermsAccepted = $any($event.target).checked">
+      <label class="form-check-label" for="creja-download-terms-checkbox">
+        Tenho ciência e concordo com os termos de uso.
+      </label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="d('cancel')">Cancelar</button>
+    <button
+      type="button"
+      class="btn creja-download-confirm-btn"
+      [disabled]="!downloadTermsAccepted"
+      (click)="confirmTermsAndDownload(c)">
+      Baixar
+    </button>
+  </div>
 </ng-template>

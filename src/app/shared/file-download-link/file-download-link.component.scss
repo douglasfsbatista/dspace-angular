@@ -1,0 +1,16 @@
+.creja-download-confirm-btn {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    filter: brightness(0.9);
+    color: #fff;
+  }
+
+  &:disabled {
+    filter: none;
+    opacity: 0.65;
+  }
+}

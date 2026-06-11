@@ -6,8 +6,10 @@ import {
 import { By } from '@angular/platform-browser';
 import {
   ActivatedRoute,
+  Router,
   RouterLink,
 } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   cold,
@@ -17,6 +19,10 @@ import {
 import { getBitstreamModuleRoute } from '../../app-routing-paths';
 import { AuthorizationDataService } from '../../core/data/feature-authorization/authorization-data.service';
 import { FeatureID } from '../../core/data/feature-authorization/feature-id';
+import {
+  NativeWindowRef,
+  NativeWindowService,
+} from '../../core/services/window.service';
 import { Bitstream } from '../../core/shared/bitstream.model';
 import { Item } from '../../core/shared/item.model';
 import { URLCombiner } from '../../core/url-combiner/url-combiner';
@@ -31,6 +37,9 @@ describe('FileDownloadLinkComponent', () => {
 
   let scheduler;
   let authorizationService: AuthorizationDataService;
+  let modalService;
+  let router;
+  let nativeWindowRef;
 
   let bitstream: Bitstream;
   let item: Item;
@@ -51,6 +60,19 @@ describe('FileDownloadLinkComponent', () => {
         self: { href: 'obj-selflink' },
       },
     });
+    modalService = jasmine.createSpyObj('modalService', {
+      open: {},
+    });
+    router = jasmine.createSpyObj('router', {
+      createUrlTree: 'url-tree',
+      serializeUrl: '/bitstreams/bitstreamUuid/download',
+      navigateByUrl: Promise.resolve(true),
+    });
+    nativeWindowRef = {
+      nativeWindow: jasmine.createSpyObj('nativeWindow', {
+        open: {},
+      }),
+    };
   }
 
   function initTestbed() {
@@ -63,6 +85,9 @@ describe('FileDownloadLinkComponent', () => {
         RouterLinkDirectiveStub,
         { provide: AuthorizationDataService, useValue: authorizationService },
         { provide: ActivatedRoute, useValue: new ActivatedRouteStub() },
+        { provide: NgbModal, useValue: modalService },
+        { provide: Router, useValue: router },
+        { provide: NativeWindowService, useValue: nativeWindowRef as NativeWindowRef },
       ],
     })
       .overrideComponent(FileDownloadLinkComponent, {
@@ -97,9 +122,31 @@ describe('FileDownloadLinkComponent', () => {
           scheduler.flush();
           fixture.detectChanges();
           const link = fixture.debugElement.query(By.css('a'));
-          expect(link.injector.get(RouterLinkDirectiveStub).routerLink).toContain(new URLCombiner(getBitstreamModuleRoute(), bitstream.uuid, 'download').toString());
+          expect(link.nativeElement.getAttribute('href')).toBe('');
           const lock = fixture.debugElement.query(By.css('.fa-lock'));
           expect(lock).toBeNull();
+        });
+        it('should show the CREJA terms modal before navigating to the download', () => {
+          scheduler.flush();
+          fixture.detectChanges();
+          const event = jasmine.createSpyObj('event', ['preventDefault', 'stopPropagation'], {
+            ctrlKey: false,
+            metaKey: false,
+            shiftKey: false,
+          });
+          const bitstreamPath = component.getBitstreamDownloadPath();
+
+          component.onDownloadClick(event as any, {} as any, bitstreamPath, true);
+
+          expect(event.preventDefault).toHaveBeenCalled();
+          expect(event.stopPropagation).toHaveBeenCalled();
+          expect(modalService.open).toHaveBeenCalled();
+
+          component.downloadTermsAccepted = true;
+          component.confirmTermsAndDownload(() => undefined);
+
+          expect(router.createUrlTree).toHaveBeenCalledWith([bitstreamPath.routerLink], { queryParams: bitstreamPath.queryParams });
+          expect(router.navigateByUrl).toHaveBeenCalledWith('url-tree');
         });
       });
       describe('when the user has no download rights but has the right to request a copy', () => {
