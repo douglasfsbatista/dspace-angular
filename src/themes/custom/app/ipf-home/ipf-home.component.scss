@@ -34,6 +34,11 @@ body, button, input, select, textarea {
 @media (min-width: 768px)  { .custom-container { padding: 0 3rem; } }
 @media (min-width: 1200px) { .custom-container { padding: 0 6rem; } }
 
+.destaques-intro {
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+}
+
 /* Ajuste opcional: estreitar um pouco em telas muito largas */
 @media (min-width: 1400px) {
   .container .section-lead { margin-left: auto; margin-right: auto; }
@@ -51,5 +56,4 @@ body, button, input, select, textarea {
   margin: 0 auto 20px auto;
   text-align: center;
 }
-
 
