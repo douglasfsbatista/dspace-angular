@@ -33,7 +33,6 @@ import { ActivatedRouteStub } from '../../../../shared/testing/active-router.stu
 import { NotificationsServiceStub } from '../../../../shared/testing/notifications-service.stub';
 import { createPaginatedList } from '../../../../shared/testing/utils.test';
 import { ThemeService } from '../../../../shared/theme-support/theme.service';
-import { FileSizePipe } from '../../../../shared/utils/file-size-pipe';
 import { VarDirective } from '../../../../shared/utils/var.directive';
 import { FileSectionComponent } from './file-section.component';
 
@@ -81,7 +80,7 @@ describe('FileSectionComponent', () => {
           provide: TranslateLoader,
           useClass: TranslateLoaderMock,
         },
-      }), BrowserAnimationsModule, FileSectionComponent, VarDirective, FileSizePipe],
+      }), BrowserAnimationsModule, FileSectionComponent, VarDirective],
       providers: [
         { provide: APP_DATA_SERVICES_MAP, useValue: {} },
         { provide: XSRFService, useValue: {} },

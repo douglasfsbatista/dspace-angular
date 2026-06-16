@@ -27,7 +27,6 @@ import { ThemedFileDownloadLinkComponent } from '../../../../shared/file-downloa
 import { ThemedLoadingComponent } from '../../../../shared/loading/themed-loading.component';
 import { MetadataFieldWrapperComponent } from '../../../../shared/metadata-field-wrapper/metadata-field-wrapper.component';
 import { NotificationsService } from '../../../../shared/notifications/notifications.service';
-import { FileSizePipe } from '../../../../shared/utils/file-size-pipe';
 import { VarDirective } from '../../../../shared/utils/var.directive';
 
 /**
@@ -37,13 +36,19 @@ import { VarDirective } from '../../../../shared/utils/var.directive';
 @Component({
   selector: 'ds-base-item-page-file-section',
   templateUrl: './file-section.component.html',
+  styles: [`
+    .file-section-link,
+    .file-section-file-name {
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+  `],
   imports: [
     CommonModule,
     ThemedFileDownloadLinkComponent,
     MetadataFieldWrapperComponent,
     ThemedLoadingComponent,
     TranslateModule,
-    FileSizePipe,
     VarDirective,
   ],
   standalone: true,
