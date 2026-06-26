@@ -141,9 +141,17 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
+  border: 0;
   transition: background 0.3s ease;
 }
 
 .btn-acessar:hover {
   background: #740aa0;
+}
+
+.btn-acessar--disabled,
+.btn-acessar--disabled:hover {
+  background: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.72;
 }
