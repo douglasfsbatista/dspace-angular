@@ -118,6 +118,10 @@ const ROUTE_COMMUNITIES: Record<string, CrejaCommunityKey> = {
   redes: 'alfa',
 };
 
+const ITEM_COMMUNITIES: Record<string, CrejaCommunityKey> = {
+  '227a4586-e75b-4aa6-abfb-869a26e2f25c': 'alfa',
+};
+
 export function getCrejaCommunityByUrl(url: string): CrejaCommunityKey | undefined {
   const [firstSegment, uuid] = getPathSegments(url);
   const routeCommunity = ROUTE_COMMUNITIES[firstSegment];
@@ -128,6 +132,10 @@ export function getCrejaCommunityByUrl(url: string): CrejaCommunityKey | undefin
 
   if (firstSegment === 'collections' && uuid) {
     return getCrejaCommunityByCollectionUuid(uuid);
+  }
+
+  if (firstSegment === 'items' && uuid) {
+    return ITEM_COMMUNITIES[uuid.toLowerCase()];
   }
 }
 

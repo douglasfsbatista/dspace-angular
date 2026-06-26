@@ -1,25 +1,26 @@
 import {
   AsyncPipe,
   DatePipe,
-  NgIf,
   NgClass,
+  NgIf,
 } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   Inject,
+  OnInit,
   Optional,
 } from '@angular/core';
-import { HomeSocialComponent } from '../../../custom/app/creja-home/home-social/home-social.component';
-import { Router, RouterLink, NavigationEnd } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {
+  NavigationEnd,
+  Router,
+  RouterLink,
+} from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
-
-import { FooterComponent as BaseComponent } from '../../../../app/footer/footer.component';
-import { KlaroService } from 'src/app/shared/cookies/klaro.service';
-import { AuthorizationDataService } from 'src/app/core/data/feature-authorization/authorization-data.service';
 import { NotifyInfoService } from 'src/app/core/coar-notify/notify-info/notify-info.service';
-import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
+import { AuthorizationDataService } from 'src/app/core/data/feature-authorization/authorization-data.service';
+import { KlaroService } from 'src/app/shared/cookies/klaro.service';
 import {
   CREJA_COMMUNITY_CONFIGS,
   CrejaCommunityKey,
@@ -27,6 +28,13 @@ import {
   getCrejaCommunityByUrl,
   getPathSegments,
 } from 'src/app/shared/creja-community/creja-community-config';
+import {
+  APP_CONFIG,
+  AppConfig,
+} from 'src/config/app-config.interface';
+
+import { FooterComponent as BaseComponent } from '../../../../app/footer/footer.component';
+import { HomeSocialComponent } from '../../../custom/app/creja-home/home-social/home-social.component';
 
 @Component({
   selector: 'ds-themed-footer',
@@ -37,10 +45,10 @@ import {
   standalone: true,
   imports: [NgIf, NgClass, RouterLink, AsyncPipe, DatePipe, TranslateModule, HomeSocialComponent],
 })
-export class FooterComponent extends BaseComponent {
+export class FooterComponent extends BaseComponent implements OnInit {
   currentCommunity: CrejaCommunityKey = 'default';
 
-  footerBottomColor: string = '#D5D5D5';
+  footerBottomColor: string = CREJA_COMMUNITY_CONFIGS.default.footerColor;
 
   constructor(
     @Optional() public cookies: KlaroService,
