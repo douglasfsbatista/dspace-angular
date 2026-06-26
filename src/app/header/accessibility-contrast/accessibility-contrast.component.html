@@ -1,0 +1,10 @@
+<button
+  type="button"
+  class="btn accessibility-contrast-toggle"
+  [class.active]="isEnabled$ | async"
+  [attr.aria-pressed]="isEnabled$ | async"
+  [attr.aria-label]="'accessibility.contrast.toggle' | translate"
+  [title]="'accessibility.contrast.toggle' | translate"
+  (click)="contrastService.toggle()">
+  <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+</button>

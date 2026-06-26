@@ -14,6 +14,7 @@ import { ThemedSearchFormComponent } from 'src/app/shared/search-form/themed-sea
 import { ContextHelpToggleComponent } from 'src/app/header/context-help-toggle/context-help-toggle.component';
 import { HeaderComponent as BaseComponent } from 'src/app/header/header.component';
 import { ThemedNavbarComponent } from 'src/app/navbar/themed-navbar.component';
+import { AccessibilityContrastComponent } from '../../../../app/header/accessibility-contrast/accessibility-contrast.component';
 import { AccessibilityFontSizeComponent } from '../../../../app/header/accessibility-font-size/accessibility-font-size.component';
 import { ThemedSearchNavbarComponent } from 'src/app/search-navbar/themed-search-navbar.component';
 import { ThemedAuthNavMenuComponent } from 'src/app/shared/auth-nav-menu/themed-auth-nav-menu.component';
@@ -39,6 +40,7 @@ import { ImpersonateNavbarComponent } from 'src/app/shared/impersonate-navbar/im
     RouterModule,
     ThemedSearchNavbarComponent,
     AccessibilityFontSizeComponent,
+    AccessibilityContrastComponent,
     ContextHelpToggleComponent,
     ThemedAuthNavMenuComponent,
     ImpersonateNavbarComponent,

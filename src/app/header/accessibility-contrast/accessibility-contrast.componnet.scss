@@ -1,0 +1,14 @@
+:host {
+  display: inline-flex;
+}
+
+.accessibility-contrast-toggle {
+  color: var(--ds-header-icon-color);
+  padding: 0.375rem 0.5rem;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: var(--ds-header-icon-color-hover);
+  }
+}

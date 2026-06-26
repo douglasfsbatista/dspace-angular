@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+html.ds-accessibility-grayscale body {
+    filter: grayscale(1);
+}
+
 // Sticky Footer
 .outer-wrapper {
     display: flex;

@@ -54,6 +54,8 @@
 
   "accessibility.font-size.reset": "Reset font size",
 
+  "accessibility.contrast.toggle": "Toggle black and white contrast",
+
   "admin.curation-tasks.breadcrumbs": "System curation tasks",
 
   "admin.curation-tasks.title": "System curation tasks",

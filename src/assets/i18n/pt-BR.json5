@@ -80,6 +80,9 @@
   // "accessibility.font-size.reset": "Reset font size",
   "accessibility.font-size.reset": "Restaurar tamanho da fonte",
 
+  // "accessibility.contrast.toggle": "Toggle black and white contrast",
+  "accessibility.contrast.toggle": "Alternar contraste em preto e branco",
+
   // "admin.curation-tasks.breadcrumbs": "System curation tasks",
   "admin.curation-tasks.breadcrumbs": "Tarefas de Curadoria do Sistema",
 

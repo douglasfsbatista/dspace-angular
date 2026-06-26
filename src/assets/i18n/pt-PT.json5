@@ -83,6 +83,9 @@
   // "accessibility.font-size.reset": "Reset font size",
   "accessibility.font-size.reset": "Repor tamanho da letra",
 
+  // "accessibility.contrast.toggle": "Toggle black and white contrast",
+  "accessibility.contrast.toggle": "Alternar contraste a preto e branco",
+
   // "admin.curation-tasks.breadcrumbs": "System curation tasks",
   "admin.curation-tasks.breadcrumbs": "Tarefas de curadoria",
 
