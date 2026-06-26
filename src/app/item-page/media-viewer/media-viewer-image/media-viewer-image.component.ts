@@ -84,6 +84,11 @@ export class MediaViewerImageComponent implements OnChanges, OnInit {
     this.ngOnChanges();
   }
 
+  disableImageContextMenu(event: MouseEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
   /**
    * This method convert an array of MediaViewerItem into NgxGalleryImage array
    * @param medias input NgxGalleryImage array

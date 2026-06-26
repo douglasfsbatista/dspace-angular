@@ -1,4 +1,7 @@
-<div [class.change-gallery]="isAuthenticated$ | async">
+<div
+  [class.change-gallery]="isAuthenticated$ | async"
+  (contextmenu)="disableImageContextMenu($event)"
+>
   <ngx-gallery
     class="ngx-gallery"
     [options]="galleryOptions"
