@@ -33,6 +33,10 @@ import { reloadGuard } from './core/reload/reload.guard';
 import { forgotPasswordCheckGuard } from './core/rest-property/forgot-password-check-guard.guard';
 import { ServerCheckGuard } from './core/server-check/server-check.guard';
 import { ThemedForbiddenComponent } from './forbidden/themed-forbidden.component';
+import {
+  ipfHomeDomainMatcher,
+  pauloFreireHomeDomainMatcher,
+} from './home-page/creja-home-domain.guard';
 import { ITEM_MODULE_PATH } from './item-page/item-page-routing-paths';
 import { menuResolver } from './menuResolver';
 import { provideSuggestionNotificationsState } from './notifications/provide-suggestion-notifications-state';
@@ -77,6 +81,18 @@ export const APP_ROUTES: Route[] = [
         component: ThemedPageNotFoundComponent,
         pathMatch: 'full',
         canActivate: [reloadGuard],
+      },
+      {
+        path: 'home',
+        component: PauloFreireHomeComponent,
+        canMatch: [pauloFreireHomeDomainMatcher],
+        data: { showBreadcrumbs: false },
+      },
+      {
+        path: 'home',
+        component: IpfHomeComponent,
+        canMatch: [ipfHomeDomainMatcher],
+        data: { showBreadcrumbs: false },
       },
       {
         path: 'home',

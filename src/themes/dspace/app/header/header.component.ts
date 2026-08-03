@@ -1,5 +1,5 @@
-import { AsyncPipe, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule, NavigationEnd } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
@@ -58,6 +58,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   constructor(
     protected menuService: MenuService,
     protected windowService: HostWindowService,
+    @Inject(DOCUMENT) private document: Document,
     private router: Router,
     private http: HttpClient
   ) {
@@ -87,7 +88,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
 
   private detectCommunity(url: string): void {
 
-    const community = getCrejaCommunityByUrl(url);
+    const community = getCrejaCommunityByUrl(url, this.document.location?.hostname);
 
     if (community) {
       this.currentCommunity = community;

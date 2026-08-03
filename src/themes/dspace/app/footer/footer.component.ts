@@ -1,6 +1,7 @@
 import {
   AsyncPipe,
   DatePipe,
+  DOCUMENT,
   NgClass,
   NgIf,
 } from '@angular/common';
@@ -55,6 +56,7 @@ export class FooterComponent extends BaseComponent implements OnInit {
     protected authorizationService: AuthorizationDataService,
     protected notifyInfoService: NotifyInfoService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
+    @Inject(DOCUMENT) private document: Document,
     private router: Router,
     private http: HttpClient,
   ) {
@@ -78,7 +80,7 @@ export class FooterComponent extends BaseComponent implements OnInit {
   }
 
   private detectCommunity(url: string): void {
-    const community = getCrejaCommunityByUrl(url);
+    const community = getCrejaCommunityByUrl(url, this.document.location?.hostname);
 
     if (community) {
       this.setCommunity(community);

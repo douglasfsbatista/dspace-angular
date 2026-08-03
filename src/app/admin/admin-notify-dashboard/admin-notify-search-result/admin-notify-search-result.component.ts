@@ -104,7 +104,7 @@ export class AdminNotifySearchResultComponent extends TabulatableResultListEleme
    * The format for the date values
    * @private
    */
-  private dateFormat = 'YYYY/MM/d hh:mm:ss';
+  private dateFormat = 'dd/MM/yyyy HH:mm:ss';
 
   constructor(private modalService: NgbModal,
                 private adminNotifyMessagesService: AdminNotifyMessagesService,

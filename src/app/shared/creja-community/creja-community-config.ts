@@ -38,7 +38,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#075B31',
     footerColor: '#E4F4E6',
     logo: 'assets/images/creja-paulo-freire-logo.svg',
-    home: '/paulo-freire-home',
+    home: '/home',
     sobre: '/sobre-o-creja-paulo-freire',
     redes: '/redes-paulo-freire',
     ajuda: '/ajuda-paulo-freire',
@@ -54,7 +54,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#2A2AC6',
     footerColor: '#DFECF2',
     logo: 'assets/images/creja-ipf-logo.svg',
-    home: '/ipf-home',
+    home: '/home',
     sobre: '/sobre-o-creja-ipf',
     redes: '/redes-ipf',
     ajuda: '/ajuda-ipf',
@@ -122,8 +122,18 @@ const ITEM_COMMUNITIES: Record<string, CrejaCommunityKey> = {
   '227a4586-e75b-4aa6-abfb-869a26e2f25c': 'alfa',
 };
 
-export function getCrejaCommunityByUrl(url: string): CrejaCommunityKey | undefined {
+export function getCrejaCommunityByUrl(url: string, hostname?: string): CrejaCommunityKey | undefined {
   const [firstSegment, uuid] = getPathSegments(url);
+
+  if (firstSegment === 'home') {
+    if (hostname?.toLowerCase() === 'crejapf.paulofreire.org') {
+      return 'paulo';
+    }
+    if (hostname?.toLowerCase() === 'crejaipf.paulofreire.org') {
+      return 'ipf';
+    }
+  }
+
   const routeCommunity = ROUTE_COMMUNITIES[firstSegment];
 
   if (routeCommunity) {

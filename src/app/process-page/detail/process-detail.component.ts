@@ -121,7 +121,7 @@ export class ProcessDetailComponent implements OnInit, OnDestroy {
   /**
    * Date format to use for start and end time of processes
    */
-  dateFormat = 'yyyy-MM-dd HH:mm:ss ZZZZ';
+  dateFormat = 'dd/MM/yyyy HH:mm:ss ZZZZ';
 
   isRefreshing$: Observable<boolean>;
 

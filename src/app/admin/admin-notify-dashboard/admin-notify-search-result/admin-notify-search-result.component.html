@@ -13,7 +13,7 @@
     <tbody>
       <tr *ngFor="let message of (messagesSubject$ | async)">
         <td class="text-nowrap">
-          <div *ngIf="message.queueLastStartTime">{{ message.queueLastStartTime | date:"YYYY/MM/d hh:mm:ss" }}</div>
+          <div *ngIf="message.queueLastStartTime">{{ message.queueLastStartTime | date:"dd/MM/yyyy HH:mm:ss" }}</div>
           <div *ngIf="!message.queueLastStartTime">n/a</div>
         </td>
         <td>

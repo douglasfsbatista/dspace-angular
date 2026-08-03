@@ -42,9 +42,9 @@ export class ProcessOverviewService {
   /**
    * Date format to use for start and end time of processes
    */
-  dateFormat = 'yyyy-MM-dd HH:mm:ss';
+  dateFormat = 'dd/MM/yyyy HH:mm:ss';
 
-  datePipe = new DatePipe('en-US');
+  datePipe = new DatePipe('pt-BR');
 
 
   timeCreated = (process: Process) => this.datePipe.transform(process.creationTime, this.dateFormat, 'UTC');
