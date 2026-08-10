@@ -60,8 +60,10 @@ import { AjudaPauloFreireComponent } from 'src/themes/paulofreire/app/ajuda-paul
 import { AjudaAlfaEjaComponent } from '../themes/alfaejabrasil/app/ajuda-alfa-eja/ajuda-alfa-eja.component';
 import { AjudaIpfComponent } from 'src/themes/institutopaulofreire/app/ajuda-ipf/ajuda-ipf.component';
 import { TermosDeUsoComponent } from 'src/themes/alfaejabrasil/app/termos-de-uso/termos-de-uso.component';
+import { TermosDeUsoIpfComponent } from 'src/themes/institutopaulofreire/app/termos-de-uso/termos-de-uso.component';
 import { TermosDeUsoPFComponent } from 'src/themes/paulofreire/app/termos-de-uso/termos-de-uso.component';
 import { PoliticasDePrivacidadeComponent } from 'src/themes/alfaejabrasil/app/politicas-de-privacidade/politicas-de-privacidade.component';
+import { PoliticasDePrivacidadeIpfComponent } from 'src/themes/institutopaulofreire/app/politicas-de-privacidade/politicas-de-privacidade.component';
 import { PoliticasDePrivacidadePFComponent } from 'src/themes/paulofreire/app/politicas-de-privacidade/politicas-de-privacidade.component';
 import { RedesIpfComponent } from '../themes/institutopaulofreire/app/redes-ipf/redes-ipf.component';
 import { RedesPauloFreireComponent } from 'src/themes/paulofreire/app/redes-paulo-freire/redes-paulo-freire.component';
@@ -216,6 +218,11 @@ export const APP_ROUTES: Route[] = [
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {
+        path: 'termos-de-uso-ipf',
+        component: TermosDeUsoIpfComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
         path: 'politicas-de-privacidade-alfa-eja',
         component: PoliticasDePrivacidadeComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
@@ -223,6 +230,11 @@ export const APP_ROUTES: Route[] = [
       {
         path: 'politicas-de-privacidade-paulo-freire',
         component: PoliticasDePrivacidadePFComponent,
+        canActivate: [ endUserAgreementCurrentUserGuard ]
+      },
+      {
+        path: 'politicas-de-privacidade-ipf',
+        component: PoliticasDePrivacidadeIpfComponent,
         canActivate: [ endUserAgreementCurrentUserGuard ]
       },
       {

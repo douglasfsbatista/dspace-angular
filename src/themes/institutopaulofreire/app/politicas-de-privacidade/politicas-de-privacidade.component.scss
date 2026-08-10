@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.politica-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.titulo-principal {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 108%;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2a2ac6;
+}
+
+.conteudo {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 38px;
+
+  p {
+    margin-bottom: 20px;
+    color: #787878;
+  }
+
+  ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: #787878;
+
+    li {
+      margin-bottom: 10px;
+      color: #787878;
+    }
+  }
+
+  h2 {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 100%;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+
+  h3 {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #787878;
+  }
+}
+
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 30px;
+  }
+
+  .conteudo {
+    font-size: 16px;
+    line-height: 28px;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
