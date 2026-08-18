@@ -1,71 +1,59 @@
 .redes-page {
-    max-width: 100%;
-    padding: 0 1rem;
+  max-width: 100%;
+  padding: 0 1rem;
+
+  .rp-description {
+    max-width: 1152px;
+    margin: 0 auto 2.5rem;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+
+    color: #6c757d;
+    text-align: center;
+  }
+
+  .titulo-redes {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 42px);
+    line-height: 1.08;
+    letter-spacing: 0;
+    color: #A0183C;
+    text-align: center;
+  }
+
+  .rp-logo {
+    max-height: 75px;
+    width: auto;
+  }
+
+  .rp-link {
+    border: none !important;
+    background: transparent;
+    transition: background-color .2s ease, box-shadow .2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(160, 24, 60, 0.06);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      border-radius: 0.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
 
     .rp-description {
-        max-width: 1000px;
-        margin: 0 auto 2.5rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 38px;
-        letter-spacing: 0;
-        text-align: center;
-        color: #6c757d;
+      font-size: 16px;
+      line-height: 22px;
+      padding: 0 0.5rem;
     }
 
     .rp-logo {
-        max-height: 75px; 
-        width: auto;
+      max-height: 60px;
     }
-
-    .rp-line {
-        max-width: 150px;
-    }
-
-    .rp-title-img {
-        max-width: 220px;
-    }
-
-    .rp-link {
-        border: none !important;
-        background: transparent;
-        transition: background-color .2s ease, box-shadow .2s ease;
-
-        &:hover,
-        &:focus {
-            background-color: rgba(150, 2, 199, 0.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            border-radius: 0.5rem;
-        }
-    }
-
-    @media (max-width: 1200px) {
-        .rp-description {
-            max-width: 980px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .rp-description {
-            max-width: 840px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .rp-description {
-            max-width: 100%;
-            padding: 0 0.5rem;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .rp-title-img {
-            max-width: 160px;
-        }
-
-        .rp-logo {
-            max-height: 60px;
-        }
-    }
+  }
 }

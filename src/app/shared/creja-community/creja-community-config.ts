@@ -7,7 +7,7 @@ export interface CrejaCommunityConfig {
   home: string;
   sobre: string;
   redes: string;
-  ajuda: string;
+  ajuda?: string;
   termos: string;
   privacidade: string;
   collections?: {
@@ -73,7 +73,6 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     home: '/creja-home',
     sobre: '/saiba-mais-creja',
     redes: '/redes-creja',
-    ajuda: '/ajuda-alfa-eja',
     termos: '/termos-de-uso-alfa-eja',
     privacidade: '/politicas-de-privacidade-alfa-eja',
   },

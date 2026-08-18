@@ -39,7 +39,7 @@
               <a [routerLink]="config.collections?.praticas">Práticas Alfabetizadoras</a>
             </li>
             <li><a [routerLink]="config.redes">Redes</a></li>
-            <li><a [routerLink]="config.ajuda">Ajuda</a></li>
+            <li *ngIf="config.ajuda"><a [routerLink]="config.ajuda">Ajuda</a></li>
             <li><a [routerLink]="config.termos">Termos de Uso</a></li>
             <li><a [routerLink]="config.sobre">Fale Conosco</a></li>
           </ul>
@@ -68,7 +68,7 @@
           <ul class="footer-links">
             <li><a [routerLink]="config.redes">Redes</a></li>
             <!-- <li><a routerLink="/">Pesquisar</a></li> -->
-            <li><a [routerLink]="config.ajuda">Ajuda</a></li>
+            <li *ngIf="config.ajuda"><a [routerLink]="config.ajuda">Ajuda</a></li>
             <li><a [routerLink]="config.sobre">Como Colaborar</a></li>
           </ul>
         </nav>

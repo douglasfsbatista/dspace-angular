@@ -10,17 +10,17 @@ export class RedesCrejaComponent {
   redes = [
     {
       title: 'Fóruns de EJA',
-      url: 'https://www.google.com.br',
+      url: 'https://forumeja.org.br/',
       icon: 'assets/images/foruns-de-eja.svg'
     },
     {
       title: 'Memorial MOVA Brasil',
-      url: 'https://www.google.com.br',
+      url: 'https://memorial.movabrasil.org.br/',
       icon: 'assets/images/memorial-mova-brasil.svg'
     },
     {
       title: 'Cremeja',
-      url: 'https://www.google.com.br',
+      url: 'https://cremeja.org/a7/',
       icon: 'assets/images/cremeja.svg'
     }
   ];
