@@ -1,12 +1,28 @@
 .informacoes-alfaeja {
+  position: relative;
   padding: 100px 0 48px;
   background: #ffffff;
+  overflow: hidden;
+}
+
+.informacoes-alfaeja::before {
+  content: "";
+  position: absolute;
+  top: -220px;
+  left: -260px;
+  width: 720px;
+  height: 720px;
+  background: #dcefe5;
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .informacoes-container {
+  position: relative;
   max-width: 900px;     // 👈 largura controlada igual ao design
   margin: 0 auto;       // centraliza
   padding: 0 20px;
+  z-index: 1;
 }
 
 .info-bloco {
