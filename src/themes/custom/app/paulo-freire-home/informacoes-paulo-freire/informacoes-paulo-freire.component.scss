@@ -9,7 +9,7 @@
   content: "";
   position: absolute;
   top: clamp(-470px, -18vw, -220px);
-  left: clamp(-520px, -20vw, -260px);
+  left: max(0px, calc((100vw - 1440px) / 2));
   width: clamp(720px, 56vw, 1440px);
   height: clamp(720px, 56vw, 1440px);
   background: #dcefe5;
