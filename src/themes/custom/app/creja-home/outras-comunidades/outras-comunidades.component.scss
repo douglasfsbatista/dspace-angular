@@ -17,12 +17,26 @@
    TEXTO ESQUERDA
 ======================== */
 
+.outras-titulo {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
 .outras-texto h2 {
   font-size: 2.625rem;
   font-weight: 700;
   color: #3a2237;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin: 0;
+}
+
+.outras-titulo-imagem {
+  flex: 0 0 auto;
+  width: min(118px, 32%);
+  height: auto;
+  margin-top: 6px;
 }
 
 .outras-texto p {
@@ -79,4 +93,15 @@
 
 .btn-acessar:hover {
   opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .outras-titulo {
+    flex-direction: column;
+  }
+
+  .outras-titulo-imagem {
+    width: 120px;
+    margin-top: 0;
+  }
 }

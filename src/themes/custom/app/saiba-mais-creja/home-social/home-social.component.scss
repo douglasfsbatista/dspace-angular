@@ -1,32 +1,101 @@
 .home-social-section {
-  padding: 80px 0;     // 👈 já vamos aumentar
-  margin-bottom: 0;
-  margin-top: 0 !important;
+  padding: 4.0625rem 1rem;
+  text-align: center;
 }
+
+@media (min-width: 768px) {
+  .home-social-section {
+    padding: 5rem 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-social-section {
+    padding: 6.25rem 0;
+  }
+}
+
+/* ========================
+   TÍTULO
+======================== */
+
+.social-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.1875rem;
+  line-height: 1.2;
+  color: #FFFFFF;
+  max-width: 34rem;
+  margin: 0 auto 2.625rem;
+}
+
+/* ========================
+   WRAPPER
+======================== */
 
 .social-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 140px;   // espaço igual ao design
+  align-items: flex-start;
+  gap: 7.5rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
-.social-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-decoration: none;
-  font-size: 1.625rem;
+.social-wrapper a {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  transition: 0.3s ease;
+  font-size: 1.25rem;
+  text-decoration: none;
   color: inherit;
 }
 
+/* ========================
+   ITEM
+======================== */
+
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 6rem;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
 .social-item img {
-  width: 55px;
-  height: 45px;
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+}
+
+.social-item span {
+  overflow-wrap: anywhere;
 }
 
 .social-item:hover {
   opacity: 0.8;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1199px) {
+  .social-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(8.75rem, 1fr));
+    column-gap: 4rem;
+    row-gap: 3rem;
+    align-items: center;
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .social-wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 2.25rem;
+  }
 }
