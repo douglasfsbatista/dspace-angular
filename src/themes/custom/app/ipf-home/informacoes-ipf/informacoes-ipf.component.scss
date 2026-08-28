@@ -8,10 +8,10 @@
 .informacoes-alfaeja::before {
   content: "";
   position: absolute;
-  top: -220px;
-  left: -260px;
-  width: 720px;
-  height: 720px;
+  top: clamp(-470px, -18vw, -220px);
+  left: clamp(-520px, -20vw, -260px);
+  width: clamp(720px, 56vw, 1440px);
+  height: clamp(720px, 56vw, 1440px);
   background: #dfe3f7;
   border-radius: 50%;
   z-index: 0;

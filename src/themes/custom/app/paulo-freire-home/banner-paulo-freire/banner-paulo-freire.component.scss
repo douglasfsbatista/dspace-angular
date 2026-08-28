@@ -1,12 +1,14 @@
 .banner-alfaeja {
-  width: 100vw;           // 👈 largura total da viewport
-  margin-left: 50%;
-  transform: translateX(-50%);   // 👈 remove limitação do container pai
+  width: 100%;
   margin-top: 0 !important;
+
+  display: flex;
+  justify-content: center;
 }
 
 .banner-alfaeja img {
   width: 100%;
+  max-width: 1440px;
   height: auto;
   display: block;
 }
