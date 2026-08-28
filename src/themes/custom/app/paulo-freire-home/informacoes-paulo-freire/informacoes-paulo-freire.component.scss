@@ -1,6 +1,7 @@
 .informacoes-alfaeja {
   --banner-side-gap: max(0px, calc((100vw - 1440px) / 2));
   --circle-size: clamp(720px, 56vw, 1440px);
+  --circle-offset: clamp(418px, 32vw, 835px);
 
   position: relative;
   padding: 100px 0 48px;
@@ -13,7 +14,7 @@
   content: "";
   position: absolute;
   top: clamp(-470px, -18vw, -220px);
-  left: calc(var(--banner-side-gap) - (var(--circle-size) * 0.58));
+  left: calc(var(--banner-side-gap) - var(--circle-offset));
   width: var(--circle-size);
   height: var(--circle-size);
   background: #dcefe5;
