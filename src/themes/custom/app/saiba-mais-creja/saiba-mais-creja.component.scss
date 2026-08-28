@@ -1,8 +1,12 @@
 .saiba-mais-section {
+  --banner-side-gap: max(0px, calc((100vw - 1440px) / 2));
+  --circle-size: clamp(720px, 56vw, 1440px);
+
   position: relative;
   background: #ffffff;
   padding: 120px 0 0 0;
   overflow: hidden;
+  clip-path: inset(0 var(--banner-side-gap) 0 var(--banner-side-gap));
 }
 
 /* círculo decorativo */
@@ -10,9 +14,9 @@
   content: "";
   position: absolute;
   top: clamp(-470px, -18vw, -220px);
-  left: max(0px, calc((100vw - 1440px) / 2));
-  width: clamp(720px, 56vw, 1440px);
-  height: clamp(720px, 56vw, 1440px);
+  left: calc(var(--banner-side-gap) - (var(--circle-size) * 0.58));
+  width: var(--circle-size);
+  height: var(--circle-size);
   background: #f4d3da;
   border-radius: 50%;
   z-index: 0;
