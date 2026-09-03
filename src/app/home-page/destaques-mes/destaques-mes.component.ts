@@ -29,7 +29,7 @@ export class DestaquesMesComponent {
       id: '789013',
       title: 'Leitura do Mundo: Ação na Educação de Jovens, Adultos e Idosos - Escola em Alto do Cabo de Santo Agostinho (PE)',
       resumo: '',
-      link: '',
+      link: '/items/f79f07d9-940c-47d1-b95a-7f4de097ce5b',
       thumbnail: 'assets/images/destaques-alfaeja/destaque-3.png'
     },
     {
