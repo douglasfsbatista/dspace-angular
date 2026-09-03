@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { HomeSocialComponent } from '../creja-home/home-social/home-social.component';
 
 @Component({
   selector: 'ds-redes-creja-page',
   templateUrl: './redes-creja.component.html',
   styleUrls: ['./redes-creja.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [
+    HomeSocialComponent,
+  ],
 })
 export class RedesCrejaComponent {
   redes = [

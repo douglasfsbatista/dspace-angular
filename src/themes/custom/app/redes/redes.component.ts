@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { HomeSocialComponent } from '../../../../app/home-page/home-social/home-social.component';
 
 @Component({
   selector: 'ds-redes-page',
   templateUrl: './redes.component.html',
   styleUrls: ['./redes.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [
+    HomeSocialComponent,
+  ],
 })
 export class RedesComponent {
   redes = [
