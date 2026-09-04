@@ -123,17 +123,17 @@ const ITEM_COMMUNITIES: Record<string, CrejaCommunityKey> = {
 
 export function getCrejaCommunityByUrl(url: string, hostname?: string): CrejaCommunityKey | undefined {
   const [firstSegment, uuid] = getPathSegments(url);
+  const routeCommunity = ROUTE_COMMUNITIES[firstSegment];
 
-  if (firstSegment === 'home') {
-    if (hostname?.toLowerCase() === 'crejapf.paulofreire.org') {
-      return 'paulo';
-    }
-    if (hostname?.toLowerCase() === 'crejaipf.paulofreire.org') {
-      return 'ipf';
-    }
+  if (routeCommunity && routeCommunity !== 'alfa') {
+    return routeCommunity;
   }
 
-  const routeCommunity = ROUTE_COMMUNITIES[firstSegment];
+  const hostnameCommunity = getCrejaCommunityByHostname(hostname);
+
+  if (hostnameCommunity) {
+    return hostnameCommunity;
+  }
 
   if (routeCommunity) {
     return routeCommunity;
@@ -161,6 +161,19 @@ export function getCrejaCommunityByCollectionUuid(uuid: string | undefined): Cre
       return collections && Object.values(collections)
         .some((collectionUrl) => collectionUrl.toLowerCase().endsWith(`/${normalizedUuid}`));
     });
+}
+
+function getCrejaCommunityByHostname(hostname?: string): CrejaCommunityKey | undefined {
+  switch (hostname?.toLowerCase()) {
+    case 'crejapf.paulofreire.org':
+      return 'paulo';
+    case 'crejaipf.paulofreire.org':
+      return 'ipf';
+    case 'creja.paulofreire.org':
+      return 'crejao';
+    default:
+      return undefined;
+  }
 }
 
 export function getPathSegments(url: string): string[] {

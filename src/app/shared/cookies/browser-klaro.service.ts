@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Inject,
   Injectable,
@@ -102,6 +103,7 @@ export class BrowserKlaroService extends KlaroService {
     private configService: ConfigurationDataService,
     private cookieService: CookieService,
     private router: Router,
+    @Inject(DOCUMENT) private document: Document,
     @Inject(LAZY_KLARO) private lazyKlaro: Promise<any>,
   ) {
     super();
@@ -370,7 +372,7 @@ export class BrowserKlaroService extends KlaroService {
    * Resolve the privacy policy route for the CREJA community identified by the current URL.
    */
   private getPrivacyPolicyLink(): string {
-    const community = getCrejaCommunityByUrl(this.router.url);
+    const community = getCrejaCommunityByUrl(this.router.url, this.document.location?.hostname);
     return CREJA_COMMUNITY_CONFIGS[community ?? 'default'].privacidade;
   }
 
