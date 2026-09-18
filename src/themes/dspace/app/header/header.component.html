@@ -71,7 +71,13 @@
          [routerLink]="config.home"
          routerLinkActive="active"
          [routerLinkActiveOptions]="{ exact: true }">
-        Home
+        {{ currentCommunity === 'crejao' ? 'Home' : 'INÍCIO' }}
+      </a>
+
+      <a class="nav-link"
+         *ngIf="currentCommunity !== 'crejao'"
+         href="https://creja.paulofreire.org/creja-home">
+        HOME
       </a>
 
       <a class="nav-link"
