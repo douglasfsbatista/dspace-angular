@@ -16,6 +16,41 @@
       </div>
 
       <!-- LINKS MOBILE -->
+      <div class="footer-links-mobile" *ngIf="currentCommunity === 'crejao'; else defaultFooterLinksMobile">
+        <nav>
+          <ul class="footer-links">
+            <li><a [routerLink]="config.home">Home</a></li>
+            <li><a [routerLink]="config.sobre">Sobre o CREJA</a></li>
+            <li>
+              <a href="https://crejapf.paulofreire.org/home" target="_blank" rel="noopener noreferrer">CREJA Paulo Freire</a>
+            </li>
+            <li>
+              <a href="https://crejaipf.paulofreire.org/home" target="_blank" rel="noopener noreferrer">CREJA Instituto Paulo Freire</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul class="footer-links">
+            <li>
+              <a href="https://creja.alfaejabrasil.org.br/home" target="_blank" rel="noopener noreferrer">CREJA ALFA-EJA Brasil</a>
+            </li>
+            <li><a [routerLink]="config.redes">Redes</a></li>
+            <li><a routerLink="/search">Pesquisar</a></li>
+            <li><a [routerLink]="config.sobre">Como Colaborar</a></li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul class="footer-links">
+            <li><a [routerLink]="config.termos">Termos de Uso</a></li>
+            <li><a [routerLink]="config.privacidade">Política de Privacidade</a></li>
+            <li><a [routerLink]="config.sobre">Fale Conosco</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <ng-template #defaultFooterLinksMobile>
       <div class="footer-links-mobile">
         <nav>
           <ul class="footer-links">
@@ -45,8 +80,44 @@
           </ul>
         </nav>
       </div>
+      </ng-template>
 
       <!-- LINKS DESKTOP -->
+      <div class="footer-links-desktop" *ngIf="currentCommunity === 'crejao'; else defaultFooterLinksDesktop">
+        <nav>
+          <ul class="footer-links">
+            <li><a [routerLink]="config.home">Home</a></li>
+            <li><a [routerLink]="config.sobre">Sobre o CREJA</a></li>
+            <li>
+              <a href="https://crejapf.paulofreire.org/home" target="_blank" rel="noopener noreferrer">CREJA Paulo Freire</a>
+            </li>
+            <li>
+              <a href="https://crejaipf.paulofreire.org/home" target="_blank" rel="noopener noreferrer">CREJA Instituto Paulo Freire</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul class="footer-links">
+            <li>
+              <a href="https://creja.alfaejabrasil.org.br/home" target="_blank" rel="noopener noreferrer">CREJA ALFA-EJA Brasil</a>
+            </li>
+            <li><a [routerLink]="config.redes">Redes</a></li>
+            <li><a routerLink="/search">Pesquisar</a></li>
+            <li><a [routerLink]="config.sobre">Como Colaborar</a></li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul class="footer-links">
+            <li><a [routerLink]="config.termos">Termos de Uso</a></li>
+            <li><a [routerLink]="config.privacidade">Política de Privacidade</a></li>
+            <li><a [routerLink]="config.sobre">Fale Conosco</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <ng-template #defaultFooterLinksDesktop>
       <div class="footer-links-desktop">
         <nav>
           <ul class="footer-links">
@@ -81,6 +152,7 @@
           </ul>
         </nav>
       </div>
+      </ng-template>
 
     </div>
 

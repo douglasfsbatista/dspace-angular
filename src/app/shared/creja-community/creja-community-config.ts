@@ -4,6 +4,7 @@ export interface CrejaCommunityConfig {
   color: string;
   footerColor: string;
   logo: string;
+  hostname?: string;
   home: string;
   sobre: string;
   redes: string;
@@ -22,6 +23,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#8A0DBA',
     footerColor: '#FEE6FE',
     logo: 'assets/images/creja-alfaeja-logo.svg',
+    hostname: 'creja.alfaejabrasil.org.br',
     home: '/home',
     sobre: '/sobre-o-creja',
     redes: '/redes',
@@ -38,6 +40,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#075B31',
     footerColor: '#E4F4E6',
     logo: 'assets/images/creja-paulo-freire-logo.svg',
+    hostname: 'crejapf.paulofreire.org',
     home: '/home',
     sobre: '/sobre-o-creja-paulo-freire',
     redes: '/redes-paulo-freire',
@@ -54,6 +57,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#2A2AC6',
     footerColor: '#DFECF2',
     logo: 'assets/images/creja-ipf-logo.svg',
+    hostname: 'crejaipf.paulofreire.org',
     home: '/home',
     sobre: '/sobre-o-creja-ipf',
     redes: '/redes-ipf',
@@ -70,6 +74,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#A0183C',
     footerColor: '#FFE6ED',
     logo: 'assets/images/crejao-logo.svg',
+    hostname: 'creja.paulofreire.org',
     home: '/creja-home',
     sobre: '/saiba-mais-creja',
     redes: '/redes-creja',
@@ -80,6 +85,7 @@ export const CREJA_COMMUNITY_CONFIGS: Record<CrejaCommunityKey, CrejaCommunityCo
     color: '#8A0DBA',
     footerColor: '#FEE6FE',
     logo: 'assets/images/creja-alfaeja-logo.svg',
+    hostname: 'creja.alfaejabrasil.org.br',
     home: '/home',
     sobre: '/sobre-o-creja',
     redes: '/redes',
@@ -161,6 +167,12 @@ export function getCrejaCommunityByCollectionUuid(uuid: string | undefined): Cre
       return collections && Object.values(collections)
         .some((collectionUrl) => collectionUrl.toLowerCase().endsWith(`/${normalizedUuid}`));
     });
+}
+
+export function getCrejaHostnameByCollectionUuid(uuid: string | undefined): string | undefined {
+  const community = getCrejaCommunityByCollectionUuid(uuid);
+
+  return community ? CREJA_COMMUNITY_CONFIGS[community].hostname : undefined;
 }
 
 function getCrejaCommunityByHostname(hostname?: string): CrejaCommunityKey | undefined {
