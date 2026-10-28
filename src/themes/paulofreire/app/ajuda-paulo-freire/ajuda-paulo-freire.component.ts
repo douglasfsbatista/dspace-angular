@@ -18,7 +18,7 @@ export class AjudaPauloFreireComponent {
 
   constructor(private sanitizer: DomSanitizer) {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      'https://www.youtube.com/embed/kca3UnVZHQ8?si=hrLlbPN5wVax22dW',
+      'https://www.youtube.com/embed/2KIk4kGfYEI',
     );
   }
 }
